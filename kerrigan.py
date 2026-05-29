@@ -1,45 +1,56 @@
 #!/usr/bin/env python3
 """
 Kerrigan-Fantasma — main entry point
-Query → Abathur (route) → Model (respond) → Overmind (gate) → Output
+Query → Creep (context) → Abathur (route) → Model (respond) → Overmind (gate) → Creep (store) → Output
 """
 
 import sys
 import argparse
 from router.abathur import Abathur
 from verifier.overmind import Overmind
+from memory.creep import Creep
 
 abathur = Abathur()
 overmind = Overmind()
+creep = Creep()
 
 
 def ask(query: str, context: dict = None, show_routing: bool = True, show_verdict: bool = True) -> str:
     context = context or {}
 
-    # Step 1: Abathur decides which expert handles this
+    # Step 1: Creep injects relevant prior knowledge
+    prior_context = creep.build_context(query)
+    enriched_query = f"{prior_context}{query}" if prior_context else query
+    if prior_context and show_routing:
+        print(f"[Creep] {creep.count()} memories | injecting {len(prior_context.splitlines())-1} relevant findings\n")
+
+    # Step 2: Abathur decides which expert handles this
     decision = abathur.route(query)
     if show_routing:
         print(decision.reasoning)
         print()
 
-    # Step 2: Query the chosen model
+    # Step 3: Query the chosen model
     import ollama
     print(f"[Kerrigan] Querying {decision.model}...\n")
     response = ollama.chat(
         model=decision.model,
-        messages=[{"role": "user", "content": query}]
+        messages=[{"role": "user", "content": enriched_query}]
     )
     raw_output = response["message"]["content"]
 
-    # Step 3: Overmind gates the output
+    # Step 4: Overmind gates the output
     gated_output, verdict = overmind.gate(raw_output, query=query, context=context)
 
     if show_verdict and not verdict.passed:
         print(f"[Overmind] BLOCKED — {verdict.reason}\n")
         return gated_output
 
-    # Step 4: Feedback loop — let Abathur learn
-    # (auto-mark as win if Overmind passed; user can override)
+    # Step 5: Store response in Creep for future sessions
+    if verdict.passed:
+        creep.tag_response(query, raw_output, decision.expert)
+
+    # Step 6: Abathur learns from outcome
     abathur.learn(decision.expert, success=verdict.passed)
 
     return gated_output
@@ -49,7 +60,7 @@ def chat_loop():
     print("=" * 60)
     print("  KERRIGAN-FANTASMA  |  Queen of Blades Security LLM")
     print("=" * 60)
-    print("  Commands: /exit  /routing off  /routing on  /history")
+    print("  Commands: /exit  /routing off  /routing on  /history  /memory")
     print("=" * 60)
     print()
 
@@ -84,6 +95,15 @@ def chat_loop():
                 for i, h in enumerate(abathur.history[-10:], 1):
                     print(f"  {i}. [{h['expert']}] {h['query']}")
                 print()
+            continue
+        elif query == "/memory":
+            count = creep.count()
+            print(f"[Creep] {count} finding(s) stored across sessions.")
+            if count > 0:
+                recent = creep.recall("security vulnerability exploit", n=3)
+                for f in recent:
+                    print(f"  [{f['expert']}] {f['content'][:120]}...")
+            print()
             continue
         elif query.startswith("/auth "):
             target = query[6:].strip()

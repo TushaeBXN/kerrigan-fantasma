@@ -1,0 +1,2 @@
+{"content": "Heap overflow in glibc malloc can be exploited via tcache poisoning to achieve arbitrary write.", "query": "how does heap overflow work", "expert": "kerrigan-core", "tags": ["heap"], "timestamp": 1780024585.9342809, "id": "fa83f9357273"}
+{"content": "Spectre variant 1 exploits speculative execution to leak memory via cache side channel.", "query": "explain spectre attack", "expert": "kerrigan-core", "tags": ["cache"], "timestamp": 1780024585.9343529, "id": "960f70865c2c"}
