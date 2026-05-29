@@ -5,6 +5,8 @@ A custom security LLM built from scratch — custom architecture, custom trainin
 
 > Named after Kerrigan (evolves through adversity, ultimate adaptive weapon) + Fantasma (ghost — elusive, operating in shadows).
 
+> **For educational and authorized security research only. Never run the evolutionary fuzzing loop against systems you do not own or have explicit permission to test. See [SECURITY.md](SECURITY.md).**
+
 ## Current Status
 
 | Layer | Status |
