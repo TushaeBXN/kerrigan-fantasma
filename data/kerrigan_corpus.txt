@@ -1,0 +1,299 @@
+CVE: CVE-2009-1054
+Unspecified vulnerability in JustSystems Ichitaro 13, 2004 through 2008, Lite2, and Ichitaro viewer 5.1.5.0 and earlier allows remote attackers to execute arbitrary code via a crafted file, as exploited in the wild by Trojan.Tarodrop.H in March 2009.
+
+CVE: CVE-2008-4250
+The Server service in Microsoft Windows 2000 SP4, XP SP2 and SP3, Server 2003 SP1 and SP2, Vista Gold and SP1, Server 2008, and 7 Pre-Beta allows remote attackers to execute arbitrary code via a crafted RPC request that triggers the overflow during path canonicalization, as exploited in the wild by Gimmiv.A in October 2008, aka "Server Service Vulnerability."
+
+CVE: CVE-2007-5914
+Direct static code injection vulnerability in dirsys/modules/config/post.php in JBC Explorer 7.20 RC1 and earlier allows remote authenticated administrators to inject arbitrary PHP code via the DEBUG parameter, which can be executed by accessing config.inc.php.  NOTE: this can be exploited by unauthenticated remote attackers by leveraging CVE-2007-5913.
+
+CVE: CVE-2006-3208
+Direct static code injection vulnerability in Ultimate PHP Board (UPB) 1.9.6 and earlier allows remote authenticated administrators to execute arbitrary PHP code via multiple unspecified "configuration fields" in (1) admin_chatconfig.php, (2) admin_configcss.php, (3) admin_config.php, or (4) admin_config2.php, which are stored as configuration settings.  NOTE: this issue can be exploited by remote attackers by leveraging other vulnerabilities in UPB.
+
+CVE: CVE-2007-2082
+Direct static code injection vulnerability in admin/settings.php in MyBlog 0.9.8 and earlier allows remote authenticated admin users to inject arbitrary PHP code via the content parameter, which can be executed by accessing index.php.  NOTE: a separate vulnerability could be leveraged to make this issue exploitable by remote unauthenticated attackers.
+
+CVE: CVE-2006-1087
+Direct static code injection vulnerability in the modify_config action in admin.php for PHP-Stats 0.1.9.1 and earlier allows remote authenticated administrators to execute arbitrary PHP code via the option_new[compatibility_mode] parameter, which is not filtered before being stored in config.php.  NOTE: this vulnerability can be exploited by remote unauthenticated attackers in conjunction with the option[admin_pass] authentication bypass vulnerability.
+
+CVE: CVE-2002-1316
+importInfo in the Admin Server for iPlanet WebServer 4.x, up to SP11, allows the web administrator to execute arbitrary commands via shell metacharacters in the dir parameter, and possibly allows remote attackers to exploit this vulnerability via a separate XSS issue (CVE-2002-1315).
+
+CVE: CVE-2002-1547
+Netscreen running ScreenOS 4.0.0r6 and earlier allows remote attackers to cause a denial of service via a malformed SSH packet to the Secure Command Shell (SCS) management interface, as demonstrated via certain CRC32 exploits, a different vulnerability than CVE-2001-0144.
+
+CVE: CVE-2008-5850
+Rejected reason: DO NOT USE THIS CANDIDATE NUMBER.  ConsultIDs: None.  Reason: this candidate was originally recorded for a "SPLAT Remote Root Exploit" that was claimed to exist for Check Point SmartCenter.  The claim has no actionable details and was disclosed by a person of unknown reliability who did not coordinate with the vendor.  No people of known reliability have confirmed the original claim.  The vendor has not indicated that they are aware of any vulnerability.  Since the claim has no actionable details or independent verification, it is outside the scope of CVE according to current inclusion criteria
+
+CVE: CVE-2007-0515
+Unspecified vulnerability in Microsoft Word allows user-assisted remote attackers to execute arbitrary code on Word 2000, and cause a denial of service on Word 2003, via unknown attack vectors that trigger memory corruption, as exploited by Trojan.Mdropper.W and later by Trojan.Mdropper.X, a different issue than CVE-2006-6456, CVE-2006-5994, and CVE-2006-6561.
+
+CVE: CVE-2007-4416
+captcha.php in BellaBook (aka BellaBuffs) allows remote attackers to obtain administrative privileges by sending the admin's username (admin_name) in a pheap_login cookie.  NOTE: the vendor disputes this vulnerability because authentication data is derived from the admin_pass and secret variables, in addition to the admin_name; and because the exploit code is designed for an unrelated application
+
+CVE: CVE-2007-3312
+Directory traversal vulnerability in admin/plugin_manager.php in Jasmine CMS 1.0 allows remote authenticated administrators to include and execute arbitrary local files a .. (dot dot) in the u parameter. NOTE: a separate vulnerability could be leveraged to make this issue exploitable by remote unauthenticated attackers.
+
+CVE: CVE-2007-5383
+The Thomson/Alcatel SpeedTouch 7G router, as used for the BT Home Hub 6.2.6.B and earlier, allows remote attackers on an intranet to bypass authentication and gain administrative access via vectors including a '/' (slash) character at the end of the PATH_INFO to cgi/b, aka "double-slash auth bypass." NOTE: remote attackers outside the intranet can exploit this by leveraging a separate CSRF vulnerability. NOTE: SpeedTouch 780 might also be affected by some of these issues.
+
+CVE: CVE-2002-0124
+MDG Computer Services Web Server 4D/eCommerce 3.5.3 allows remote attackers to exploit directory traversal vulnerability via a ../ (dot dot) containing URL-encoded slashes in the HTTP request.
+
+CVE: CVE-2007-6214
+Directory traversal vulnerability in include/file_download.php in LearnLoop 2.0 beta7 allows remote attackers to read arbitrary files via a .. (dot dot) in the sFilePath parameter.  NOTE: exploitation requires that the product is configured, but has zero files in the database.
+
+CVE: CVE-2005-2852
+Unknown vulnerability in CIFS.NLM in Novell Netware 6.5 SP2 and SP3, 5.1, and 6.0 allows remote attackers to cause a denial of service (ABEND) via an incorrect password length, as exploited by the "worm.rbot.ccc" worm.
+
+CVE: CVE-2007-5421
+Rejected reason: Multiple stack-based buffer overflows in Cisco IOS 12.x and IOS XR allow attackers to execute arbitrary code, as demonstrated via the "Bind Shell", "Reverse Shell", and "Two byte rootshell (Tiny Shell)" attacks.  NOTE: the vendor and researcher agree that this issue does not cross privilege boundaries, saying they do not "represent a vulnerability."  The disclosure was intended to demonstrate techniques for exploitation, which is not covered by CVE
+
+CVE: CVE-2009-1537
+Unspecified vulnerability in the QuickTime Movie Parser Filter in quartz.dll in DirectShow in Microsoft DirectX 7.0 through 9.0c on Windows 2000 SP4, Windows XP SP2 and SP3, and Windows Server 2003 SP2 allows remote attackers to execute arbitrary code via a crafted QuickTime media file, as exploited in the wild in May 2009, aka "DirectX NULL Byte Overwrite Vulnerability."
+
+CVE: CVE-2009-1481
+SQL injection vulnerability in action.asp in PuterJam's Blog (PJBlog3) 3.0.6.170 allows remote attackers to execute arbitrary SQL commands via the cname parameter in a checkAlias action, as exploited in the wild in April 2009.  NOTE: the provenance of this information is unknown; the details are obtained solely from third party information.
+
+CVE: CVE-2006-5794
+Unspecified vulnerability in the sshd Privilege Separation Monitor in OpenSSH before 4.5 causes weaker verification that authentication has been successful, which might allow attackers to bypass authentication. NOTE: as of 20061108, it is believed that this issue is only exploitable by leveraging vulnerabilities in the unprivileged process, which are not known to exist.
+
+CVE: CVE-2006-2591
+Unspecified vulnerability in e107 before 0.7.5 has unknown impact and remote attack vectors related to an "emailing exploit".
+
+CVE: CVE-2008-4106
+WordPress before 2.6.2 does not properly handle MySQL warnings about insertion of username strings that exceed the maximum column width of the user_login column, and does not properly handle space characters when comparing usernames, which allows remote attackers to change an arbitrary user's password to a random value by registering a similar username and then requesting a password reset, related to a "SQL column truncation vulnerability." NOTE: the attacker can discover the random password by also exploiting CVE-2008-4107.
+
+CVE: CVE-2006-1542
+Stack-based buffer overflow in Python 2.4.2 and earlier, running on Linux 2.6.12.5 under gcc 4.0.3 with libc 2.3.5, allows local users to cause a "stack overflow," and possibly gain privileges, by running a script from a current working directory that has a long name, related to the realpath function.  NOTE: this might not be a vulnerability. However, the fact that it appears in a programming language interpreter could mean that some applications are affected, although attack scenarios might be limited because the attacker might already need to cross privilege boundaries to cause an exploitable program to be placed in a directory with a long name; or, depending on the method that Python uses to determine the current working directory, setuid applications might be affected.
+
+CVE: CVE-2008-1790
+Unrestricted file upload vulnerability in iScripts SocialWare allows remote authenticated administrators to upload arbitrary files via a crafted logo file in the "Manage Settings" functionality.  NOTE: remote exploitation is facilitated by a separate SQL injection vulnerability.
+
+CVE: CVE-2006-4534
+Unspecified vulnerability in Microsoft Word 2000, 2002, and Office 2003 allows remote user-assisted attackers to execute arbitrary code via unspecified vectors involving a crafted file resulting in a malformed stack, as exploited by malware with names including Trojan.Mdropper.Q, Mofei, and Femo.
+
+CVE: CVE-2003-1227
+PHP remote file include vulnerability in index.php for Gallery 1.4 and 1.4-pl1, when running on Windows or in Configuration mode on Unix, allows remote attackers to inject arbitrary PHP code via a URL in the GALLERY_BASEDIR parameter, a different vulnerability than CVE-2002-1412.  NOTE: this issue might be exploitable only during installation, or if the administrator has not run a security script after installation.
+
+CVE: CVE-2007-4246
+Unspecified vulnerability, possibly a buffer overflow, in Justsystem Ichitaro 2007 and earlier allows remote attackers to execute arbitrary code via a modified document, as actively exploited in August 2007 by malware such as Tarodrop.D (Tarodrop.Q), a different vulnerability than CVE-2006-4326, CVE-2006-5424, CVE-2006-6400, and CVE-2007-1938.
+
+CVE: CVE-2008-0820
+Cross-site scripting (XSS) vulnerability in index.php in Etomite 0.6.1.4 Final allows remote attackers to inject arbitrary web script or HTML via $_SERVER['PHP_INFO'].  NOTE: the vendor disputes this issue in a followup, stating that the affected variable is $_SERVER['PHP_SELF'], and "This is not an Etomite specific exploit and I would like the report rescinded.
+
+CVE: CVE-2007-6531
+Stack-based buffer overflow in the Panel (xfce4-panel) component in Xfce before 4.4.2 might allow remote attackers to execute arbitrary code via Launcher tooltips.  NOTE: a second buffer overflow (over-read) in the xfce_mkdirhier function was also reported, but it might not be exploitable for a crash or code execution, so it is not a vulnerability.
+
+CVE: CVE-2006-2480
+Format string vulnerability in Dia 0.94 allows user-assisted attackers to cause a denial of service (crash) and possibly execute arbitrary code by triggering errors or warnings, as demonstrated via format string specifiers in a .bmp filename.  NOTE: the original exploit was demonstrated through a command line argument, but there are other mechanisms for input that are automatically processed by Dia, such as a crafted .dia file.
+
+CVE: CVE-2006-0489
+Buffer overflow in the font command of mIRC, probably 6.16, allows local users to execute arbitrary code via a long string. NOTE: the original researcher claims that issue has been disputed by the vendor, and that the vendor stated "as far as I can tell, this is neither an exploit nor a vulnerability.  The above report describes a local bug in mIRC."  It could be that this is only exploitable by the user of the application, and thus would not cross privilege boundaries unless under an otherwise restrictive environment such as a kiosk
+
+CVE: CVE-2005-1069
+Unknown vulnerability in sCssBoard 1.11 and earlier has unknown impact, related to "an exploit on the Profile page."
+
+CVE: CVE-2003-0699
+The C-Media PCI sound driver in Linux before 2.4.21 does not use the get_user function to access userspace, which crosses security boundaries and may facilitate the exploitation of vulnerabilities, a different vulnerability than CVE-2003-0700.
+
+CVE: CVE-2006-0096
+wan/sdla.c in Linux kernel 2.6.x before 2.6.11 and 2.4.x before 2.4.29 does not require the CAP_SYS_RAWIO privilege for an SDLA firmware upgrade, with unknown impact and local attack vectors.  NOTE: further investigation suggests that this issue requires root privileges to exploit, since it is protected by CAP_NET_ADMIN; thus it might not be a vulnerability, although capabilities provide finer distinctions between privilege levels.
+
+CVE: CVE-2009-0556
+Microsoft Office PowerPoint 2000 SP3, 2002 SP3, and 2003 SP3, and PowerPoint in Microsoft Office 2004 for Mac, allows remote attackers to execute arbitrary code via a PowerPoint file with an OutlineTextRefAtom containing an an invalid index value that triggers memory corruption, as exploited in the wild in April 2009 by Exploit:Win32/Apptom.gen, aka "Memory Corruption Vulnerability."
+
+CVE: CVE-2009-0275
+Static code injection vulnerability in admin.php in Ryneezy phoSheezy 0.2 allows remote authenticated administrators to inject arbitrary PHP code into config/header via the header parameter.  NOTE: this can be exploited by unauthenticated attackers by leveraging CVE-2009-0250. NOTE: the provenance of this information is unknown; the details are obtained solely from third party information.
+
+CVE: CVE-2007-0870
+Unspecified vulnerability in Microsoft Word 2000 allows remote attackers to cause a denial of service (crash) via unknown vectors, a different vulnerability than CVE-2006-5994, CVE-2006-6456, CVE-2006-6561, and CVE-2007-0515, a variant of Exploit-MS06-027.
+
+CVE: CVE-2009-2006
+Multiple cross-site scripting (XSS) vulnerabilities in Dokeos 1.8.5, and possibly earlier, allow remote attackers to inject arbitrary web script or HTML via the (1) search_term parameter to main/auth/courses.php; the (2) frm_title and (3) frm_content parameters in a new personal agenda item action; the (4) title and (5) tutor_name parameters in a new course action; and the (6) student and (7) course parameters to main/mySpace/myStudents.php.  NOTE: vectors 2 and 3 might only be exploitable via a separate CSRF vulnerability.
+
+CVE: CVE-2005-3068
+Unspecified vulnerability in Eric Integrated Development Environment (eric3) before 3.7.2 has unknown impact and attack vectors related to a "potential security exploit."
+
+CVE: CVE-2007-5231
+Unrestricted file upload vulnerability in admin/upload_files.php in Zomplog 3.8.1 and earlier allows remote authenticated administrators to upload and execute arbitrary .php files by sending a modified MIME type.  NOTE: this can be exploited by unauthenticated attackers by leveraging CVE-2007-5230.
+
+CVE: CVE-2009-0374
+Google Chrome 1.0.154.43 allows remote attackers to trick a user into visiting an arbitrary URL via an onclick action that moves a crafted element to the current mouse position, related to a "Clickjacking" vulnerability.  NOTE: a third party disputes the relevance of this issue, stating that "every sufficiently featured browser is and likely will remain susceptible to the behavior known as clickjacking," and adding that the exploit code "is not a valid demonstration of the issue.
+
+CVE: CVE-2006-5814
+Unspecified vulnerability in Novell eDirectory allows remote attackers to execute arbitrary code, as demonstrated by vd_novell.pm, a "Novell eDirectory remote exploit." NOTE: As of 20061108, this disclosure has no actionable information. However, since it is from a reliable researcher, it is being assigned a CVE identifier for tracking purposes.
+
+CVE: CVE-2008-0466
+Web Wiz RTE_file_browser.asp in, as used in Web Wiz Rich Text Editor 4.0, Web Wiz Forums 9.07, and Web Wiz Newspad 1.02, does not require authentication, which allows remote attackers to list directories and read files.  NOTE: this can be leveraged for listings outside the configured directory tree by exploiting a separate directory traversal vulnerability.
+
+CVE: CVE-2007-3243
+Cross-site scripting (XSS) vulnerability in bb-login.php in bbPress 0.8.1 allows remote attackers to inject arbitrary web script or HTML via the re parameter.  NOTE: exploitation may require forcing the client to send a certain Referer header.
+
+CVE: CVE-2008-5227
+Unspecified vulnerability in PHPCow allows remote attackers to execute arbitrary code via unknown vectors, related to a "file inclusion vulnerability," as exploited in the wild in November 2008.
+
+CVE: CVE-2006-0272
+Unspecified vulnerability in the XML Database component of Oracle Database server 9.2.0.7 and 10.1.0.4 has unspecified impact and attack vectors, as identified by Oracle Vuln# DB29.  NOTE: based on mutual credits by the relevant sources, it is highly likely that this issue is a buffer overflow in the (a) DBMS_XMLSCHEMA and (b) DBMS_XMLSCHEMA_INT packages, as exploitable via long arguments to (1) XDB.DBMS_XMLSCHEMA.GENERATESCHEMA or (2) XDB.DBMS_XMLSCHEMA.GENERATESCHEMAS.
+
+CVE: CVE-2006-3281
+Microsoft Internet Explorer 6.0 does not properly handle Drag and Drop events, which allows remote user-assisted attackers to execute arbitrary code via a link to an SMB file share with a filename that contains encoded ..\ (%2e%2e%5c) sequences and whose extension contains the CLSID Key identifier for HTML Applications (HTA), aka "Folder GUID Code Execution Vulnerability."  NOTE: directory traversal sequences were used in the original exploit, although their role is not clear.
+
+CVE: CVE-2008-3457
+Cross-site scripting (XSS) vulnerability in setup.php in phpMyAdmin before 2.11.8 allows user-assisted remote attackers to inject arbitrary web script or HTML via crafted setup arguments.  NOTE: this issue can only be exploited in limited scenarios in which the attacker must be able to modify config/config.inc.php.
+
+CVE: CVE-2003-0838
+Internet Explorer allows remote attackers to bypass zone restrictions to inject and execute arbitrary programs by creating a popup window and inserting ActiveX object code with a "data" tag pointing to the malicious code, which Internet Explorer treats as HTML or Javascript, but later executes as an HTA application, a different vulnerability than CVE-2003-0532, and as exploited using the QHosts Trojan horse (aka Trojan.Qhosts, QHosts-1, VBS.QHOSTS, or aolfix.exe).
+
+CVE: CVE-2006-2925
+Cross-site scripting (XSS) vulnerability in the web interface in Ingate Firewall before 4.4.1 and SIParator before 4.4.1 allows remote attackers to inject arbitrary web script or HTML, and steal cookies, via unspecified vectors related to "XSS exploits" in administrator functionality.
+
+CVE: CVE-2007-2148
+Direct static code injection vulnerability in admin/save.php in Stephen Craton (aka WiredPHP) Chatness 2.5.3 and earlier allows remote authenticated administrators to inject PHP code into .html files via the html parameter, as demonstrated by head.html and foot.html, which are included and executed upon a direct request for index.php.  NOTE: a separate vulnerability could be leveraged to make this issue exploitable by remote unauthenticated attackers.
+
+CVE: CVE-2006-5792
+Unspecified vulnerability in XLink Omni-NFS Enterprise allows remote attackers to execute arbitrary code via unspecified vectors, as demonstrated by vd_xlink2.pm, an "Omni-NFS Enterprise remote exploit." NOTE: this is probably a different vulnerability than CVE-2006-5780. As of 20061107, this disclosure has no actionable information. However, since it is from a reliable researcher, it is being assigned a CVE identifier for tracking purposes.
+
+CVE: CVE-2008-4996
+init in initramfs-tools 0.92f allows local users to overwrite arbitrary files via a symlink attack on the /tmp/initramfs.debug temporary file.  NOTE: the vendor disputes this vulnerability, stating that "init is [used in] a single-user context; there's no possibility that this is exploitable.
+
+CVE: CVE-2006-3486
+Off-by-one buffer overflow in the Instance_options::complete_initialization function in instance_options.cc in the Instance Manager in MySQL before 5.0.23 and 5.1 before 5.1.12 might allow local users to cause a denial of service (application crash) via unspecified vectors, which triggers the overflow when the convert_dirname function is called.  NOTE: the vendor has disputed this issue via e-mail to CVE, saying that it is only exploitable when the user has access to the configuration file or the Instance Manager daemon.  Due to intended functionality, this level of access would already allow the user to disrupt program operation, so this does not cross security boundaries and is not a vulnerability
+
+CVE: CVE-2008-0015
+Stack-based buffer overflow in the CComVariant::ReadFromStream function in the Active Template Library (ATL), as used in the MPEG2TuneRequest ActiveX control in msvidctl.dll in DirectShow, in Microsoft Windows 2000 SP4, XP SP2 and SP3, Server 2003 SP2, Vista Gold, SP1, and SP2, and Server 2008 Gold and SP2 allows remote attackers to execute arbitrary code via a crafted web page, as exploited in the wild in July 2009, aka "Microsoft Video ActiveX Control Vulnerability."
+
+CVE: CVE-2009-0251
+Static code injection vulnerability in admin.php in Ryneezy phoSheezy 0.2 allows remote authenticated administrators to inject arbitrary PHP code into config/footer via the footer parameter.  NOTE: this can be exploited by unauthenticated attackers by leveraging CVE-2009-0250. NOTE: some of these details are obtained from third party information.
+
+CVE: CVE-2006-0733
+Cross-site scripting (XSS) vulnerability in WordPress 2.0.0 allows remote attackers to inject arbitrary web script or HTML via scriptable attributes such as (1) onfocus and (2) onblur in the "author's website" field.  NOTE: followup comments to the researcher's web log suggest that this issue is only exploitable by the same user who injects the XSS, so this might not be a vulnerability
+
+CVE: CVE-2007-0059
+Cross-zone scripting vulnerability in Apple Quicktime 3 to 7.1.3 allows remote user-assisted attackers to execute arbitrary code and list filesystem contents via a QuickTime movie (.MOV) with an HREF Track (HREFTrack) that contains an automatic action tag with a local URI, which is executed in a local zone during preview, as exploited by a MySpace worm.
+
+CVE: CVE-2005-4800
+Direct static code injection vulnerability in Yet Another PHP Image Gallery (YaPIG) 0.95b and earlier allows remote authenticated administrators to inject arbitrary PHP code via the TestGallery parameter in a mod_info action to modify_gallery.php, which inserts the code into guid_info.php.  NOTE: this issue is easier to exploit due to a separate CSRF vulnerability.
+
+CVE: CVE-2007-4127
+PHP remote file inclusion vulnerability in check_entry.php in Ralf Image Gallery (RIG), aka Raphael Moll RIG Image Gallery, 1.0 allows remote attackers to execute arbitrary PHP code via a URL in the dir_abs_src parameter.  NOTE: this issue is disputed by multiple third parties, who report that the product exits if register_globals is enabled, thereby blocking exploitation.  NOTE: CVE-2006-3210.a covers this issue in versions before 1.0
+
+CVE: CVE-2006-4084
+Unspecified vulnerability in phpAutoMembersArea (phpAMA) before 3.2.4 has unknown impact and attack vectors, related to "a potential security exploit which is critical."
+
+CVE: CVE-2003-0790
+Rejected reason: DO NOT USE THIS CANDIDATE NUMBER.  ConsultIDs: none.  Reason: the reported issue is not a vulnerability or exposure.  Notes: This candidate was assigned to a "head-reading" bug in a component of fetchmail 6.2.4 and earlier, which was claimed to allow a denial of service.  However, the bug is in a broken component of fetchmail that is not "reachable" by any execution path, so it cannot be triggered by any sort of attack and is not exploitable
+
+CVE: CVE-2007-5772
+Direct static code injection vulnerability in the download module in Flatnuke 3 allows remote authenticated administrators to inject arbitrary PHP code into a description.it.php file in a subdirectory of Download/ by saving a description and setting fneditmode to 1.  NOTE: unauthenticated remote attackers can exploit this by leveraging a cookie manipulation issue.
+
+CVE: CVE-2004-1946
+Format string vulnerability in the PRINT_ERROR function in common.c for Cherokee Web Server 0.4.16 and earlier allows local users to execute arbitrary code via format string specifiers in the -C command line argument.  NOTE: it is not clear whether this issue could be exploited remotely, or if Cherokee is running at escalated privileges. Therefore it might not be a vulnerability.
+
+CVE: CVE-2009-2076
+Cross-site scripting (XSS) vulnerability in Views 6.x before 6.x-2.6, a module for Drupal, allows remote authenticated users to inject arbitrary web script or HTML via (1) exposed filters in the Views UI administrative interface and in the (2) view name parameter in the define custom views feature.  NOTE: vector 2 is only exploitable by users with administer views permissions.
+
+CVE: CVE-2006-6541
+PHP remote file inclusion vulnerability in signer/final.php in warez distributions of Animated Smiley Generator allows remote attackers to execute arbitrary PHP code via a URL in the smiley parameter.  NOTE: the vendor disputes this issue, stating that only Warez versions of Animated Smiley Generator were affected, not the developer-provided software: "Legitimately purchased applications do not allow this exploit.
+
+CVE: CVE-2006-4433
+PHP before 4.4.3 and 5.x before 5.1.4 does not limit the character set of the session identifier (PHPSESSID) for third party session handlers, which might make it easier for remote attackers to exploit other vulnerabilities by inserting PHP code into the PHPSESSID, which is stored in the session file.  NOTE: it could be argued that this not a vulnerability in PHP itself, rather a design limitation that enables certain attacks against session handlers that do not account for this limitation.
+
+CVE: CVE-2007-4429
+Unspecified vulnerability in Skype allows remote attackers to cause a denial of service (server hang) via unknown vectors related to sending long URIs, as claimed to be actively exploited on 20070817 using a "call to a specific number."  NOTE: this identifier is for the en.securitylab.ru disclosure.  According to the vendor, this issue is separate from the "sign-on issues" that reduced Skype service on 20070817, which appears to be a site-specific problem.  As of 20070821, it is not clear whether this issue is simply a symptom of the larger sign-on problem.
+
+CVE: CVE-2008-3080
+Cross-site request forgery (CSRF) vulnerability in admin.php in myWebland myBloggie 2.1.6 allows remote attackers to perform edit actions as administrators.  NOTE: this can be leveraged to execute SQL commands by also exploiting CVE-2007-1899.
+
+CVE: CVE-2008-4844
+Use-after-free vulnerability in the CRecordInstance::TransferToDestination function in mshtml.dll in Microsoft Internet Explorer 5.01, 6, 6 SP1, and 7 allows remote attackers to execute arbitrary code via DSO bindings involving (1) an XML Island, (2) XML DSOs, or (3) Tabular Data Control (TDC) in a crafted HTML or XML document, as demonstrated by nested SPAN or MARQUEE elements, and exploited in the wild in December 2008.
+
+CVE: CVE-2007-0913
+Unspecified vulnerability in Microsoft Powerpoint allows remote user-assisted attackers to execute arbitrary code via unknown attack vectors, as exploited by Trojan.PPDropper.G.  NOTE: as of 20070213, it is not clear whether this is the same issue as CVE-2006-5296, CVE-2006-4694, CVE-2006-3876, CVE-2006-3877, or older issues.
+
+CVE: CVE-2009-1412
+Argument injection vulnerability in the chromehtml: protocol handler in Google Chrome before 1.0.154.59, when invoked by Internet Explorer, allows remote attackers to determine the existence of files, and open tabs for URLs that do not satisfy the IsWebSafeScheme restriction, via a web page that sets document.location to a chromehtml: value, as demonstrated by use of a (1) javascript: or (2) data: URL.  NOTE: this can be leveraged for Universal XSS by exploiting certain behavior involving persistence across page transitions.
+
+CVE: CVE-2009-1308
+Cross-site scripting (XSS) vulnerability in Mozilla Firefox before 3.0.9, Thunderbird, and SeaMonkey allows remote attackers to inject arbitrary web script or HTML via vectors involving XBL JavaScript bindings and remote stylesheets, as exploited in the wild by a March 2009 eBay listing.
+
+CVE: CVE-2009-1136
+The Microsoft Office Web Components Spreadsheet ActiveX control (aka OWC10 or OWC11), as distributed in Office XP SP3 and Office 2003 SP3, Office XP Web Components SP3, Office 2003 Web Components SP3, Office 2003 Web Components SP1 for the 2007 Microsoft Office System, Internet Security and Acceleration (ISA) Server 2004 SP3 and 2006 Gold and SP1, and Office Small Business Accounting 2006, when used in Internet Explorer, allows remote attackers to execute arbitrary code via a crafted call to the msDataSourceObject method, as exploited in the wild in July and August 2009, aka "Office Web Components HTML Script Vulnerability."
+
+CVE: CVE-2007-1407
+Unspecified vulnerability in OpenSolution Quick.Cart before 2.1 has unknown impact and attack vectors, related to a "low critical exploit."
+
+CVE: CVE-2006-4854
+Rejected reason: Unspecified vulnerability in Microsoft Office 2000 (Chinese Edition) and Microsoft PowerPoint 2000 (Chinese Edition) allows user-assisted attackers to execute arbitrary code via a crafted PPT document, as exploited by malware such as Trojan.PPDropper.E.  NOTE: on 20060919, Microsoft notified CVE that this is a duplicate of CVE-2006-0009
+
+CVE: CVE-2007-1830
+Unspecified vulnerability in the Username Hijacking Patch 20070312 for web-app.org WebAPP 0.9.9.6 allows remote attackers to obtain administrative access via unknown vectors, related to "something overlooked in the original that was still overlooked in the patch", and possibly related to copying files to the user-lib and the "XSS and cookies exploit."
+
+CVE: CVE-2006-1792
+Unspecified vulnerability in the POP service in MailEnable Standard Edition before 1.94, Professional Edition before 1.74, and Enterprise Edition before 1.22 has unknown attack vectors and impact related to "authentication exploits".  NOTE: this is a different set of affected versions, and probably a different vulnerability than CVE-2006-1337.
+
+CVE: CVE-2005-3481
+Cisco IOS 12.0 to 12.4 might allow remote attackers to execute arbitrary code via a heap-based buffer overflow in system timers. NOTE: this issue does not correspond to a specific vulnerability, rather a general weakness that only increases the feasibility of exploitation of any vulnerabilities that might exist.  Such design-level weaknesses normally are not included in CVE, so perhaps this issue should be REJECTed.
+
+CVE: CVE-2007-1172
+SQL injection vulnerability in nukesentinel.php in NukeSentinel 2.5.05, and possibly earlier, allows remote attackers to execute arbitrary SQL commands via the Client-IP HTTP header, aka the "File Disclosure Exploit."
+
+CVE: CVE-2002-1370
+Rejected reason: DO NOT USE THIS CANDIDATE NUMBER.  ConsultIDs: CVE-2002-1367.  Reason: This CAN was originally assigned for the theft of root certificates in CUPS, but it was later deemed to be a legitimate result of exploiting a different vulnerability, CVE-2002-1367, so it is not a distinct vulnerability.  Notes: All CVE users should reference CVE-2002-1367 instead of this candidate.  All references and descriptions in this candidate have been removed to prevent accidental usage
+
+CVE: CVE-2007-4654
+Unspecified vulnerability in SSHield 1.6.1 with OpenSSH 3.0.2p1 on Cisco WebNS 8.20.0.1 on Cisco Content Services Switch (CSS) series 11000 devices allows remote attackers to cause a denial of service (connection slot exhaustion and device crash) via a series of large packets designed to exploit the SSH CRC32 attack detection overflow (CVE-2001-0144), possibly a related issue to CVE-2002-1024.
+
+CVE: CVE-2009-0671
+Rejected reason: Format string vulnerability in the University of Washington (UW) c-client library, as used by the UW IMAP toolkit imap-2007d and other applications, allows remote attackers to execute arbitrary code via format string specifiers in the initial request to the IMAP port (143/tcp).  NOTE: Red Hat has disputed the vulnerability, stating "The Red Hat Security Response Team have been unable to confirm the existence of this format string vulnerability in the toolkit, and the sample published exploit is not complete or functional."  CVE agrees that the exploit contains syntax errors and uses Unix-only include files while invoking Windows functions
+
+CVE: CVE-2008-3919
+Unspecified vulnerability in multiple JustSystems Ichitaro products allows remote attackers to execute arbitrary code via a crafted JTD document, as exploited in the wild in August 2008.
+
+CVE: CVE-2005-4681
+Buffer overflow in mIRC 5.91, 6.03, 6.12, and 6.16 allows local users to execute arbitrary code via a long string that is entered after reaching the DCC Get Folder Dialog.  NOTE: this issue has been disputed by the vendor, saying "as far as I can tell, this is neither an exploit nor a vulnerability. The above report describes a local bug in mIRC."  It could be that this is only exploitable by the user of the application, and thus would not cross privilege boundaries unless under an otherwise restrictive environment such as a kiosk
+
+CVE: CVE-2006-4274
+Rejected reason: Unknown vulnerability in Microsoft PowerPoint allows user-assisted attackers to execute arbitrary code via a crafted PPT document, as exploited by malware such as TROJ_MDROPPER.BH.  NOTE: on 20060822, it was determined that TROJ_MDROPPER.BH was exploiting CVE-2006-0009, so this is not a new vulnerability
+
+CVE: CVE-2008-1841
+SQL injection vulnerability in the session handling functionality in bridge/coppermine.inc.php in Coppermine Photo Gallery (CPG) 1.4.17 and earlier allows remote attackers to execute arbitrary SQL commands via an input field associated with the session_id variable, as exploited in the wild in April 2008.  NOTE: the fix for CVE-2008-1840 was intended to address this vulnerability, but is actually inapplicable.
+
+CVE: CVE-2006-5709
+Unspecified vulnerability in WorldClient in Alt-N Technologies MDaemon before 9.50 has unknown impact and attack vectors related to a "JavaScript exploit."
+
+CVE: CVE-2007-0671
+Unspecified vulnerability in Microsoft Excel 2000, XP, 2003, and 2004 for Mac, and possibly other Office products, allows remote user-assisted attackers to execute arbitrary code via unknown attack vectors, as demonstrated by Exploit-MSExcel.h in targeted zero-day attacks.
+
+CVE: CVE-2005-1247
+webadmin.exe in Novell Nsure Audit 1.0.1 allows remote attackers to cause a denial of service via malformed ASN.1 packets in corrupt client certificates to an SSL server, as demonstrated using an exploit for the OpenSSL ASN.1 parsing vulnerability.
+
+CVE: CVE-2006-1762
+Directory traversal vulnerability in index.php in blur6ex 0.3.452 allows remote attackers to include arbitrary files via the shard parameter.  NOTE: this issue can be exploited to produce resultant XSS when the parameter has XSS manipulations, and path disclosure with other invalid values.
+
+CVE: CVE-2006-4694
+Unspecified vulnerability in PowerPoint in Microsoft Office 2000, Office XP and Office 2003 allows user-assisted attackers to execute arbitrary code via a crafted record in a PPT file, as exploited by malware such as Exploit:Win32/Controlppt.W, Exploit:Win32/Controlppt.X, and Exploit-PPT.d/Trojan.PPDropper.F. NOTE: it has been reported that the attack vector involves SlideShowWindows.View.GotoNamedShow.
+
+CVE: CVE-2008-3704
+Heap-based buffer overflow in the MaskedEdit ActiveX control in Msmask32.ocx 6.0.81.69, and possibly other versions before 6.0.84.18, in Microsoft Visual Studio 6.0, Visual Basic 6.0, Visual Studio .NET 2002 SP1 and 2003 SP1, and Visual FoxPro 8.0 SP1 and 9.0 SP1 and SP2 allows remote attackers to execute arbitrary code via a long Mask parameter, related to not "validating property values with boundary checks," as exploited in the wild in August 2008, aka "Masked Edit Control Memory Corruption Vulnerability."
+
+CVE: CVE-2006-6397
+Integer overflow in banner/banner.c in FreeBSD, NetBSD, and OpenBSD might allow local users to modify memory via a long banner.  NOTE: CVE and multiple third parties dispute this issue. Since banner is not setuid, an exploit would not cross privilege boundaries in normal operations. This issue is not a vulnerability
+
+CVE: CVE-2009-1807
+Unspecified vulnerability in Config.dll in Baofeng products 3.09.04.17 and earlier allows remote attackers to execute arbitrary code by calling the SetAttributeValue method, as exploited in the wild in April and May 2009.
+
+CVE: CVE-2002-0189
+Cross-site scripting vulnerability in Internet Explorer 6.0 allows remote attackers to execute scripts in the Local Computer zone via a URL that exploits a local HTML resource file, aka the "Cross-Site Scripting in Local HTML Resource" vulnerability.
+
+CVE: CVE-2008-4841
+The WordPad Text Converter for Word 97 files in Microsoft Windows 2000 SP4, XP SP2, and Server 2003 SP1 and SP2 allows remote attackers to execute arbitrary code via a crafted (1) .doc, (2) .wri, or (3) .rtf Word 97 file that triggers memory corruption, as exploited in the wild in December 2008.  NOTE: As of 20081210, it is unclear whether this vulnerability is related to a WordPad issue disclosed on 20080925 with a 2008-crash.doc.rar example, but there are insufficient details to be sure.
+
+CVE: CVE-2003-0700
+The C-Media PCI sound driver in Linux before 2.4.22 does not use the get_user function to access userspace in certain conditions, which crosses security boundaries and may facilitate the exploitation of vulnerabilities, a different vulnerability than CVE-2003-0699.
+
+CVE: CVE-2003-0813
+A multi-threaded race condition in the Windows RPC DCOM functionality with the MS03-039 patch installed allows remote attackers to cause a denial of service (crash or reboot) by causing two threads to process the same RPC request, which causes one thread to use memory after it has been freed, a different vulnerability than CVE-2003-0352 (Blaster/Nachi), CVE-2003-0715, and CVE-2003-0528, and as demonstrated by certain exploits against those vulnerabilities.
+
+CVE: CVE-2009-1413
+Google Chrome 1.0.x does not cancel timeouts upon a page transition, which makes it easier for attackers to conduct Universal XSS attacks by calling setTimeout to trigger future execution of JavaScript code, and then modifying document.location to arrange for JavaScript execution in the context of an arbitrary web site.  NOTE: this can be leveraged for a remote attack by exploiting a chromehtml: argument-injection vulnerability.
