@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
 Kerrigan-Fantasma training script.
-Tiers (same pattern as Anthos):
-  smoke         — 100 steps, tiny data, verify architecture works
-  proof         — 1k steps, small data, verify loss drops
-  sft           — full supervised fine-tune on security corpus
-  instruct      — instruction tuning (Q&A format)
 
-Local (Mac): smoke/proof only, float32, num_workers=0
-RunPod     : sft/instruct, bfloat16, num_workers=4
+Tier order (run sequentially for best results):
+  smoke    — 100 steps  | local  | verify architecture runs
+  proof    — 1k steps   | local  | verify loss drops
+  sft      — 50k steps  | RunPod | all languages + security corpus
+  hardware — 20k steps  | RunPod | kernel + firmware + hw specs (fine-tune on sft ckpt)
+  instruct — 10k steps  | RunPod | Q&A instruction tuning (fine-tune on hardware ckpt)
+
+Local (Mac): smoke/proof only — float32, num_workers=0
+RunPod     : sft/hardware/instruct — bfloat16, num_workers=4
+
+Training flow:
+  sft checkpoint → hardware fine-tune → instruct fine-tune = final Kerrigan Core
 """
 
 import os
@@ -70,6 +75,20 @@ TIERS = {
         max_loops=16,
         num_experts=64,
         description="Full security corpus supervised fine-tune (RunPod)",
+    ),
+    "hardware": dict(
+        max_steps=20_000,
+        batch_size=8,
+        seq_len=2048,
+        lr=3e-5,            # lower LR — fine-tuning on top of sft
+        eval_every=250,
+        save_every=1000,
+        hidden_size=2048,
+        num_prelude_layers=4,
+        num_coda_layers=2,
+        max_loops=16,       # full loops — hw-sw reasoning needs depth
+        num_experts=64,
+        description="Hardware-software integration fine-tune: kernel, firmware, hw specs (RunPod)",
     ),
     "instruct": dict(
         max_steps=10_000,
