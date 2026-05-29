@@ -4,7 +4,8 @@ Uses a hardcoded harness so we don't need the LLM for the test —
 but the triage and fuzzer are fully live.
 """
 import sys
-sys.path.insert(0, "/Users/dadsmacpro/Desktop/kerrigan-fantasma")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from loop.compiler import ClosedLoopCompiler, CompilationError
 from loop.fuzzer   import MutationFuzzer
