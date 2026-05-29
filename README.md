@@ -1,6 +1,12 @@
 # Kerrigan-Fantasma
 <img width="1408" height="768" alt="NEW Gemini_Generated_Image_n8z0oln8z0oln8z0 2" src="https://github.com/user-attachments/assets/ed5f4582-3d8c-4985-b4b5-b653b64f09b7" />
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
+[![Security: Responsible](https://img.shields.io/badge/security-responsible-brightgreen.svg)](SECURITY.md)
+[![Tests](https://github.com/TushaeBXN/kerrigan-fantasma/actions/workflows/test.yml/badge.svg)](https://github.com/TushaeBXN/kerrigan-fantasma/actions/workflows/test.yml)
+
 A custom security LLM built from scratch — custom architecture, custom training pipeline, autonomous fuzzing loop. Built to reason across the hardware-software boundary, write and attack its own code, and get better every run.
 
 > Named after Kerrigan (evolves through adversity, ultimate adaptive weapon) + Fantasma (ghost — elusive, operating in shadows).

@@ -1,0 +1,45 @@
+name: Test Security Sandbox
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system deps
+        run: sudo apt-get install -y clang
+
+      - name: Install Python deps
+        run: pip install ollama chromadb psutil
+
+      - name: Run secure runner self-test
+        run: python3 loop/secure_runner.py
+
+      - name: Run compiler + fuzzer + triage integration test
+        run: python3 scripts/test_loop.py
+
+      - name: Verify architecture forward pass
+        run: |
+          pip install torch==2.2.2 --index-url https://download.pytorch.org/whl/cpu
+          python3 -c "
+          import sys
+          sys.path.insert(0, '.')
+          import torch
+          from core.model import KerriganCore, KerriganConfig
+          cfg = KerriganConfig(hidden_size=256, num_prelude_layers=1,
+                               num_coda_layers=1, max_loops=4, num_experts=4)
+          model = KerriganCore.from_config(cfg)
+          tokens = torch.randint(0, cfg.vocab_size, (1, 32))
+          logits, loops = model(tokens, return_loop_count=True)
+          assert logits.shape == (1, 32, cfg.vocab_size)
+          print(f'Architecture OK — {model.num_parameters():,} params, {loops} loops')
+          "
