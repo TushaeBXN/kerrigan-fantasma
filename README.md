@@ -90,6 +90,7 @@ Inside each loop:
 | **MutationFuzzer** | Generates thousands of mutated inputs, zero external dependencies |
 | **CrashTriageEngine** | Deduplicates crashes, classifies by type and exploitability |
 | **EvolutionaryLoop** | Wires it all together — the autonomous research loop |
+| **SecureHarnessRunner** | Defense-in-depth sandbox: 7-layer validation, rlimits, Docker isolation |
 
 ---
 
@@ -116,8 +117,14 @@ python3 kerrigan.py "Explain tcache poisoning in glibc 2.31"
 python3 kerrigan.py --evolve "HTTP request parser"
 python3 kerrigan.py --evolve "DNS response handler" --iterations 5 --fuzz-inputs 200
 
+# With full security sandbox (resource limits + Docker if available)
+python3 kerrigan.py --evolve "JPEG parser" --secure
+
 # Use a specific model
 python3 kerrigan.py --evolve "JPEG parser" --model deepseek-coder:6.7b
+
+# Test the security sandbox
+python3 loop/secure_runner.py
 ```
 
 ### Chat commands
