@@ -8,3 +8,8 @@ checkpoints/
 *.log
 chroma_db/
 data/creep_db/
+data/harnesses/
+data/evolution_logs/
+data/kerrigan_corpus.txt
+data/kerrigan_instruct.jsonl
+data/proof_train.log

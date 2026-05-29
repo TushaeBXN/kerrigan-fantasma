@@ -221,6 +221,15 @@ def train(tier: str, data_path: str = None, checkpoint_dir: str = None, resume: 
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_schedule)
 
+    # ── Progress log (append-only, survives crashes) ──
+    log_path = ckpt_dir / "progress.log"
+    def write_log(msg: str):
+        ts = time.strftime("%Y-%m-%d %H:%M:%S")
+        line = f"[{ts}] {msg}"
+        print(line)
+        with log_path.open("a") as f:
+            f.write(line + "\n")
+
     # ── Train ──
     model.train()
     step = step_start
@@ -228,7 +237,7 @@ def train(tier: str, data_path: str = None, checkpoint_dir: str = None, resume: 
     best_loss = float("inf")
     t0 = time.time()
 
-    print(f"\n[Train] Starting at step {step}, max {max_steps}\n")
+    write_log(f"START tier={tier} steps={max_steps} params={model.num_parameters():,}")
 
     while step < max_steps:
         try:
@@ -264,7 +273,22 @@ def train(tier: str, data_path: str = None, checkpoint_dir: str = None, resume: 
             if loss.item() < best_loss:
                 best_loss = loss.item()
 
-        if step % cfg_overrides["save_every"] == 0:
+        # Checkpoint + persistent log every 500 steps
+        if step % 500 == 0:
+            ckpt_path = ckpt_dir / f"step_{step:06d}.pt"
+            torch.save({
+                "model": model.state_dict(),
+                "config": cfg,
+                "step": step,
+                "loss": loss.item(),
+                "tier": tier,
+            }, ckpt_path)
+            write_log(
+                f"CKPT step={step}/{max_steps} loss={loss.item():.4f} "
+                f"best={best_loss:.4f} loops={loops} saved={ckpt_path.name}"
+            )
+
+        elif step % cfg_overrides["save_every"] == 0:
             ckpt_path = ckpt_dir / f"step_{step:06d}.pt"
             torch.save({
                 "model": model.state_dict(),
@@ -284,7 +308,9 @@ def train(tier: str, data_path: str = None, checkpoint_dir: str = None, resume: 
         "loss": loss.item(),
         "tier": tier,
     }, final_path)
+    write_log(f"DONE step={step} best_loss={best_loss:.4f} saved={final_path}")
     print(f"\n[Done] Best loss: {best_loss:.4f} | Saved to {final_path}")
+    print(f"[Log]  Progress log: {log_path}")
 
 
 if __name__ == "__main__":
