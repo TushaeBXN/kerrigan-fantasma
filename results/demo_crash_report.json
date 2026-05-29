@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-29",
+  "harness": "stdin buffer parser \u2014 memcpy without bounds check (stack_buf[32], heap_buf[16])",
+  "compiler_flags": "clang -fsanitize=undefined -g -O1",
+  "platform": "macOS (UBSan \u2014 ASan blocked by SIP)",
+  "inputs_tried": 100,
+  "total_crashes": 39,
+  "unique_crashes": 1,
+  "high_exploitability": 1,
+  "by_type": {
+    "stack_overflow": 1
+  },
+  "findings": [
+    {
+      "crash_id": "32a674076876",
+      "type": "stack_overflow",
+      "exploitability": "high",
+      "signal": "SIGILL",
+      "exit_code": -4,
+      "input_hex": "4141414141414141414141414141414141414141414141414141414141414141",
+      "input_len": 32,
+      "input_ascii": "b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+    }
+  ]
+}

@@ -1,8 +1,26 @@
 # Kerrigan-Fantasma
 
-A custom-built security LLM with its own architecture — not a wrapper, not a fine-tune of an existing model. Built to reason across the hardware-software boundary, write and attack its own code, and get better every run.
+A custom security LLM built from scratch — custom architecture, custom training pipeline, autonomous fuzzing loop. Built to reason across the hardware-software boundary, write and attack its own code, and get better every run.
 
 > Named after Kerrigan (evolves through adversity, ultimate adaptive weapon) + Fantasma (ghost — elusive, operating in shadows).
+
+## Current Status
+
+| Layer | Status |
+|-------|--------|
+| Custom RDT architecture (`core/model.py`) | ✅ Built and runs |
+| Evolutionary fuzzing loop | ✅ Working — finds real crashes today |
+| Mutation fuzzer | ✅ Working — no external deps |
+| Creep memory (ChromaDB) | ✅ Working — persists across sessions |
+| Overmind safety verifier | ✅ Working |
+| Training pipeline (5 tiers) | ✅ Scripts ready |
+| Data pipeline (12 languages, kernel, firmware, CVEs) | ✅ Scripts ready |
+| smoke training (100 steps) | ✅ Complete — loss 4.62 → 2.14 |
+| sft / hardware / instruct training | 🔲 Pending GPU (RunPod) |
+| **Current inference backbone** | **Ollama + deepseek-coder:6.7b** |
+
+The fuzzer, compiler, memory, and safety systems work right now with any Ollama model.
+The native KerriganCore runs — it needs GPU training hours to replace the Ollama backbone.
 
 ---
 
