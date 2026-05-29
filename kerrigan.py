@@ -26,7 +26,7 @@ overmind = Overmind()
 creep = Creep()
 
 
-def run_evolve(target: str, iterations: int, n_fuzz: int, model: str):
+def run_evolve(target: str, iterations: int, n_fuzz: int, model: str, secure: bool = False):
     """Launch the evolutionary fuzzing loop."""
     from loop.evolution import EvolutionaryLoop
 
@@ -34,9 +34,19 @@ def run_evolve(target: str, iterations: int, n_fuzz: int, model: str):
         model=model,
         n_fuzz=n_fuzz,
         max_retries=3,
-        creep=creep,          # crashes feed into persistent memory
+        creep=creep,
     )
-    session = loop.run(target, iterations=iterations)
+
+    if secure:
+        from loop.secure_runner import SecureEvolutionaryLoop, ResourceConfig
+        print("[SecureRunner] Wrapping loop with defense-in-depth sandbox...")
+        secure_loop = SecureEvolutionaryLoop(
+            loop,
+            cfg=ResourceConfig(cpu_seconds=30, memory_mb=512, timeout_seconds=60),
+        )
+        session = secure_loop.run(target, iterations=iterations)
+    else:
+        session = loop.run(target, iterations=iterations)
 
     # Surface high-exploitability findings back through Overmind
     high = [r for r in session.all_crashes if r.exploitability == "high"]
@@ -177,11 +187,12 @@ Examples:
     parser.add_argument("--iterations",     type=int, default=3,help="Evolution iterations (default: 3)")
     parser.add_argument("--fuzz-inputs",    type=int, default=100, help="Mutations per iteration (default: 100)")
     parser.add_argument("--model",          default="kerrigan-fantasma", help="Ollama model to use")
+    parser.add_argument("--secure",         action="store_true", help="Enable defense-in-depth sandbox (resource limits + Docker if available)")
     args = parser.parse_args()
 
     if args.evolve:
         run_evolve(args.evolve, iterations=args.iterations,
-                   n_fuzz=args.fuzz_inputs, model=args.model)
+                   n_fuzz=args.fuzz_inputs, model=args.model, secure=args.secure)
     elif args.query:
         result = ask(args.query, show_routing=not args.no_routing)
         print(result)
