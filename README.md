@@ -1,4 +1,5 @@
 # Kerrigan-Fantasma
+<img width="1408" height="768" alt="NEW Gemini_Generated_Image_n8z0oln8z0oln8z0" src="https://github.com/user-attachments/assets/0ac3a53f-ace5-4232-9838-8758defd8af5" />
 
 A custom security LLM built from scratch — custom architecture, custom training pipeline, autonomous fuzzing loop. Built to reason across the hardware-software boundary, write and attack its own code, and get better every run.
 
