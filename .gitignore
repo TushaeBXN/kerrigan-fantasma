@@ -7,3 +7,4 @@ checkpoints/
 .env
 *.log
 chroma_db/
+data/creep_db/
