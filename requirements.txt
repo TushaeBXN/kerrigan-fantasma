@@ -1,0 +1,11 @@
+torch==2.2.2
+transformers==4.40.0
+numpy<2
+ollama
+chromadb
+networkx
+pyyaml
+rich
+fastapi
+uvicorn
+pydantic
