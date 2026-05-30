@@ -42,7 +42,7 @@ class Creep:
     so future queries can retrieve relevant prior knowledge.
     """
 
-    def __init__(self):
+    def __init__(self, db=None):
         self._client = chromadb.PersistentClient(path=str(CREEP_DIR))
         self._embed_fn = embedding_functions.DefaultEmbeddingFunction()
         self._collection = self._client.get_or_create_collection(
@@ -50,6 +50,7 @@ class Creep:
             embedding_function=self._embed_fn,
             metadata={"hnsw:space": "cosine"},
         )
+        self._db = db  # optional KerriganDB instance
 
     def absorb(self, finding: Finding) -> str:
         """Store a new finding. Returns its ID."""
@@ -63,9 +64,16 @@ class Creep:
                 "timestamp": finding.timestamp,
             }],
         )
-        # Also append to JSONL log for human readability
+        # Append to JSONL log
         with LOG_FILE.open("a") as f:
             f.write(json.dumps(asdict(finding)) + "\n")
+
+        # Mirror to MySQL if available
+        if self._db:
+            try:
+                self._db.log_memory(finding)
+            except Exception:
+                pass
 
         return finding.id
 

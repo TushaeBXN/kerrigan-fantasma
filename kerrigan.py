@@ -20,10 +20,29 @@ import argparse
 from router.abathur import Abathur
 from verifier.overmind import Overmind
 from memory.creep import Creep
+from memory.db import KerriganDB
+
+# Connect to MySQL — load credentials from .env if present
+import os
+from pathlib import Path as _Path
+_env = _Path(__file__).parent / ".env"
+if _env.exists():
+    for _line in _env.read_text().splitlines():
+        if "=" in _line and not _line.startswith("#"):
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
+db = KerriganDB(
+    host=os.environ.get("MYSQL_HOST", "127.0.0.1"),
+    port=int(os.environ.get("MYSQL_PORT", 3306)),
+    user=os.environ.get("MYSQL_USER", "root"),
+    password=os.environ.get("MYSQL_PASSWORD", ""),
+    database=os.environ.get("MYSQL_DATABASE", "kerrigan_db"),
+)
 
 abathur = Abathur()
 overmind = Overmind()
-creep = Creep()
+creep    = Creep(db=db)   # Creep now mirrors findings to MySQL
 
 
 def run_evolve(target: str, iterations: int, n_fuzz: int, model: str, secure: bool = False):
@@ -37,6 +56,9 @@ def run_evolve(target: str, iterations: int, n_fuzz: int, model: str, secure: bo
         creep=creep,
     )
 
+    # Start MySQL session tracking
+    session_id = db.start_session(target) if db._conn else None
+
     if secure:
         from loop.secure_runner import SecureEvolutionaryLoop, ResourceConfig
         print("[SecureRunner] Wrapping loop with defense-in-depth sandbox...")
@@ -47,6 +69,21 @@ def run_evolve(target: str, iterations: int, n_fuzz: int, model: str, secure: bo
         session = secure_loop.run(target, iterations=iterations)
     else:
         session = loop.run(target, iterations=iterations)
+
+    # Log all crashes to MySQL
+    if session_id and db._conn:
+        for r in session.all_crashes:
+            db.log_crash(r, session_id=session_id)
+        stats = session.iterations
+        db.complete_session(
+            session_id=session_id,
+            iterations=len(stats),
+            total_crashes=len(session.all_crashes),
+            unique_crashes=len({r.crash_id for r in session.all_crashes}),
+            high_exploit=sum(1 for r in session.all_crashes if r.exploitability == "high"),
+            duration_sec=sum(i.duration_sec for i in stats),
+        )
+        print(f"[KerriganDB] Session logged to MySQL (id={session_id})")
 
     # Surface high-exploitability findings back through Overmind
     high = [r for r in session.all_crashes if r.exploitability == "high"]
