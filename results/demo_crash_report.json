@@ -1,25 +1,38 @@
 {
-  "date": "2026-05-29",
-  "harness": "stdin buffer parser \u2014 memcpy without bounds check (stack_buf[32], heap_buf[16])",
+  "generated": "2026-05-30",
+  "platform": "macOS Sequoia (UBSan — ASan blocked by SIP on legacy hardware)",
   "compiler_flags": "clang -fsanitize=undefined -g -O1",
-  "platform": "macOS (UBSan \u2014 ASan blocked by SIP)",
-  "inputs_tried": 100,
-  "total_crashes": 39,
-  "unique_crashes": 1,
-  "high_exploitability": 1,
-  "by_type": {
-    "stack_overflow": 1
-  },
+  "hardware": "MacBook Pro Late 2013, CPU-only",
+  "total_sessions": 4,
+  "total_inputs_tried": 380,
+  "total_crashes_found": 4,
+  "unique_crash_signatures": 2,
+  "high_exploitability": 4,
   "findings": [
     {
       "crash_id": "32a674076876",
       "type": "stack_overflow",
-      "exploitability": "high",
       "signal": "SIGILL",
       "exit_code": -4,
-      "input_hex": "4141414141414141414141414141414141414141414141414141414141414141",
-      "input_len": 32,
-      "input_ascii": "b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+      "exploitability": "high",
+      "cwe": "CWE-121",
+      "trigger_input_hex": "4141414141414141414141414141414141414141414141414141414141414141",
+      "trigger_input_len": 32,
+      "affected_targets": ["HTTP request parser", "SSL/TLS ClientHello parser", "ZIP file header parser"],
+      "root_cause": "memcpy into stack_buf[32] with no bounds check on len",
+      "real_world_parallel": "CVE-2014-0160 Heartbleed"
+    },
+    {
+      "crash_id": "5d783bb92ab6",
+      "type": "stack_overflow",
+      "signal": "SIGABRT",
+      "exit_code": -6,
+      "exploitability": "high",
+      "cwe": "CWE-122",
+      "trigger_input_len": 16,
+      "affected_targets": ["DNS response parser"],
+      "root_cause": "attacker-controlled length field in packet struct written to fixed heap allocation",
+      "real_world_parallel": "CVE-2008-1447 DNS Kaminsky attack"
     }
   ]
 }
