@@ -36,14 +36,21 @@ class Abathur:
             keywords=["exploit", "rop", "shellcode", "buffer overflow", "heap", "uaf",
                       "use after free", "kernel", "privilege escalation", "pwn",
                       "spectre", "meltdown", "rowhammer", "side channel", "cache timing",
-                      "dma", "firmware", "uefi", "smm", "trustzone"],
+                      "dma", "firmware", "uefi", "smm", "trustzone",
+                      "vulnerability", "cve", "attack", "bypass", "injection",
+                      "overflow", "memory corruption", "zero day", "payload",
+                      "reverse shell", "c2", "malware", "rootkit", "backdoor",
+                      "http parser", "dns parser", "fuzzing", "harness",
+                      "security", "penetration", "red team", "blue team",
+                      "hardware", "cpu", "cache", "memory", "register"],
             description="Hardware/software exploit research and vulnerability analysis"
         ),
         ExpertProfile(
             name="code-general",
             model="deepseek-coder:6.7b",
-            keywords=["write code", "implement", "function", "script", "parse",
-                      "regex", "algorithm", "debug", "fix", "refactor"],
+            keywords=["write code", "implement", "function", "script",
+                      "regex", "algorithm", "debug", "fix", "refactor",
+                      "syntax", "compile error", "build", "class", "method"],
             description="General code generation and debugging"
         ),
         ExpertProfile(
@@ -67,16 +74,35 @@ class Abathur:
         self.evolution: dict[str, dict] = defaultdict(lambda: {"wins": 0, "losses": 0})
         self.history: list[dict] = []
 
+    # Security keywords that should always boost kerrigan-core even in explanation queries
+    SECURITY_OVERRIDE = {
+        "spectre", "meltdown", "rowhammer", "buffer overflow", "heap overflow",
+        "stack overflow", "use after free", "rop chain", "shellcode", "exploit",
+        "vulnerability", "cve", "zero day", "privilege escalation", "kernel exploit",
+        "side channel", "cache timing", "firmware", "uefi", "trustzone",
+        "memory corruption", "overflow", "fuzzing", "malware", "rootkit",
+    }
+
     def _score_expert(self, query: str, expert: ExpertProfile) -> tuple[float, list[str]]:
         q = query.lower()
         matched = [kw for kw in expert.keywords if kw in q]
-        # Score by matches found, not fraction of keywords — favors specificity
+
+        # Base score: match count weighted by keyword list size
         base_score = len(matched) * (1.0 / max(len(expert.keywords) ** 0.5, 1))
+
+        # Security override: any security concept instantly boosts kerrigan-core
+        # This ensures security questions beat generic "explain/what is" routing
+        security_boost = 0.0
+        if expert.name == "kerrigan-core":
+            security_hits = [kw for kw in self.SECURITY_OVERRIDE if kw in q]
+            if security_hits:
+                security_boost = 0.4 * len(security_hits)
+                matched = list(set(matched + security_hits))
 
         stats = self.evolution[expert.name]
         total = stats["wins"] + stats["losses"]
         win_rate = stats["wins"] / total if total > 0 else 0.5
-        score = (base_score * 0.75) + (win_rate * 0.25)
+        score = (base_score * 0.75) + (win_rate * 0.25) + security_boost
         return score, matched
 
     def route(self, query: str) -> RouteDecision:
