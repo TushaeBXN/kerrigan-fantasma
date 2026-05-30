@@ -1,0 +1,1662 @@
+Exploit-DB #52012
+Title: CrushFTP < 11.1.0 - Directory Traversal
+Type: remote | Platform: multiple
+
+CVE: CVE-2006-6810
+Keyword: memory corruption
+Unspecified vulnerability in the clear_user_list function in src/main.c in DB Hub 0.3 allows remote attackers to cause a denial of service (application crash) via crafted network traffic, which triggers memory corruption.
+
+Exploit-DB #16011
+Title: CakePHP 1.3.5/1.2.8 - 'Unserialize()' File Inclusion
+Type: webapps | Platform: php
+
+[Project Zero]
+Title: On the Effectiveness of Mutational Grammar Fuzzing
+
+Mutational grammar fuzzing is a fuzzing technique in which the fuzzer uses a predefined grammar that describes the structure of the samples. When a sample gets mutated, the mutations happen in such a way that any resulting samples still adhere to the grammar rules, thus the structure of the samples gets maintained by the mutation process. In case of coverage-guided grammar fuzzing, if the resulting sample (after the mutation) triggers previously unseen code coverage, this sample is saved to the sample corpus and used as a basis for future mutations. This technique has proven capable of finding complex issues and I have used it successfully in the past, including to find issues in XSLT implementations in web browsers and even JIT engine bugs. However, despite the approach being effective, it is not without its flaws which, for a casual fuzzer user, might not be obvious. In this blogpost I will introduce what I perceive to be the flaws of the mutational coverage-guided grammar fuzzing approach. I will also describe a very simple but effective technique I use in my fuzzing runs to counter these flaws.
+
+CVE: CVE-2006-2779
+Keyword: memory corruption
+Mozilla Firefox and Thunderbird before 1.5.0.4 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) nested <option> tags in a select tag, (2) a DOMNodeRemoved mutation event, (3) "Content-implemented tree views," (4) BoxObjects, (5) the XBL implementation, (6) an iframe that attempts to remove itself, which leads to memory corruption.
+
+CVE: CVE-2006-0033
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via a crafted PNG image that triggers memory corruption when it is parsed.
+
+CVE: CVE-2005-2831
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not intended for use within Internet Explorer, aka a variant of the "COM Object Instantiation Memory Corruption Vulnerability," a different vulnerability than CVE-2005-2127.
+
+CVE: CVE-2006-5994
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000 and 2002, Office Word and Word Viewer 2003, Word 2004 and 2004 v. X for Mac, and Works 2004, 2005, and 2006 allows remote attackers to execute arbitrary code via a Word document with a malformed string that triggers memory corruption, a different vulnerability than CVE-2006-6456.
+
+CVE: CVE-2006-0029
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed description, which leads to memory corruption.
+
+Exploit-DB #34597
+Title: Datetopia Buy Dating Site - Cross-Site Scripting
+Type: webapps | Platform: php
+
+CVE: CVE-2004-0842
+Keyword: memory corruption
+Internet Explorer 6.0 SP1 and earlier, and possibly other versions, allows remote attackers to cause a denial of service (application crash from "memory corruption") via certain malformed Cascading Style Sheet (CSS) elements that trigger heap-based buffer overflows, as demonstrated using the "<STYLE>@;/*" string, possibly due to a missing comment terminator that may cause an invalid length to trigger a large memory copy operation, aka the "CSS Heap Memory Corruption Vulnerability."
+
+CVE: CVE-2006-0749
+Keyword: memory corruption
+nsHTMLContentSink.cpp in Mozilla Firefox and Thunderbird 1.x before 1.5 and 1.0.x before 1.0.8, Mozilla Suite before 1.7.13, and SeaMonkey before 1.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unknown vectors involving a "particular sequence of HTML tags" that leads to memory corruption.
+
+Exploit-DB #18401
+Title: Savant Web Server 3.1 - Remote Buffer Overflow (Egghunter)
+Type: remote | Platform: windows
+
+CVE: CVE-2004-1012
+Keyword: memory corruption
+The argument parser of the PARTIAL command in Cyrus IMAP Server 2.2.6 and earlier allows remote authenticated users to execute arbitrary code via a certain command ("body[p") that is treated as a different command ("body.peek") and causes an index increment error that leads to an out-of-bounds memory corruption.
+
+CVE: CVE-2006-2385
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allows user-assisted remote attackers to execute arbitrary code via a crafted web page that triggers memory corruption when it is saved as a multipart HTML (.mht) file.
+
+Exploit-DB #50398
+Title: Simple Online College Entrance Exam System 1.0 - 'Multiple' SQL injection
+Type: webapps | Platform: php
+
+CVE: CVE-2006-1188
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via HTML elements with a certain crafted tag, which leads to memory corruption.
+
+CVE: CVE-2005-2151
+Keyword: memory corruption
+spf.c in Courier Mail Server does not properly handle DNS failures when looking up Sender Policy Framework (SPF) records, which could allow attackers to cause memory corruption.
+
+Exploit-DB #32568
+Title: Fitnesse Wiki - Remote Command Execution (Metasploit)
+Type: remote | Platform: windows
+
+CVE: CVE-2006-5745
+Keyword: memory corruption
+Unspecified vulnerability in the setRequestHeader method in the XMLHTTP (XML HTTP) ActiveX Control 4.0 in Microsoft XML Core Services 4.0 on Windows, when accessed by Internet Explorer, allows remote attackers to execute arbitrary code via crafted arguments that lead to memory corruption, a different vulnerability than CVE-2006-4685.  NOTE: some of these details are obtained from third party information.
+
+Exploit-DB #8740
+Title: Dog Pedigree Online Database 1.0.1b - Blind SQL Injection
+Type: webapps | Platform: php
+
+CVE: CVE-2003-0525
+Keyword: memory corruption
+The getCanonicalPath function in Windows NT 4.0 may free memory that it does not own and cause heap corruption, which allows attackers to cause a denial of service (crash) via requests that cause a long file name to be passed to getCanonicalPath, as demonstrated on the IBM JVM using a long string to the java.io.getCanonicalPath Java method.
+
+CVE: CVE-2006-0028
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via a BIFF parsing format file containing malformed BOOLERR records that lead to memory corruption, probably involving invalid pointers.
+
+CVE: CVE-2006-5823
+Keyword: memory corruption
+The zlib_inflate function in Linux kernel 2.6.x allows local users to cause a denial of service (crash) via a malformed filesystem that uses zlib compression that triggers memory corruption, as demonstrated using cramfs.
+
+CVE: CVE-2005-1790
+Keyword: memory corruption
+Microsoft Internet Explorer 6 SP2 6.0.2900.2180 and 6.0.2800.1106, and earlier versions, allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a Javascript BODY onload event that calls the window function, aka "Mismatched Document Object Model Objects Memory Corruption Vulnerability."
+
+CVE: CVE-2006-3637
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 SP4 and 6 does not properly handle various HTML layout component combinations, which allows user-assisted remote attackers to execute arbitrary code via a crafted HTML file that leads to memory corruption, aka "HTML Rendering Memory Corruption Vulnerability."
+
+CVE: CVE-2006-1302
+Keyword: memory corruption
+Buffer overflow in Microsoft Excel 2000 through 2003 allows user-assisted attackers to execute arbitrary code via a .xls file with certain crafted fields in a SELECTION record, which triggers memory corruption, aka "Malformed SELECTION record Vulnerability."
+
+[Project Zero]
+Title: Bypassing Administrator Protection by Abusing UI Access
+
+In my last blog post I introduced the new Windows feature, Administrator Protection and how it aimed to create a secure boundary for UAC where one didn’t exist. I described one of the ways I was able to bypass the feature before it was released. In total I found 9 bypasses during my research that have now all been fixed. In this blog post I wanted to describe the root cause of 5 of those 9 issues, specifically the implementation of UI Access, how this has been a long standing problem with UAC that’s been under-appreciated, and how it’s being fixed now. A Question of Accessibility Prior to Windows Vista any process running on a user’s desktop could control any window created by another, such as by sending window messages. This behavior could be abused if a privileged user, such as SYSTEM, displayed a user interface on the desktop. A limited user could control the UI and potentially elevate privileges. This was referred to as a Shatter Attack, and was usually fixed by removing user interface components from privileged code.
+
+CVE: CVE-2006-6651
+Keyword: memory corruption
+Race condition in W29N51.SYS in the Intel 2200BG wireless driver 9.0.3.9 allows remote attackers to cause memory corruption and execute arbitrary code via a series of crafted beacon frames.  NOTE: some details are obtained solely from third party information.
+
+CVE: CVE-2006-1316
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via an Office file with malformed string that triggers memory corruption related to record lengths, aka "Microsoft Office Parsing Vulnerability," a different vulnerability than CVE-2006-2389.
+
+CVE: CVE-2006-0030
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed graphic, which leads to memory corruption.
+
+CVE: CVE-2005-1990
+Keyword: memory corruption
+Internet Explorer 5.0, 5.5, and 6.0 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not ActiveX controls, including (1) devenum.dll, (2) diactfrm.dll, (3) wmm2filt.dll, (4) fsusd.dll, (5) dmdskmgr.dll, (6) browsewm.dll, (7) browseui.dll, (8) shell32.dll, (9) mshtml.dll, (10) inetcfg.dll, (11) infosoft.dll, (12) query.dll, (13) syncui.dll, (14) clbcatex.dll, (15) clbcatq.dll, (16) comsvcs.dll, and (17) msconf.dll, which causes memory corruption, aka "COM Object Instantiation Memory Corruption Vulnerability," a different vulnerability than CVE-2005-2087.
+
+CVE: CVE-2006-1186
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via by instantiating the (1) Mdt2gddr.dll, (2) Mdt2dd.dll, and (3) Mdt2gddo.dll COM objects as ActiveX controls, which leads to memory corruption.
+
+Exploit-DB #9912
+Title: AWStats 6.2 < 6.1 - configdir Command Injection (Metasploit)
+Type: webapps | Platform: cgi
+
+[OpenSSL: crypto/aes/aes_core.c]
+/*
+ * Copyright 2002-2026 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+/**
+ * rijndael-alg-fst.c
+ *
+ * @version 3.0 (December 2000)
+ *
+ * Optimised ANSI C code for the Rijndael cipher (now AES)
+ *
+ * @author Vincent Rijmen
+ * @author Antoon Bosselaers
+ * @author Paulo Barreto
+ *
+ * This code is hereby placed in the public domain.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* Note: rewritten a little bit to provide error control and an OpenSSL-
+   compatible API */
+
+/*
+ * AES low level APIs are deprecated for public use, but still ok for internal
+ * use where we're using them to implement the higher level EVP interface, as is
+ * the case here.
+ */
+#include "internal/deprecated.h"
+
+#include <assert.h>
+
+#include <stdlib.h>
+#include <openssl/crypto.h>
+#include <openssl/aes.h>
+#include "aes_local.h"
+
+#if defined(OPENSSL_AES_CONST_TIME) && !defined(AES_ASM)
+
+#if (defined(_WIN32) || defined(_WIN64)) && !defined(__MINGW32__)
+#define U64(C) C##UI64
+#elif defined(__arch64__)
+#define U64(C) C##UL
+#else
+#define U64(C) C##ULL
+#endif
+
+typedef union {
+    unsigned char b[8];
+    uint32_t w[2];
+    uint64_t d;
+} uni;
+
+/*
+ * Compute w := (w * x) mod (x^8 + x^4 + x^3 + x^1 + 1)
+ * Therefore the name "xtime".
+ */
+static void XtimeWord(uint32_t *w)
+{
+    uint32_t a, b;
+
+    a = *w;
+    b = a & 0x80808080u;
+    a ^= b;
+    b -= b >> 7;
+    b &= 0x1B1B1B1Bu;
+    b ^= a << 1;
+    *w = b;
+}
+
+static void XtimeLong(uint64_t *w)
+{
+    uint64_t a, b;
+
+    a = *w;
+    b = a & U64(0x8080808080808080);
+    a ^= b;
+    b -= b >> 7;
+    b &= U64(0x1B1B1B1B1B1B1B1B);
+    b ^= a << 1;
+    *w = b;
+}
+
+/*
+ * This computes w := S * w ^ -1 + c, where c = {01100011}.
+ * Instead of using GF(2^8) mod (x^8+x^4+x^3+x+1} we do the inversion
+ * in GF(GF(GF(2^2)^2)^2) mod (X^2+X+8)
+ * and GF(GF(2^2)^2) mod (X^2+X+2)
+ * and GF(2^2) mod (X^2+X+1)
+ * The first part of the algorithm below transfers the coordinates
+ * {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80} =>
+ * {1,Y,Y^2,Y^3,Y^4,Y^5,Y^6,Y^7} with Y=0x41:
+ * {0x01,0x41,0x66,0x6c,0x56,0x9a,0x58,0xc4}
+ * The last part undoes the coordinate transfer and the final affine
+ * transformation S:
+ * b[i] = b[i] + b[(i+4)%8] + b[(i+5)%8] + b[(i+6)%8] + b[(i+7)%8] + c[i]
+ * in one step.
+ * The multiplication in GF(2^2^2^2) is done in ordinary coords:
+ * A = (a0*1 + a1*x^4)
+ * B = (b0*1 + b1*x^4)
+ * AB = ((a0*b0 + 8*a1*b1)*1 + (a1*b0 + (a0+a1)*b1)*x^4)
+ * When A = (a0,a1) is given we want to solve AB = 1:
+ * (a) 1 = a0*b0 + 8*a1*b1
+ * (b) 0 = a1*b0 + (a0+a1)*b1
+ * => multiply (a) by a1 and (b) by a0
+ * (c) a1 = a1*a0*b0 + (8*a1*a1)*b1
+ * (d) 0 = a1*a0*b0 + (a0*a0+a1*a0)*b1
+ * => add (c) + (d)
+ * (e) a1 = (a0*a0 + a1*a0 + 8*a1*a1)*b1
+ * => therefore
+ * b1 = (a0*a0 + a1*a0 + 8*a1*a1)^-1 * a1
+ * => and adding (a1*b0) to (b) we get
+ * (f) a1*b0 = (a0+a1)*b1
+ * => therefore
+ * b0 = (a0*a0 + a1*a0 + 8*a1*a1)^-1 * (a0+a1)
+ * Note this formula also works for the case
+ * (a0+a1)*a0 + 8*a1*a1 = 0
+ * if the inverse element for 0^-1 is mapped to 0.
+ * Repeat the same for GF(2^2^2) and GF(2^2).
+ * We get the following algorithm:
+ * inv8(a0,a1):
+ *   x0 = a0^a1
+ *   [y0,y1] = mul4([x0,a1],[a0,a1]); (*)
+ *   y1 = mul4(8,y1);
+ *   t = inv4(y0^y1);
+ *   [b0,b1] = mul4([x0,a1],[t,t]); (*)
+ *   return [b0,b1];
+ * The non-linear multiplies (*) can be done in parallel at no extra cost.
+ */
+static void SubWord(uint32_t *w)
+{
+    uint32_t x, y, a1, a2, a3, a4, a5, a6;
+
+    x = *w;
+    y = ((x & 0xFEFEFEFEu) >> 1) | ((x & 0x01010101u) << 7);
+    x &= 0xDDDDDDDDu;
+    x ^= y & 0x57575757u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x1C1C1C1Cu;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x4A4A4A4Au;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x42424242u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x64646464u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0xE0E0E0E0u;
+    a1 = x;
+    a1 ^= (x & 0xF0F0F0F0u) >> 4;
+    a2 = ((x & 0xCCCCCCCCu) >> 2) | ((x & 0x33333333u) << 2);
+    a3 = x & a1;
+    a3 ^= (a3 & 0xAAAAAAAAu) >> 1;
+    a3 ^= (((x << 1) & a1) ^ ((a1 << 1) & x)) & 0xAAAAAAAAu;
+    a4 = a2 & a1;
+    a4 ^= (a4 & 0xAAAAAAAAu) >> 1;
+    a4 ^= (((a2 << 1) & a1) ^ ((a1 << 1) & a2)) & 0xAAAAAAAAu;
+    a5 = (a3 & 0xCCCCCCCCu) >> 2;
+    a3 ^= ((a4 << 2) ^ a4) & 0xCCCCCCCCu;
+    a4 = a5 & 0x22222222u;
+    a4 |= a4 >> 1;
+    a4 ^= (a5 << 1) & 0x22222222u;
+    a3 ^= a4;
+    a5 = a3 & 0xA0A0A0A0u;
+    a5 |= a5 >> 1;
+    a5 ^= (a3 << 1) & 0xA0A0A0A0u;
+    a4 = a5 & 0xC0C0C0C0u;
+    a6 = a4 >> 2;
+    a4 ^= (a5 << 2) & 0xC0C0C0C0u;
+    a5 = a6 & 0x20202020u;
+    a5 |= a5 >> 1;
+    a5 ^= (a6 << 1) & 0x20202020u;
+    a4 |= a5;
+    a3 ^= a4 >> 4;
+    a3 &= 0x0F0F0F0Fu;
+    a2 = a3;
+    a2 ^= (a3 & 0x0C0C0C0Cu) >> 2;
+    a4 = a3 & a2;
+    a4 ^= (a4 & 0x0A0A0A0Au) >> 1;
+    a4 ^= (((a3 << 1) & a2) ^ ((a2 << 1) & a3)) & 0x0A0A0A0Au;
+    a5 = a4 & 0x08080808u;
+    a5 |= a5 >> 1;
+    a5 ^= (a4 << 1) & 0x08080808u;
+    a4 ^=
+
+Exploit-DB #7713
+Title: VUPlayer 2.49 - '.asx' HREF Local Buffer Overflow (2)
+Type: local | Platform: windows
+
+CVE: CVE-2006-1301
+Keyword: memory corruption
+Microsoft Excel 2000 through 2004 allows user-assisted attackers to execute arbitrary code via a .xls file with a crafted SELECTION record that triggers memory corruption, a different vulnerability than CVE-2006-1302.
+
+Exploit-DB #46004
+Title: MegaPing - Local Buffer Overflow Denial of Service
+Type: dos | Platform: windows
+
+Exploit-DB #14394
+Title: Joomla! Component com_spa - SQL Injection (2)
+Type: webapps | Platform: php
+
+CVE: CVE-2005-0055
+Keyword: memory corruption
+Internet Explorer 5.01, 5.5, and 6 does not properly validate buffers when handling certain DHTML methods including the createControlRange Javascript function, which allows remote attackers to execute arbitrary code, aka the "DHTML Method Heap Memory Corruption Vulnerability."
+
+CVE: CVE-2005-3275
+Keyword: memory corruption
+The NAT code (1) ip_nat_proto_tcp.c and (2) ip_nat_proto_udp.c in Linux kernel 2.6 before 2.6.13 and 2.4 before 2.4.32-rc1 incorrectly declares a variable to be static, which allows remote attackers to cause a denial of service (memory corruption) by causing two packets for the same protocol to be NATed at the same time, which leads to memory corruption.
+
+CVE: CVE-2006-0020
+Keyword: memory corruption
+An unspecified Microsoft WMF parsing application, as used in Internet Explorer 5.01 SP4 on Windows 2000 SP4, and 5.5 SP2 on Windows Millennium, and possibly other versions, allows attackers to cause a denial of service (crash) and possibly execute code via a crafted WMF file with a manipulated WMF header size, possibly involving an integer overflow, a different vulnerability than CVE-2005-4560, and aka "WMF Image Parsing Memory Corruption Vulnerability."
+
+CVE: CVE-2006-1245
+Keyword: memory corruption
+Buffer overflow in mshtml.dll in Microsoft Internet Explorer 6.0.2900.2180, and probably other versions, allows remote attackers to execute arbitrary code via an HTML tag with a large number of script action handlers such as onload and onmouseover, as demonstrated using onclick, aka the "Multiple Event Handler Memory Corruption Vulnerability."
+
+[OpenSSL: crypto/rsa/rsa_ossl.c]
+/*
+ * Copyright 1995-2025 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+/*
+ * RSA low level APIs are deprecated for public use, but still ok for
+ * internal use.
+ */
+#include "internal/deprecated.h"
+
+#include "internal/cryptlib.h"
+#include "crypto/bn.h"
+#include "crypto/sparse_array.h"
+#include "rsa_local.h"
+#include "internal/constant_time.h"
+#if defined(OPENSSL_SYS_TANDEM)
+#include "internal/tsan_assist.h"
+#include "internal/threads_common.h"
+#endif
+#include <openssl/evp.h>
+#include <openssl/sha.h>
+#include <openssl/hmac.h>
+
+DEFINE_SPARSE_ARRAY_OF(BN_BLINDING);
+
+static int rsa_ossl_public_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_private_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_public_decrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_private_decrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_mod_exp(BIGNUM *r0, const BIGNUM *i, RSA *rsa,
+    BN_CTX *ctx);
+static int rsa_ossl_init(RSA *rsa);
+static int rsa_ossl_finish(RSA *rsa);
+#ifdef S390X_MOD_EXP
+static int rsa_ossl_s390x_mod_exp(BIGNUM *r0, const BIGNUM *i, RSA *rsa,
+    BN_CTX *ctx);
+static const RSA_METHOD rsa_pkcs1_ossl_meth = {
+    "OpenSSL PKCS#1 RSA",
+    rsa_ossl_public_encrypt,
+    rsa_ossl_public_decrypt, /* signature verification */
+    rsa_ossl_private_encrypt, /* signing */
+    rsa_ossl_private_decrypt,
+    rsa_ossl_s390x_mod_exp,
+    s390x_mod_exp,
+    rsa_ossl_init,
+    rsa_ossl_finish,
+    RSA_FLAG_FIPS_METHOD, /* flags */
+    NULL,
+    0, /* rsa_sign */
+    0, /* rsa_verify */
+    NULL, /* rsa_keygen */
+    NULL /* rsa_multi_prime_keygen */
+};
+#else
+static const RSA_METHOD rsa_pkcs1_ossl_meth = {
+    "OpenSSL PKCS#1 RSA",
+    rsa_ossl_public_encrypt,
+    rsa_ossl_public_decrypt, /* signature verification */
+    rsa_ossl_private_encrypt, /* signing */
+    rsa_ossl_private_decrypt,
+    rsa_ossl_mod_exp,
+    BN_mod_exp_mont, /* XXX probably we should not use Montgomery
+                      * if e == 3 */
+    rsa_ossl_init,
+    rsa_ossl_finish,
+    RSA_FLAG_FIPS_METHOD, /* flags */
+    NULL,
+    0, /* rsa_sign */
+    0, /* rsa_verify */
+    NULL, /* rsa_keygen */
+    NULL /* rsa_multi_prime_keygen */
+};
+#endif
+
+static const RSA_METHOD *default_RSA_meth = &rsa_pkcs1_ossl_meth;
+
+void RSA_set_default_method(const RSA_METHOD *meth)
+{
+    default_RSA_meth = meth;
+}
+
+const RSA_METHOD *RSA_get_default_method(void)
+{
+    return default_RSA_meth;
+}
+
+const RSA_METHOD *RSA_PKCS1_OpenSSL(void)
+{
+    return &rsa_pkcs1_ossl_meth;
+}
+
+const RSA_METHOD *RSA_null_method(void)
+{
+    return NULL;
+}
+
+static int rsa_ossl_public_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding)
+{
+    BIGNUM *f, *ret;
+    int i, num = 0, r = -1;
+    unsigned char *buf = NULL;
+    BN_CTX *ctx = NULL;
+
+    if (BN_num_bits(rsa->n) > OPENSSL_RSA_MAX_MODULUS_BITS) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_MODULUS_TOO_LARGE);
+        return -1;
+    }
+
+    if (BN_ucmp(rsa->n, rsa->e) <= 0) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_BAD_E_VALUE);
+        return -1;
+    }
+
+    /* for large moduli, enforce exponent limit */
+    if (BN_num_bits(rsa->n) > OPENSSL_RSA_SMALL_MODULUS_BITS) {
+        if (BN_num_bits(rsa->e) > OPENSSL_RSA_MAX_PUBEXP_BITS) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_BAD_E_VALUE);
+            return -1;
+        }
+    }
+
+    if ((ctx = BN_CTX_new_ex(rsa->libctx)) == NULL)
+        goto err;
+    BN_CTX_start(ctx);
+    f = BN_CTX_get(ctx);
+    ret = BN_CTX_get(ctx);
+    num = BN_num_bytes(rsa->n);
+    buf = OPENSSL_malloc(num);
+    if (ret == NULL || buf == NULL)
+        goto err;
+
+    switch (padding) {
+    case RSA_PKCS1_PADDING:
+        i = ossl_rsa_padding_add_PKCS1_type_2_ex(rsa->libctx, buf, num,
+            from, flen);
+        break;
+    case RSA_PKCS1_OAEP_PADDING:
+        i = ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(rsa->libctx, buf, num,
+            from, flen, NULL, 0,
+            NULL, NULL);
+        break;
+    case RSA_NO_PADDING:
+        i = RSA_padding_add_none(buf, num, from, flen);
+        break;
+    default:
+        ERR_raise(ERR_LIB_RSA, RSA_R_UNKNOWN_PADDING_TYPE);
+        goto err;
+    }
+    if (i <= 0)
+        goto err;
+
+    if (BN_bin2bn(buf, num, f) == NULL)
+        goto err;
+
+#ifdef FIPS_MODULE
+    /*
+     * See SP800-56Br2, section 7.1.1.1
+     * RSAEP: 1 < f < (n – 1).
+     * (where f is the plaintext).
+     */
+    if (padding == RSA_NO_PADDING) {
+        BIGNUM *nminus1 = BN_CTX_get(ctx);
+
+        if (BN_ucmp(f, BN_value_one()) <= 0) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_SMALL);
+            goto err;
+        }
+        if (nminus1 == NULL
+            || BN_copy(nminus1, rsa->n) == NULL
+            || !BN_sub_word(nminus1, 1))
+            goto err;
+        if (BN_ucmp(f, nminus1) >= 0) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_LARGE_FOR_MODULUS);
+            goto err;
+        }
+    } else
+#endif
+    {
+        if (BN_ucmp(f, rsa->n) >= 0) {
+            /* usually the padding functions would catch this */
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_LARGE_FOR_MODULUS);
+            goto err;
+        }
+    }
+
+    if (rsa->flags & RSA_FLAG_CACHE_PUBLIC)
+        if (!BN_MONT_CTX_set_locked(&rsa->_method_mod_n, rsa->lock,
+                rsa->n, ctx))
+            goto err;
+
+    if (!rsa->meth->bn_mod_exp(ret, f, rsa->e, rsa->n, ctx,
+            rsa->_method_mod_n))
+        goto err;
+
+    /*
+     * BN_bn2binpad puts in leading 0 bytes if the number is less than
+     * the length of the modulus.
+     */
+    r = BN_bn2binpad(ret, to, num);
+err:
+    BN_CT
+
+CVE: CVE-2006-1309
+Keyword: memory corruption
+Microsoft Excel 2000 through 2004 allows user-assisted attackers to execute arbitrary code via a .xls file with a crafted LABEL record that triggers memory corruption.
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens
+
+We recently published an exploit chain for the Google Pixel 9 that demonstrated it was possible to go from a zero-click context to root on Android in just two exploits. The Dolby 0-click vulnerability existed across all of Android, until it was patched in January 2026. While we had an exploit chain for the Pixel 9, we wanted to see if it was possible to write a similar exploit chain for Pixel 10. Updating the Dolby Exploit Altering our exploit for CVE-2025-54957 was fairly straightforward. The majority of needed changes involved updating offsets calculated for the specific version of the library we targeted on the Pixel 9 to similar offsets in the library for Pixel 10. The only challenge (outside of wishing we’d better documented which syncframes contained offsets) was that the Pixel 10 uses RET PAC in the place of -fstack-protector, which meant that __stack_chk_fail wasn’t available to be overwritten by code. After a bit of trial and error, we used dap_cpdp_init, initialization code that can be overwritten without causing functional problems, as it is called once when the decoder is initialized and never again.
+
+CVE: CVE-2004-2533
+Keyword: memory corruption
+Serv-U FTP Server 4.1 (possibly 4.0) allows remote attackers to cause a denial of service (application crash) via a SITE CHMOD command with a "\\...\" followed by a short string, causing partial memory corruption, a different vulnerability than CVE-2004-2111.
+
+CVE: CVE-2006-6561
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000, 2002, and Word Viewer 2003 allows user-assisted remote attackers to execute arbitrary code via a crafted DOC file that triggers memory corruption, as demonstrated via the 12122006-djtest.doc file, a different issue than CVE-2006-5994 and CVE-2006-6456.
+
+CVE: CVE-2006-6103
+Keyword: memory corruption
+Integer overflow in the ProcDbeSwapBuffers function in the DBE extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of unspecified data structures.
+
+Exploit-DB #32557
+Title: FTP Drive + HTTP 1.0.4 iOS - Code Execution
+Type: webapps | Platform: ios
+
+CVE: CVE-2006-1314
+Keyword: memory corruption
+Heap-based buffer overflow in the Server Service (SRV.SYS driver) in Microsoft Windows 2000 SP4, XP SP1 and SP2, Server 2003 up to SP1, and other products, allows remote attackers to execute arbitrary code via crafted first-class Mailslot messages that triggers memory corruption and bypasses size restrictions on second-class Mailslot messages.
+
+CVE: CVE-2006-6504
+Keyword: memory corruption
+Mozilla Firefox 2.x before 2.0.0.1, 1.5.x before 1.5.0.9, and SeaMonkey before 1.0.7 allows remote attackers to execute arbitrary code by appending an SVG comment DOM node to another type of document, which triggers memory corruption.
+
+CVE: CVE-2006-1790
+Keyword: memory corruption
+A regression fix in Mozilla Firefox 1.0.7 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via the InstallTrigger.install method, which leads to memory corruption.
+
+Exploit-DB #29154
+Title: CreaDirectory 1.2 - 'search.asp?category' SQL Injection
+Type: webapps | Platform: asp
+
+CVE: CVE-2006-4687
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via crafted layout combinations involving DIV tags and HTML CSS float properties that trigger memory corruption, aka "HTML Rendering Memory Corruption Vulnerability."
+
+Exploit-DB #11738
+Title: Joomla! Component com_gcalendar Suite 2.1.5 - Local File Inclusion
+Type: webapps | Platform: php
+
+CVE: CVE-2007-0099
+Keyword: memory corruption
+Race condition in the msxml3 module in Microsoft XML Core Services 3.0, as used in Internet Explorer 6 and other applications, allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via many nested tags in an XML document in an IFRAME, when synchronous document rendering is frequently disrupted with asynchronous events, as demonstrated using a JavaScript timer, which can trigger NULL pointer dereferences or memory corruption, aka "MSXML Memory Corruption Vulnerability."
+
+Exploit-DB #8542
+Title: Icewarp Merak Mail Server 9.4.1 - 'Base64FileEncode()' Buffer Overflow (PoC)
+Type: dos | Platform: windows
+
+[OpenSSL: ssl/ssl_lib.c]
+/*
+ * Copyright 1995-2026 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright (c) 2002, Oracle and/or its affiliates. All rights reserved
+ * Copyright 2005 Nokia. All rights reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#include "internal/e_os.h"
+#include "internal/e_winsock.h"
+#include "ssl_local.h"
+
+#include <openssl/err.h>
+#include <openssl/objects.h>
+#include <openssl/x509v3.h>
+#include <openssl/rand.h>
+#include <openssl/ocsp.h>
+#include <openssl/dh.h>
+#include <openssl/async.h>
+#include <openssl/kdf.h>
+#include <openssl/ct.h>
+#include <openssl/trace.h>
+#include <openssl/core_names.h>
+#include <openssl/provider.h>
+#include "internal/cryptlib.h"
+#include "internal/nelem.h"
+#include "internal/refcount.h"
+#include "internal/thread_once.h"
+#include "internal/ktls.h"
+#include "internal/to_hex.h"
+#include "internal/ssl_unwrap.h"
+#include "quic/quic_local.h"
+
+#ifndef OPENSSL_NO_SSLKEYLOG
+#include <sys/stat.h>
+#include <fcntl.h>
+#endif
+
+static int ssl_undefined_function_3(SSL_CONNECTION *sc, unsigned char *r,
+    unsigned char *s, size_t t, size_t *u)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_4(SSL_CONNECTION *sc, int r)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static size_t ssl_undefined_function_5(SSL_CONNECTION *sc, const char *r,
+    size_t s, unsigned char *t)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_6(int r)
+{
+    return ssl_undefined_function(NULL);
+}
+
+static int ssl_undefined_function_7(SSL_CONNECTION *sc, unsigned char *r,
+    size_t s, const char *t, size_t u,
+    const unsigned char *v, size_t w, int x)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_8(SSL_CONNECTION *sc)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+const SSL3_ENC_METHOD ssl3_undef_enc_method = {
+    ssl_undefined_function_8,
+    ssl_undefined_function_3,
+    ssl_undefined_function_4,
+    ssl_undefined_function_5,
+    NULL, /* client_finished_label */
+    0, /* client_finished_label_len */
+    NULL, /* server_finished_label */
+    0, /* server_finished_label_len */
+    ssl_undefined_function_6,
+    ssl_undefined_function_7,
+};
+
+struct ssl_async_args {
+    SSL *s;
+    void *buf;
+    size_t num;
+    enum { READFUNC,
+        WRITEFUNC,
+        OTHERFUNC } type;
+    union {
+        int (*func_read)(SSL *, void *, size_t, size_t *);
+        int (*func_write)(SSL *, const void *, size_t, size_t *);
+        int (*func_other)(SSL *);
+    } f;
+};
+
+static const struct {
+    uint8_t mtype;
+    uint8_t ord;
+    int nid;
+} dane_mds[] = {
+    { DANETLS_MATCHING_FULL, 0, NID_undef },
+    { DANETLS_MATCHING_2256, 1, NID_sha256 },
+    { DANETLS_MATCHING_2512, 2, NID_sha512 },
+};
+
+static int dane_ctx_enable(struct dane_ctx_st *dctx)
+{
+    const EVP_MD **mdevp;
+    uint8_t *mdord;
+    uint8_t mdmax = DANETLS_MATCHING_LAST;
+    int n = ((int)mdmax) + 1; /* int to handle PrivMatch(255) */
+    size_t i;
+
+    if (dctx->mdevp != NULL)
+        return 1;
+
+    mdevp = OPENSSL_calloc(n, sizeof(*mdevp));
+    mdord = OPENSSL_calloc(n, sizeof(*mdord));
+
+    if (mdord == NULL || mdevp == NULL) {
+        OPENSSL_free(mdord);
+        OPENSSL_free(mdevp);
+        return 0;
+    }
+
+    /* Install default entries */
+    for (i = 0; i < OSSL_NELEM(dane_mds); ++i) {
+        const EVP_MD *md;
+
+        if (dane_mds[i].nid == NID_undef || (md = EVP_get_digestbynid(dane_mds[i].nid)) == NULL)
+            continue;
+        mdevp[dane_mds[i].mtype] = md;
+        mdord[dane_mds[i].mtype] = dane_mds[i].ord;
+    }
+
+    dctx->mdevp = mdevp;
+    dctx->mdord = mdord;
+    dctx->mdmax = mdmax;
+
+    return 1;
+}
+
+static void dane_ctx_final(struct dane_ctx_st *dctx)
+{
+    OPENSSL_free(dctx->mdevp);
+    dctx->mdevp = NULL;
+
+    OPENSSL_free(dctx->mdord);
+    dctx->mdord = NULL;
+    dctx->mdmax = 0;
+}
+
+static void tlsa_free(danetls_record *t)
+{
+    if (t == NULL)
+        return;
+    OPENSSL_free(t->data);
+    EVP_PKEY_free(t->spki);
+    OPENSSL_free(t);
+}
+
+static void dane_final(SSL_DANE *dane)
+{
+    sk_danetls_record_pop_free(dane->trecs, tlsa_free);
+    dane->trecs = NULL;
+
+    OSSL_STACK_OF_X509_free(dane->certs);
+    dane->certs = NULL;
+
+    X509_free(dane->mcert);
+    dane->mcert = NULL;
+    dane->mtlsa = NULL;
+    dane->mdpth = -1;
+    dane->pdpth = -1;
+}
+
+/*
+ * dane_copy - Copy dane configuration, sans verification state.
+ */
+static int ssl_dane_dup(SSL_CONNECTION *to, SSL_CONNECTION *from)
+{
+    int num;
+    int i;
+
+    if (!DANETLS_ENABLED(&from->dane))
+        return 1;
+
+    num = sk_danetls_record_num(from->dane.trecs);
+    dane_final(&to->dane);
+    to->dane.flags = from->dane.flags;
+    to->dane.dctx = &SSL_CONNECTION_GET_CTX(to)->dane;
+    to->dane.trecs = sk_danetls_record_new_reserve(NULL, num);
+
+    if (to->dane.trecs == NULL) {
+        ERR_raise(ERR_LIB_SSL, ERR_R_CRYPTO_LIB);
+        return 0;
+    }
+
+    for (i = 0; i < num; ++i) {
+        danetls_record *t = sk_danetls_record_value(from->dane.trecs, i);
+
+        if (SSL_dane_tlsa_add(SSL_CONNECTION_GET_SSL(to), t->usage,
+                t->selector, t->mtype, t->data, t->dlen)
+            <= 0)
+            return 0;
+    }
+    return 1;
+}
+
+static int dane_mtype_set(struct dane_ctx_st *dctx,
+    const EVP_MD *md, uint8_t mtype, uint8_t ord)
+{
+    int i;
+
+    if (mtype == DANETLS_MATCHING_FULL && md != NULL) {
+        ERR_raise(ERR_LIB_SSL, SSL_R_DANE_CANNOT_OVERRIDE_MTYPE_FULL);
+        return 0;
+    }
+
+    if (mtype > dctx->mdmax) {
+        const EVP_MD **mdevp;
+        uint8_t *mdord;
+        int n = ((int)mtype) + 1;
+
+        mdevp = OPENSSL_realloc_array(dctx->mdevp, n, sizeof(*mdevp));
+        if (mdevp == NULL)
+            return -1;
+        dctx-
+
+Exploit-DB #45588
+Title: HaPe PKH 1.1 - 'id' SQL Injection
+Type: webapps | Platform: php
+
+CVE: CVE-2006-2629
+Keyword: memory corruption
+Race condition in Linux kernel 2.6.15 to 2.6.17, when running on SMP platforms, allows local users to cause a denial of service (crash) by creating and exiting a large number of tasks, then accessing the /proc entry of a task that is exiting, which causes memory corruption that leads to a failure in the prune_dcache function or a BUG_ON error in include/linux/list.h.
+
+CVE: CVE-2007-0102
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by Apple Mac OS X Preview, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+Exploit-DB #37900
+Title: IBM Lotus Notes Traveler 8.5.1.x - Multiple Input Validation Vulnerabilities
+Type: remote | Platform: multiple
+
+[OpenSSL: ssl/tls13_enc.c]
+/*
+ * Copyright 2016-2026 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#include <stdlib.h>
+#include "ssl_local.h"
+#include "internal/ktls.h"
+#include "record/record_local.h"
+#include "internal/cryptlib.h"
+#include "internal/ssl_unwrap.h"
+#include <openssl/evp.h>
+#include <openssl/kdf.h>
+#include <openssl/core_names.h>
+
+#define TLS13_MAX_LABEL_LEN 249
+
+/* ASCII: "tls13 ", in hex for EBCDIC compatibility */
+static const unsigned char label_prefix[] = "\x74\x6C\x73\x31\x33\x20";
+
+/*
+ * Given a |secret|; a |label| of length |labellen|; and |data| of length
+ * |datalen| (e.g. typically a hash of the handshake messages), derive a new
+ * secret |outlen| bytes long and store it in the location pointed to be |out|.
+ * The |data| value may be zero length. Any errors will be treated as fatal if
+ * |fatal| is set. Returns 1 on success  0 on failure.
+ * If |raise_error| is set, ERR_raise is called on failure.
+ */
+int tls13_hkdf_expand_ex(OSSL_LIB_CTX *libctx, const char *propq,
+    const EVP_MD *md,
+    const unsigned char *secret,
+    const unsigned char *label, size_t labellen,
+    const unsigned char *data, size_t datalen,
+    unsigned char *out, size_t outlen, int raise_error)
+{
+    EVP_KDF *kdf = EVP_KDF_fetch(libctx, OSSL_KDF_NAME_TLS1_3_KDF, propq);
+    EVP_KDF_CTX *kctx;
+    OSSL_PARAM params[8], *p = params;
+    int mode = EVP_PKEY_HKDEF_MODE_EXPAND_ONLY;
+    const char *mdname = EVP_MD_get0_name(md);
+    int ret;
+    size_t hashlen;
+
+    kctx = EVP_KDF_CTX_new(kdf);
+    EVP_KDF_free(kdf);
+    if (kctx == NULL)
+        return 0;
+
+    if (labellen > TLS13_MAX_LABEL_LEN) {
+        if (raise_error)
+            /*
+             * Probably we have been called from SSL_export_keying_material(),
+             * or SSL_export_keying_material_early().
+             */
+            ERR_raise(ERR_LIB_SSL, SSL_R_TLS_ILLEGAL_EXPORTER_LABEL);
+
+        EVP_KDF_CTX_free(kctx);
+        return 0;
+    }
+
+    if ((ret = EVP_MD_get_size(md)) <= 0) {
+        EVP_KDF_CTX_free(kctx);
+        if (raise_error)
+            ERR_raise(ERR_LIB_SSL, ERR_R_INTERNAL_ERROR);
+        return 0;
+    }
+    hashlen = (size_t)ret;
+
+    *p++ = OSSL_PARAM_construct_int(OSSL_KDF_PARAM_MODE, &mode);
+    *p++ = OSSL_PARAM_construct_utf8_string(OSSL_KDF_PARAM_DIGEST,
+        (char *)mdname, 0);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_KEY,
+        (unsigned char *)secret, hashlen);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_PREFIX,
+        (unsigned char *)label_prefix,
+        sizeof(label_prefix) - 1);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_LABEL,
+        (unsigned char *)label, labellen);
+    if (data != NULL)
+        *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_DATA,
+            (unsigned char *)data,
+            datalen);
+    if (propq != NULL)
+        *p++ = OSSL_PARAM_construct_utf8_string(OSSL_KDF_PARAM_PROPERTIES,
+            (char *)propq, 0);
+
+    *p++ = OSSL_PARAM_construct_end();
+
+    ret = EVP_KDF_derive(kctx, out, outlen, params) <= 0;
+    EVP_KDF_CTX_free(kctx);
+
+    if (ret != 0) {
+        if (raise_error)
+            ERR_raise(ERR_LIB_SSL, ERR_R_INTERNAL_ERROR);
+    }
+
+    return ret == 0;
+}
+
+int tls13_hkdf_expand(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    const unsigned char *label, size_t labellen,
+    const unsigned char *data, size_t datalen,
+    unsigned char *out, size_t outlen, int fatal)
+{
+    int ret;
+    SSL_CTX *sctx = SSL_CONNECTION_GET_CTX(s);
+
+    ret = tls13_hkdf_expand_ex(sctx->libctx, sctx->propq, md,
+        secret, label, labellen, data, datalen,
+        out, outlen, !fatal);
+    if (ret == 0 && fatal)
+        SSLfatal(s, SSL_AD_INTERNAL_ERROR, ERR_R_INTERNAL_ERROR);
+
+    return ret;
+}
+
+/*
+ * Given a |secret| generate a |key| of length |keylen| bytes. Returns 1 on
+ * success  0 on failure.
+ */
+int tls13_derive_key(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *key, size_t keylen)
+{
+    /* ASCII: "key", in hex for EBCDIC compatibility */
+    static const unsigned char keylabel[] = "\x6B\x65\x79";
+
+    return tls13_hkdf_expand(s, md, secret, keylabel, sizeof(keylabel) - 1,
+        NULL, 0, key, keylen, 1);
+}
+
+/*
+ * Given a |secret| generate an |iv| of length |ivlen| bytes. Returns 1 on
+ * success  0 on failure.
+ */
+int tls13_derive_iv(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *iv, size_t ivlen)
+{
+    /* ASCII: "iv", in hex for EBCDIC compatibility */
+    static const unsigned char ivlabel[] = "\x69\x76";
+
+    return tls13_hkdf_expand(s, md, secret, ivlabel, sizeof(ivlabel) - 1,
+        NULL, 0, iv, ivlen, 1);
+}
+
+int tls13_derive_finishedkey(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *fin, size_t finlen)
+{
+    /* ASCII: "finished", in hex for EBCDIC compatibility */
+    static const unsigned char finishedlabel[] = "\x66\x69\x6E\x69\x73\x68\x65\x64";
+
+    return tls13_hkdf_expand(s, md, secret, finishedlabel,
+        sizeof(finishedlabel) - 1, NULL, 0, fin, finlen, 1);
+}
+
+/*
+ * Given the previous secret |prevsecret| and a new input secret |insecret| of
+ * length |insecretlen|, generate a new secret and store it in the location
+ * pointed to by |outsecret|. Returns 1 on success  0 on failure.
+ */
+int tls13_generate_secret(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *prevsecret,
+    const unsigned char *insecret,
+    size_t insecretlen,
+    unsigned char *outsecret)
+{
+    size_t mdlen;
+    int mdleni;
+    int ret;
+    EVP_KDF *kdf;
+    EVP_KDF_CTX *kctx;
+    OSSL_PARAM params[7], *p = params;
+    int mode = EVP_PKEY_HKDEF_MODE_EXTRACT_ONLY;
+    const char *mdname = EVP_MD_get0_name(md);
+    /* ASCII: "der
+
+CVE: CVE-2007-0103
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by Adobe Acrobat before 8.0.0, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+CVE: CVE-2006-2370
+Keyword: memory corruption
+Buffer overflow in the Routing and Remote Access service (RRAS) in Microsoft Windows 2000 SP4, XP SP1 and SP2, and Server 2003 SP1 and earlier allows remote unauthenticated or authenticated attackers to execute arbitrary code via certain crafted "RPC related requests," aka the "RRAS Memory Corruption Vulnerability."
+
+CVE: CVE-2006-5581
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 6 allows remote attackers to execute arbitrary code via certain DHTML script functions, such as normalize, and "incorrectly created elements" that trigger memory corruption, aka "DHTML Script Function Memory Corruption Vulnerability."
+
+CVE: CVE-2006-6876
+Keyword: memory corruption
+Buffer overflow in the fetchsms function in the SMS handling module (libsms_getsms.c) in OpenSER 1.2.0 and earlier allows remote attackers to cause a denial of service (crash) via a crafted SMS message, triggering memory corruption when the "beginning" buffer is copied to the third (pdu) argument.
+
+CVE: CVE-2006-0022
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft PowerPoint in Microsoft Office 2000 SP3, Office XP SP3, Office 2003 SP1 and SP2, Office 2004 for Mac, and v. X for Mac allows user-assisted attackers to execute arbitrary code via a PowerPoint document with a malformed record, which triggers memory corruption.
+
+CVE: CVE-2006-3656
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft PowerPoint 2003 allows user-assisted attackers to cause memory corruption via a crafted PowerPoint file, which triggers the corruption when the file is closed.  NOTE: due to the lack of available details as of 20060717, it is unclear how this is related to CVE-2006-3655, CVE-2006-3660, and CVE-2006-3590, although it is possible that they are all different.
+
+CVE: CVE-2000-0484
+Keyword: memory corruption
+Small HTTP Server ver 3.06 contains a memory corruption bug causing a memory overflow. The overflowed buffer crashes into a Structured Exception Handler resulting in a Denial of Service.
+
+CVE: CVE-2006-3434
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2000, XP, 2003, 2004 for Mac, and v.X for Mac allows remote user-assisted attackers to execute arbitrary code via a crafted string that triggers memory corruption.
+
+CVE: CVE-2006-3113
+Keyword: memory corruption
+Mozilla Firefox 1.5 before 1.5.0.5, Thunderbird before 1.5.0.5, and SeaMonkey before 1.0.3 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via simultaneous XPCOM events, which causes a timer object to be deleted in a way that triggers memory corruption.
+
+CVE: CVE-2006-1742
+Keyword: memory corruption
+The JavaScript engine in Mozilla Firefox and Thunderbird 1.x before 1.5 and 1.0.x before 1.0.8, Mozilla Suite before 1.7.13, and SeaMonkey before 1.0 does not properly handle temporary variables that are not garbage collected, which might allow remote attackers to trigger operations on freed memory and cause memory corruption.
+
+CVE: CVE-2006-3945
+Keyword: memory corruption
+The CSS functionality in Opera 9 on Windows XP SP2 allows remote attackers to cause a denial of service (crash) by setting the background property of a DHTML element to a long http or https URL, which triggers memory corruption.
+
+CVE: CVE-2002-0004
+Keyword: memory corruption
+Heap corruption vulnerability in the "at" program allows local users to execute arbitrary code via a malformed execution time, which causes at to free the same memory twice.
+
+CVE: CVE-2006-6128
+Keyword: memory corruption
+The ReiserFS functionality in Linux kernel 2.6.18, and possibly other versions, allows local users to cause a denial of service via a malformed ReiserFS file system that triggers memory corruption when a sync is performed.
+
+CVE: CVE-2006-6062
+Keyword: memory corruption
+Unspecified vulnerability in Apple Mac OS X 10.4.8, and possibly other versions, allows remote attackers to cause a denial of service (crash) via a malformed UDTO HFS+ disk image, such as with "bad sectors," which triggers memory corruption.
+
+CVE: CVE-2006-4688
+Keyword: memory corruption
+Buffer overflow in Client Service for NetWare (CSNW) in Microsoft Windows 2000 SP4, XP SP2, and Server 2003 up to SP1 allows remote attackers to execute arbitrary code via crafted messages, aka "Client Service for NetWare Memory Corruption Vulnerability."
+
+Exploit-DB #30987
+Title: NetRisk 1.9.7 - 'index.php' Remote File Inclusion
+Type: webapps | Platform: php
+
+[Hardware Spec: ARM Cortex-M4 CMSIS Core]
+/*
+ * Copyright (c) 2009-2024 Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the License); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * CMSIS Cortex-M4 Core Peripheral Access Layer Header File
+ */
+
+#if   defined ( __ICCARM__ )
+  #pragma system_include                        /* treat file as system include file for MISRA check */
+#elif defined (__clang__)
+  #pragma clang system_header                   /* treat file as system include file */
+#elif defined ( __GNUC__ )
+  #pragma GCC diagnostic ignored "-Wpedantic"   /* disable pedantic warning due to unnamed structs/unions */
+#endif
+
+#ifndef __CORE_CM4_H_GENERIC
+#define __CORE_CM4_H_GENERIC
+
+#include <stdint.h>
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/**
+  \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
+  CMSIS violates the following MISRA-C:2004 rules:
+
+   \li Required Rule 8.5, object/function definition in header file.<br>
+     Function definitions in header files are used to allow 'inlining'.
+
+   \li Required Rule 18.4, declaration of union type or object of union type: '{...}'.<br>
+     Unions are used for effective representation of core registers.
+
+   \li Advisory Rule 19.7, Function-like macro defined.<br>
+     Function-like macros are used to allow more efficient code.
+ */
+
+
+/*******************************************************************************
+ *                 CMSIS definitions
+ ******************************************************************************/
+/**
+  \ingroup Cortex_M4
+  @{
+ */
+
+#include "cmsis_version.h"
+
+/* CMSIS CM4 definitions */
+
+#define __CORTEX_M                (4U)                                /*!< Cortex-M Core */
+
+/** __FPU_USED indicates whether an FPU is used or not.
+    For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and functions.
+*/
+#if defined ( __CC_ARM )
+  #if defined (__TARGET_FPU_VFP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+  #if defined (__ARM_FP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined (__ti__)
+  #if defined (__ARM_FP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __GNUC__ )
+  #if defined (__VFP_FP__) && !defined(__SOFTFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __ICCARM__ )
+  #if defined (__ARMVFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __TI_ARM__ )
+  #if defined (__TI_VFP_SUPPORT__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __TASKING__ )
+  #if defined (__FPU_VFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __CSMC__ )
+  #if ( __CSMC__ & 0x400U)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#endif
+
+#include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __CORE_CM4_H_GENERIC */
+
+#ifndef __CMSIS_GENERIC
+
+#ifndef __CORE_CM4_H_DEPENDANT
+#define __CORE_CM4_H_DEPENDANT
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/* check device defines and use defaults */
+#if defined __CHECK_DEVICE_DEFINES
+  #ifndef __CM4_REV
+    #define __CM4_REV               0x0000U
+    #warning "__CM4_REV not defined in device header file; using default!"
+  #endif
+
+  #ifndef __FPU_PRESENT
+    #define __FPU_PRESENT             0U
+    #warning "__FPU_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __MPU_PRESENT
+    #define __MPU_PRESENT             0U
+    #warning "__MPU_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __VTOR_PRESENT
+    #define __VTOR_PRESENT            1U
+    #warning "__VTOR_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __NVIC_PRIO_BITS
+    #define __NVIC_PRIO_BITS          3U
+    #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
+  #endif
+
+  #ifndef __Vendor_SysTickConfig
+    #define __Vendor_SysTickConfig    0U
+    #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
+  #endif
+#endif
+
+/* IO definitions (access restrictions to peripheral registers) */
+/**
+    \defgroup CMSIS_glob_defs CMSIS Global Defines
+
+    <strong>IO Type Qualifiers</strong> are used
+    \li to specify the access to peripheral variables.
+    \li for automatic generation of peripheral register debug information.
+*/
+#ifdef __cplusplus
+  #define   __I     volatile             /*!< Defines 'read only' permissions */
+#else
+  #define   __I     volatile const       /*!< Defines 'read only' permissions */
+#endif
+#define     __O     volatile             /*!< Defines 'write only' permissions */
+#define     __IO    volatile             /*!< Defines 'read / write' permissions */
+
+/* following defines should be used for structure members */
+#define     __IM     volatile const      /*! Defines 'read only' structure member permissions */
+#define     __OM     volatile            /*! Defines 'write only' structure member permissions */
+#define     __IOM    volatile            /*! Defines 'read / write' structure member permissions */
+
+/*@} end of group Cortex_M4 */
+
+
+
+/*******************************************************************************
+ *                 Register Abstraction
+  Core Register contain:
+  - Core Register
+  - Core NVIC Register
+  - Core SCB Register
+  - Core SysTick Register
+  - Core Debug Register
+  - Core MPU Register
+  - Core FPU Register
+ ******************************************************************************/
+/**
+
+CVE: CVE-2006-6102
+Keyword: memory corruption
+Integer overflow in the ProcDbeGetVisualInfo function in the DBE extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of unspecified data structures.
+
+CVE: CVE-2006-0031
+Keyword: memory corruption
+Stack-based buffer overflow in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed record with a modified length value, which leads to memory corruption.
+
+[Project Zero]
+Title: Welcome to the new Project Zero Blog
+
+While on Project Zero, we aim for our research to be leading-edge, our blog design was … not so much. We welcome readers to our shiny new blog! For the occasion, we asked members of Project Zero to dust off old blog posts that never quite saw the light of day. And while we wish we could say the techniques they cover are no longer relevant, there is still a lot of work that needs to be done to protect users against zero days. Our new blog will continue to shine a light on the capabilities of attackers and the many opportunities that exist to protect against them. From 2016: Windows Exploitation Techniques: Race conditions with path lookups by James Forshaw From 2017: Thinking Outside The Box by Jann Horn
+
+Exploit-DB #22324
+Title: File 3.x - Local Stack Overflow Code Execution (1)
+Type: local | Platform: unix
+
+CVE: CVE-2005-0553
+Keyword: memory corruption
+Race condition in the memory management routines in the DHTML object processor in Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to execute arbitrary code via a malicious web page or HTML e-mail, aka "DHTML Object Memory Corruption Vulnerability".
+
+Exploit-DB #17032
+Title: VMCPlayer 1.0 - Denial of Service
+Type: dos | Platform: windows
+
+CVE: CVE-2006-6854
+Keyword: memory corruption
+The qcamvc_video_init function in qcamvc.c in De Marchi Daniele QuickCam VC Linux device driver (aka quickcam-vc) 1.0.9 and earlier does not properly check a boundary, triggering memory corruption, which might allow attackers to execute arbitrary code via a crafted QuickCam object.
+
+CVE: CVE-2006-4193
+Keyword: memory corruption
+Microsoft Internet Explorer 6.0 SP1 and possibly other versions allows remote attackers to cause a denial of service and possibly execute arbitrary code by instantiating COM objects as ActiveX controls, including (1) imskdic.dll (Microsoft IME), (2) chtskdic.dll (Microsoft IME), and (3) msoe.dll (Outlook), which leads to memory corruption. NOTE: it is not certain whether the issue is in Internet Explorer or the individual DLL files.
+
+CVE: CVE-2006-2919
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft NetMeeting 3.01 allows remote attackers to cause a denial of service (crash or CPU consumption) and possibly execute arbitrary code via crafted inputs that trigger memory corruption.
+
+CVE: CVE-2006-3057
+Keyword: memory corruption
+Unspecified vulnerability in NetworkManager daemon for DHCP (dhcdbd) allows remote attackers to cause a denial of service (crash) via certain invalid DHCP responses that trigger memory corruption.
+
+CVE: CVE-2006-0007
+Keyword: memory corruption
+Buffer overflow in GIFIMP32.FLT, as used in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via a crafted GIF image that triggers memory corruption when it is parsed.
+
+CVE: CVE-2005-3193
+Keyword: memory corruption
+Heap-based buffer overflow in the JPXStream::readCodestream function in the JPX stream parsing code (JPXStream.c) for xpdf 3.01 and earlier, as used in products such as (1) Poppler, (2) teTeX, (3) KDE kpdf, (4) CUPS, and (5) libextractor allows user-assisted attackers to cause a denial of service (heap corruption) and possibly execute arbitrary code via a crafted PDF file with large size values that cause insufficient memory to be allocated.
+
+CVE: CVE-2005-4131
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed range, which could lead to memory corruption involving an argument to the msvcrt.memmove function, aka "Brand new Microsoft Excel Vulnerability," as originally placed for sale on eBay as item number 7203336538.
+
+CVE: CVE-2006-5579
+Keyword: memory corruption
+Microsoft Internet Explorer 6 allows remote attackers to execute arbitrary code by using JavaScript to cause certain errors simultaneously, which results in the access of previously freed memory, aka "Script Error Handling Memory Corruption Vulnerability."
+
+[Project Zero]
+Title: A Deep Dive into the GetProcessHandleFromHwnd API
+
+In my previous blog post I mentioned the GetProcessHandleFromHwnd API. This was an API I didn’t know existed until I found a publicly disclosed UAC bypass using the Quick Assist UI Access application. This API looked interesting so I thought I should take a closer look. I typically start by reading the documentation for an API I don’t know about, assuming it’s documented at all. It can give you an idea of how long the API has existed as well as its security properties. The documentation’s remarks contain the following three statements that I thought were interesting: If the caller has UIAccess, however, they can use a windows hook to inject code into the target process, and from within the target process, send a handle back to the caller. GetProcessHandleFromHwnd is a convenience function that uses this technique to obtain the handle of the process that owns the specified HWND. Note that it only succeeds in cases where the caller and target process are running as the same user.
+
+CVE: CVE-2006-1368
+Keyword: memory corruption
+Buffer overflow in the USB Gadget RNDIS implementation in the Linux kernel before 2.6.16 allows remote attackers to cause a denial of service (kmalloc'd memory corruption) via a remote NDIS response to OID_GEN_SUPPORTED_LIST, which causes memory to be allocated for the reply data but not the reply structure.
+
+CVE: CVE-2006-2780
+Keyword: memory corruption
+Integer overflow in Mozilla Firefox and Thunderbird before 1.5.0.4 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via "jsstr tagify," which leads to memory corruption.
+
+CVE: CVE-2006-3864
+Keyword: memory corruption
+Unspecified vulnerability in mso.dll in Microsoft Office 2000, XP, and 2003, and Microsoft PowerPoint 2000, XP, and 2003, allows remote user-assisted attackers to execute arbitrary code via a malformed record in a (1) .DOC, (2) .PPT, or (3) .XLS file that triggers memory corruption, related to an "array boundary condition" (possibly an array index overflow), a different vulnerability than CVE-2006-3434, CVE-2006-3650, and CVE-2006-3868.
+
+CVE: CVE-2006-5748
+Keyword: memory corruption
+Multiple unspecified vulnerabilities in the JavaScript engine in Mozilla Firefox before 1.5.0.8, Thunderbird before 1.5.0.8, and SeaMonkey before 1.0.6 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unspecified vectors that trigger memory corruption.
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave
+
+With the advent of a potential Dolby Unified Decoder RCE exploit, it seemed prudent to see what kind of Linux kernel drivers might be accessible from the resulting userland context, the mediacodec context. As per the AOSP documentation, the mediacodec SELinux context is intended to be a constrained (a.k.a sandboxed) context where non-secure software decoders are utilized. Nevertheless, using my DriverCartographer tool, I discovered an interesting device driver, /dev/bigwave that was accessible from the mediacodec SELinux context. BigWave is hardware present on the Pixel SOC that accelerates AV1 decoding tasks, which explains why it is accessible from the mediacodec context. As previous research has copiously affirmed, Android drivers for hardware devices are prime places to find powerful local privilege escalation bugs. The BigWave driver was no exception - across a couple hours of auditing the code, I discovered three separate bugs, including one that was powerful enough to escape the mediacodec sandbox and get kernel arbitrary read/write on the Pixel 9.
+
+CVE: CVE-2004-1013
+Keyword: memory corruption
+The argument parser of the FETCH command in Cyrus IMAP Server 2.2.x through 2.2.8 allows remote authenticated users to execute arbitrary code via certain commands such as (1) "body[p", (2) "binary[p", or (3) "binary[p") that cause an index increment error that leads to an out-of-bounds memory corruption.
+
+CVE: CVE-2006-0539
+Keyword: memory corruption
+The convert-fcrontab program in fcron 3.0.0 might allow local users to gain privileges via a long command-line argument, which causes Linux glibc to report heap memory corruption, possibly because a strcpy in the strdup2 function can "overwrite some data."
+
+CVE: CVE-2005-0555
+Keyword: memory corruption
+Buffer overflow in the Content Advisor in Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to execute arbitrary code via a crafted Content Advisor file, aka "Content Advisor Memory Corruption Vulnerability."
+
+Exploit-DB #39796
+Title: Ipswitch WS_FTP LE 12.3 - Search field Overwrite (SEH) (PoC)
+Type: dos | Platform: windows
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby
+
+Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user. One such feature is audio transcription. Incoming SMS and RCS audio attachments received by Google Messages are now automatically decoded with no user interaction. As a result, audio decoders are now in the 0-click attack surface of most Android phones. I’ve spent a fair bit of time investigating these decoders, first reporting CVE-2025-49415 in the Monkey’s Audio codec on Samsung devices. Based on this research, the team reviewed the Dolby Unified Decoder, and Ivan Fratric and I reported CVE-2025-54957. This vulnerability is likely in the 0-click attack surface of most Android devices in use today. In parallel, Seth Jenkins investigated a driver accessible from the sandbox the decoder runs in on a Pixel 9, and reported CVE-2025-36934.
+
+CVE: CVE-2006-1185
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via certain invalid HTML that causes memory corruption.
+
+Exploit-DB #20062
+Title: Alienvault Open Source SIEM (OSSIM) 3.1 - Reflected Cross-Site Scripting / Blind SQL Injection
+Type: webapps | Platform: php
+
+Exploit-DB #31576
+Title: Microsoft Windows - TrackPopupMenuEx Win32k NULL Page (MS13-081) (Metasploit)
+Type: local | Platform: windows
+
+CVE: CVE-2006-5967
+Keyword: memory corruption
+Race condition in Panda ActiveScan 5.53.00, and other versions before 5.54.01, allows remote attackers to cause memory corruption and execute arbitrary code via unknown vectors related to multiple invocations of the Analizar method in the ActiveScan.1 ActiveX control, which is not thread safe.
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?
+
+While our previous two blog posts provided technical recommendations for increasing the effort required by attackers to develop 0-click exploit chains, our experience finding, reporting and exploiting these vulnerabilities highlighted some broader issues in the Android ecosystem. This post describes the problems we encountered and recommendations for improvement. Audio Attack Surface The Dolby UDC is part of the 0-click attack surface of most Android devices because of audio transcription in the Google Messages application. Incoming audio messages are transcribed before a user interacts with the message. On Pixel 9, a second process com.google.android.tts also decodes incoming audio. Its purpose is not completely clear, but it seems to be related to making incoming messages searchable.
+
+CVE: CVE-2005-0554
+Keyword: memory corruption
+Buffer overflow in the URL processor of Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL with a long hostname, aka "URL Parsing Memory Corruption Vulnerability."
+
+CVE: CVE-2006-1189
+Keyword: memory corruption
+Buffer overflow in URLMON.DLL in Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via a crafted URL with an International Domain Name (IDN) using double-byte character sets (DBCS), aka the "Double Byte Character Parsing Memory Corruption Vulnerability."
+
+CVE: CVE-2006-0295
+Keyword: memory corruption
+Mozilla Firefox 1.5, Thunderbird 1.5 if Javascript is enabled in mail, and SeaMonkey before 1.0 might allow remote attackers to execute arbitrary code via the QueryInterface method of the built-in Location and Navigator objects, which leads to memory corruption.
+
+CVE: CVE-2006-6101
+Keyword: memory corruption
+Integer overflow in the ProcRenderAddGlyphs function in the Render extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of glyph management data structures.
+
+CVE: CVE-2006-3811
+Keyword: memory corruption
+Multiple vulnerabilities in Mozilla Firefox before 1.5.0.5, Thunderbird before 1.5.0.5, and SeaMonkey before 1.0.3 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via Javascript that leads to memory corruption, including (1) nsListControlFrame::FireMenuItemActiveEvent, (2) buffer overflows in the string class in out-of-memory conditions, (3) table row and column groups, (4) "anonymous box selectors outside of UA stylesheets," (5) stale references to "removed nodes," and (6) running the crypto.generateCRMFRequest callback on deleted context.
+
+[Project Zero]
+Title: Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529
+
+In the first part of this series, I detailed my journey into macOS security research, which led to the discovery of a type confusion vulnerability (CVE-2024-54529) and a double-free vulnerability (CVE-2025-31235) in the coreaudiod system daemon through a process I call knowledge-driven fuzzing. While the first post focused on the process of finding the vulnerabilities, this post dives into the intricate process of exploiting the type confusion vulnerability. I’ll explain the technical details of turning a potentially exploitable crash into a working exploit: a journey filled with dead ends, creative problem solving, and ultimately, success. The Vulnerability: A Quick Recap If you haven’t already, I highly recommend reading my detailed writeup on this vulnerability before proceeding. As a refresher, CVE-2024-54529 is a type confusion vulnerability within the com.apple.audio.audiohald Mach service in the CoreAudio framework used by the coreaudiod process. Several Mach message handlers, such as _XIOContext_Fetch_Workgroup_Port, would fetch a HALS_Object from the Object Map based on an ID from the Mach message, and then perform operations on it, assuming it was of a specific type (ioct) without proper validation.
+
+Exploit-DB #33708
+Title: FreeBSD 8.0 / OpenBSD 4.x - 'ftpd' Null Pointer Dereference Denial of Service
+Type: dos | Platform: bsd
+
+CVE: CVE-2006-3590
+Keyword: memory corruption
+mso.dll, as used by Microsoft PowerPoint 2000 through 2003, allows user-assisted attackers to execute arbitrary commands via a malformed shape container in a PPT file that leads to memory corruption, as exploited by Trojan.PPDropper.B, a different issue than CVE-2006-1540 and CVE-2006-3493.
+
+CVE: CVE-2006-6061
+Keyword: memory corruption
+com.apple.AppleDiskImageController in Apple Mac OS X 10.4.8, and possibly other versions, allows remote attackers to execute arbitrary code via a malformed DMG image that triggers memory corruption.  NOTE: the severity of this issue has been disputed by a third party, who states that the impact is limited to a denial of service (kernel panic) due to a vm_fault call with a non-aligned address.
+
+CVE: CVE-2004-0714
+Keyword: memory corruption
+Cisco Internetwork Operating System (IOS) 12.0S through 12.3T attempts to process SNMP solicited operations on improper ports (UDP 162 and a randomly chosen UDP port), which allows remote attackers to cause a denial of service (device reload and memory corruption).
+
+CVE: CVE-2005-2127
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not intended for use within Internet Explorer, as originally demonstrated using the (1) DDS Library Shape Control (Msdds.dll) COM object, and other objects including (2) Blnmgrps.dll, (3) Ciodm.dll, (4) Comsvcs.dll, (5) Danim.dll, (6) Htmlmarq.ocx, (7) Mdt2dd.dll (as demonstrated using a heap corruption attack with uninitialized memory), (8) Mdt2qd.dll, (9) Mpg4ds32.ax, (10) Msadds32.ax, (11) Msb1esen.dll, (12) Msb1fren.dll, (13) Msb1geen.dll, (14) Msdtctm.dll, (15) Mshtml.dll, (16) Msoeacct.dll, (17) Msosvfbr.dll, (18) Mswcrun.dll, (19) Netshell.dll, (20) Ole2disp.dll, (21) Outllib.dll, (22) Psisdecd.dll, (23) Qdvd.dll, (24) Repodbc.dll, (25) Shdocvw.dll, (26) Shell32.dll, (27) Soa.dll, (28) Srchui.dll, (29) Stobject.dll, (30) Vdt70.dll, (31) Vmhelper.dll, and (32) Wbemads.dll, aka a variant of the "COM Object Instantiation Memory Corruption vulnerability."
+
+CVE: CVE-2006-5583
+Keyword: memory corruption
+Buffer overflow in the SNMP Service in Microsoft Windows 2000 SP4, XP SP2, Server 2003, Server 2003 SP1, and possibly other versions allows remote attackers to execute arbitrary code via a crafted SNMP packet, aka "SNMP Memory Corruption Vulnerability."
+
+CVE: CVE-2007-0104
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by (a) xpdf 3.0.1 patch 2, (b) kpdf in KDE before 3.5.5, (c) poppler before 0.5.4, and other products, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+CVE: CVE-2006-5857
+Keyword: memory corruption
+Adobe Reader and Acrobat 7.0.8 and earlier allows user-assisted remote attackers to execute code via a crafted PDF file that triggers memory corruption and overwrites a subroutine pointer during rendering.
+
+CVE: CVE-2005-1988
+Keyword: memory corruption
+Unknown vulnerability in Internet Explorer 5.0, 5.5, and 6.0 allows remote attackers to execute arbitrary code via a web site or an HTML e-mail containing a crafted JPEG image that causes memory corruption, aka "JPEG Image Rendering Memory Corruption Vulnerability".
+
+Exploit-DB #14360
+Title: Struts2/XWork < 2.2.0 - Remote Command Execution
+Type: remote | Platform: multiple
+
+CVE: CVE-2006-1313
+Keyword: memory corruption
+Microsoft JScript 5.1, 5.5, and 5.6 on Windows 2000 SP4, and 5.6 on Windows XP, Server 2003, Windows 98 and Windows Me, will "release objects early" in certain cases, which results in memory corruption and allows remote attackers to execute arbitrary code.
+
+CVE: CVE-2006-3992
+Keyword: memory corruption
+Unspecified vulnerability in the Centrino (1) w22n50.sys, (2) w22n51.sys, (3) w29n50.sys, and (4) w29n51.sys Microsoft Windows drivers for Intel 2200BG and 2915ABG PRO/Wireless Network Connection before 10.5 with driver 9.0.4.16 allows remote attackers to execute arbitrary code via certain frames that trigger memory corruption.
+
+Exploit-DB #50574
+Title: MTPutty 1.0.1.21 - SSH Password Disclosure
+Type: local | Platform: windows
+
+CVE: CVE-2004-0886
+Keyword: memory corruption
+Multiple integer overflows in libtiff 3.6.1 and earlier allow remote attackers to cause a denial of service (crash or memory corruption) via TIFF images that lead to incorrect malloc calls.
+
+[Project Zero]
+Title: Bypassing Windows Administrator Protection
+
+A headline feature introduced in the latest release of Windows 11, 25H2 is Administrator Protection. The goal of this feature is to replace User Account Control (UAC) with a more robust and importantly, securable system to allow a local user to access administrator privileges only when necessary. This blog post will give a brief overview of the new feature, how it works and how it’s different from UAC. I’ll then describe some of the security research I undertook while it was in the insider preview builds on Windows 11. Finally I’ll detail one of the nine separate vulnerabilities that I found to bypass the feature to silently gain full administrator privileges. All the issues that I reported to Microsoft have been fixed, either prior to the feature being officially released (in optional update KB5067036) or as subsequent security bulletins. Note: As of 1st December 2025 the Administrator Protection feature has been disabled by Microsoft while an application compatibility issue is dealt with. The issue is unlikely to be related to anything described in this blog post so the analysis doesn’t change.
+
+CVE: CVE-2006-6129
+Keyword: memory corruption
+Integer overflow in the fatfile_getarch2 in Apple Mac OS X allows local users to cause a denial of service and possibly execute arbitrary code via a crafted Mach-O Universal program that triggers memory corruption.
+
+CVE: CVE-2006-2382
+Keyword: memory corruption
+Heap-based buffer overflow in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allows remote attackers to execute arbitrary code via crafted UTF-8 encoded HTML that results in size discrepancies during conversion to Unicode, aka "HTML Decoding Memory Corruption Vulnerability."
+
+CVE: CVE-2006-5647
+Keyword: memory corruption
+Sophos Anti-Virus and Endpoint Security before 6.0.5, Anti-Virus for Linux before 5.0.10, and other platforms before 4.11 allows remote attackers to cause a denial of service (memory corruption) and possibly execute arbitrary code via a malformed CHM file with a large name length in the CHM chunk header, aka "CHM name length memory consumption vulnerability."
+
+CVE: CVE-2006-3638
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 and 6 does not properly handle uninitialized COM objects, which allows remote attackers to cause a denial of service (memory corruption) and possibly execute arbitrary code, as demonstrated by the Nth function in the DirectAnimation.DATuple ActiveX control, aka "COM Object Instantiation Memory Corruption Vulnerability."
+
+Exploit-DB #35908
+Title: SWFupload 2.5.0 - Cross Frame Scripting (XFS)
+Type: webapps | Platform: multiple
+
+CVE: CVE-2006-1303
+Keyword: memory corruption
+Multiple unspecified vulnerabilities in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allow remote attackers to execute arbitrary code by instantiating certain COM objects from Wmm2fxa.dll as ActiveX controls including (1) DXImageTransform.Microsoft.MMSpecialEffect1Input, (2) DXImageTransform.Microsoft.MMSpecialEffect1Input.1, (3) DXImageTransform.Microsoft.MMSpecialEffect2Inputs, (4) DXImageTransform.Microsoft.MMSpecialEffect2Inputs.1, (5) DXImageTransform.Microsoft.MMSpecialEffectInplace1Input, and (6) DXImageTransform.Microsoft.MMSpecialEffectInplace1Input.1, which causes memory corruption during garbage collection.
+
+Exploit-DB #30675
+Title: InnovaPortal - 'tc/contents/home001.jsp?contentid' Cross-Site Scripting
+Type: webapps | Platform: jsp
+
+CVE: CVE-2006-2389
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via an Office file with a malformed property that triggers memory corruption related to record lengths, aka "Microsoft Office Property Vulnerability," a different vulnerability than CVE-2006-1316.
+
+Exploit-DB #14414
+Title: Unreal Tournament 3 2.1 - 'STEAMBLOB' Remote Denial of Service
+Type: dos | Platform: windows
+
+Exploit-DB #24681
+Title: 3Com 3CRADSL72 ADSL Wireless Router - Information Disclosure / Authentication Bypass
+Type: remote | Platform: hardware
+
+CVE: CVE-2006-2218
+Keyword: memory corruption
+Unspecified vulnerability in Internet Explorer 6.0 on Microsoft Windows XP SP2 allows remote attackers to execute arbitrary code via "exceptional conditions" that trigger memory corruption, as demonstrated using an exception handler and nested object tags, a variant of CVE-2006-1992.
+
+CVE: CVE-2006-6456
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000, 2002, and 2003 and Word Viewer 2003 allows remote attackers to execute code via unspecified vectors related to malformed data structures that trigger memory corruption, a different vulnerability than CVE-2006-5994.
+
+CVE: CVE-2006-5758
+Keyword: memory corruption
+The Graphics Rendering Engine in Microsoft Windows 2000 through 2000 SP4 and Windows XP through SP2 maps GDI Kernel structures on a global shared memory section that is mapped with read-only permissions, but can be remapped by other processes as read-write, which allows local users to cause a denial of service (memory corruption and crash) and gain privileges by modifying the kernel structures.

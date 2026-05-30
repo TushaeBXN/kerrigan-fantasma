@@ -1,0 +1,68 @@
+[Source: https://memeburn.com/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026/]
+[Title: 10,000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026]
+
+Open search form Partner with us Home News10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026 Temaz Tra 30 May 2026 5 mins read Add on google AI News News Add on googleAnthropic’s Mythos AI has helped companies uncover more than 10,000 serious software bugs in just one month. The scary part isn’t only that AI can find flaws this fast. It’s that humans still have to fix them.
+
+Anthropic’s Claude Mythos Preview has turned software security into a volume problem.
+
+The AI company says partners in its Project Glasswing programme have found more than 10 000 high- or critical-severity vulnerabilities in their own software after just one month of access. Cloudflare alone found 2 000 bugs, including 400 rated high or critical, according to Anthropic’s initial update.
+
+But it also exposes a bigger problem: AI can now discover dangerous bugs faster than many companies can confirm, rank, report, and patch them.
+
+Anthropic launched Project Glasswing as a restricted cybersecurity programme built around Claude Mythos Preview, an unreleased AI model designed for advanced defensive security work.
+
+The company says Mythos can help trusted partners find vulnerabilities in major software systems before attackers exploit them. It has also given access to more than 40 additional organisations that build or maintain critical software infrastructure.
+
+We’re talking about flaws in systems that keep browsers, operating systems, cloud platforms, banks, payment rails, and enterprise networks running. If those systems break, the impact doesn’t stay inside Silicon Valley.
+
+It can reach a fintech company in Cape Town, a bank in Sandton, a university portal, or a government service that depends on the same open-source building blocks.
+
+Anthropic says most Project Glasswing partners found hundreds of critical or high-severity bugs in their own software. Collectively, those partners found more than 10 000.
+
+Anthropic also scanned more than 1 000 open-source projects that underpin much of the internet. In those projects, Mythos estimated 6 202 high- or critical-severity vulnerabilities out of 23 019 total findings.
+
+Security teams still need humans to reproduce the issue, confirm whether it’s real, judge how severe it is, and avoid flooding maintainers with bad AI-generated reports.
+
+Anthropic says Mythos has already found thousands of high-severity vulnerabilities, including some in every major operating system and browser. It also says the model can identify and exploit some flaws with little human steering.
+
+That shifts the conversation from “Can AI code?” to “Can AI find the cracks in code faster than defenders can close them?”
+
+Bug discovery used to require rare expertise, time, and patience. Mythos suggests advanced AI can compress that process dramatically. It doesn’t remove the need for experts, but it changes what those experts spend their time doing.
+
+Anthropic makes one point very clearly: the hardest part is no longer finding the bugs. It’s fixing them.
+
+The company says maintainers are already capacity-constrained, and some have even asked Anthropic to slow down disclosures because they need more time to design patches. Anthropic says a high- or critical-severity bug found by Mythos takes about two weeks to patch on average.
+
+If AI tools can discover thousands of flaws, every organisation needs a stronger process for triage. Otherwise, security teams drown in alerts while attackers focus on the few bugs that matter most.
+
+Reuters reported a similar view from cybersecurity practitioners. Experts said Mythos represents a real technical advance, but the bigger challenge is validating, prioritising, and fixing flaws without breaking systems.
+
+Local banks, payment startups, retailers, logistics platforms, and public institutions all run on global software stacks. They use Linux servers, open-source libraries, cloud services, browser technologies, APIs, and developer tools that overlap with the systems Mythos is scanning.
+
+A serious bug in a widely used library can hit a Johannesburg fintech just as easily as a US cloud company. A vulnerable authentication tool can affect a local SaaS business. A weak crypto library can put customer trust at risk.
+
+This also connects to the wider AI-security race. We’ve already covered how an OpenAI code security issue exposed internal credential material after attackers hit the software supply chain, which shows how developer tools have become a major attack surface.
+
+Reuters reported that some cybersecurity experts believe early fears around Mythos have been overstated. Their point is simple: AI-assisted bug hunting already existed, and attackers were dangerous long before Mythos arrived.
+
+Mythos appears to lower the effort needed to find serious flaws and scan large codebases. That helps defenders, but it also hints at a future where similar capabilities spread beyond carefully controlled programmes.
+
+Anthropic says Project Glasswing exists to put these tools in defenders’ hands first. It has committed up to $100 million in Mythos usage credits and $4 million in donations to open-source security organisations.
+
+But open-source maintainers, banks, software vendors, and governments still need to turn findings into fixes.
+
+That means better software inventories, faster patch testing, tighter access controls, safer deployment pipelines, and teams that can separate scary-looking reports from genuinely urgent vulnerabilities.
+
+For smaller South African startups, this may sound expensive. But the basics still matter: keep dependencies updated, remove unused packages, rotate secrets, monitor abnormal activity, and don’t let one developer laptop become the doorway into everything.
+
+The real question is whether companies can fix the right ones before attackers arrive.
+
+Claude Mythos Preview is Anthropic’s unreleased AI model for advanced cybersecurity work. It helps selected partners find serious software vulnerabilities before attackers exploit them.
+
+Anthropic says Project Glasswing partners found more than 10,000 high- or critical-severity vulnerabilities in one month. It also reported thousands more findings from open-source software scans.
+
+Yes, but they shouldn’t panic. The main lesson is to improve patching, dependency tracking, and security triage, because AI can now surface bugs faster than many teams can fix them.
+
+No. Mythos AI can find vulnerabilities quickly, but human experts still need to verify whether those bugs are real and dangerous. The bigger shift is that security teams may spend less time hunting for flaws and more time prioritising, patching, and testing fixes.
+
+Temaz Tra is an AI and technology news writer focused on the fast-moving tools, platforms, and companies shaping the digital world. He covers artificial intelligence, consumer tech, cybersecurity, software, social media, and the wider impact of emerging technologies on work, business, and everyday life. With a focus on clear reporting and accessible analysis, Temaz helps readers understand complex tech developments without the jargon. His work connects breaking news with practical context, making it easier to follow how AI and digital innovation are changing the way people live, work, and interact online.

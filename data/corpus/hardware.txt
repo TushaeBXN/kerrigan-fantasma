@@ -1,0 +1,258 @@
+[Hardware Spec: ARM Cortex-M4 CMSIS Core]
+/*
+ * Copyright (c) 2009-2024 Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the License); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * CMSIS Cortex-M4 Core Peripheral Access Layer Header File
+ */
+
+#if   defined ( __ICCARM__ )
+  #pragma system_include                        /* treat file as system include file for MISRA check */
+#elif defined (__clang__)
+  #pragma clang system_header                   /* treat file as system include file */
+#elif defined ( __GNUC__ )
+  #pragma GCC diagnostic ignored "-Wpedantic"   /* disable pedantic warning due to unnamed structs/unions */
+#endif
+
+#ifndef __CORE_CM4_H_GENERIC
+#define __CORE_CM4_H_GENERIC
+
+#include <stdint.h>
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/**
+  \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
+  CMSIS violates the following MISRA-C:2004 rules:
+
+   \li Required Rule 8.5, object/function definition in header file.<br>
+     Function definitions in header files are used to allow 'inlining'.
+
+   \li Required Rule 18.4, declaration of union type or object of union type: '{...}'.<br>
+     Unions are used for effective representation of core registers.
+
+   \li Advisory Rule 19.7, Function-like macro defined.<br>
+     Function-like macros are used to allow more efficient code.
+ */
+
+
+/*******************************************************************************
+ *                 CMSIS definitions
+ ******************************************************************************/
+/**
+  \ingroup Cortex_M4
+  @{
+ */
+
+#include "cmsis_version.h"
+
+/* CMSIS CM4 definitions */
+
+#define __CORTEX_M                (4U)                                /*!< Cortex-M Core */
+
+/** __FPU_USED indicates whether an FPU is used or not.
+    For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and functions.
+*/
+#if defined ( __CC_ARM )
+  #if defined (__TARGET_FPU_VFP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+  #if defined (__ARM_FP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined (__ti__)
+  #if defined (__ARM_FP)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __GNUC__ )
+  #if defined (__VFP_FP__) && !defined(__SOFTFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __ICCARM__ )
+  #if defined (__ARMVFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __TI_ARM__ )
+  #if defined (__TI_VFP_SUPPORT__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __TASKING__ )
+  #if defined (__FPU_VFP__)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#elif defined ( __CSMC__ )
+  #if ( __CSMC__ & 0x400U)
+    #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
+      #define __FPU_USED       1U
+    #else
+      #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      #define __FPU_USED       0U
+    #endif
+  #else
+    #define __FPU_USED         0U
+  #endif
+
+#endif
+
+#include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __CORE_CM4_H_GENERIC */
+
+#ifndef __CMSIS_GENERIC
+
+#ifndef __CORE_CM4_H_DEPENDANT
+#define __CORE_CM4_H_DEPENDANT
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/* check device defines and use defaults */
+#if defined __CHECK_DEVICE_DEFINES
+  #ifndef __CM4_REV
+    #define __CM4_REV               0x0000U
+    #warning "__CM4_REV not defined in device header file; using default!"
+  #endif
+
+  #ifndef __FPU_PRESENT
+    #define __FPU_PRESENT             0U
+    #warning "__FPU_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __MPU_PRESENT
+    #define __MPU_PRESENT             0U
+    #warning "__MPU_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __VTOR_PRESENT
+    #define __VTOR_PRESENT            1U
+    #warning "__VTOR_PRESENT not defined in device header file; using default!"
+  #endif
+
+  #ifndef __NVIC_PRIO_BITS
+    #define __NVIC_PRIO_BITS          3U
+    #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
+  #endif
+
+  #ifndef __Vendor_SysTickConfig
+    #define __Vendor_SysTickConfig    0U
+    #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
+  #endif
+#endif
+
+/* IO definitions (access restrictions to peripheral registers) */
+/**
+    \defgroup CMSIS_glob_defs CMSIS Global Defines
+
+    <strong>IO Type Qualifiers</strong> are used
+    \li to specify the access to peripheral variables.
+    \li for automatic generation of peripheral register debug information.
+*/
+#ifdef __cplusplus
+  #define   __I     volatile             /*!< Defines 'read only' permissions */
+#else
+  #define   __I     volatile const       /*!< Defines 'read only' permissions */
+#endif
+#define     __O     volatile             /*!< Defines 'write only' permissions */
+#define     __IO    volatile             /*!< Defines 'read / write' permissions */
+
+/* following defines should be used for structure members */
+#define     __IM     volatile const      /*! Defines 'read only' structure member permissions */
+#define     __OM     volatile            /*! Defines 'write only' structure member permissions */
+#define     __IOM    volatile            /*! Defines 'read / write' structure member permissions */
+
+/*@} end of group Cortex_M4 */
+
+
+
+/*******************************************************************************
+ *                 Register Abstraction
+  Core Register contain:
+  - Core Register
+  - Core NVIC Register
+  - Core SCB Register
+  - Core SysTick Register
+  - Core Debug Register
+  - Core MPU Register
+  - Core FPU Register
+ ******************************************************************************/
+/**

@@ -1,0 +1,833 @@
+[OpenSSL: crypto/rsa/rsa_ossl.c]
+/*
+ * Copyright 1995-2025 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+/*
+ * RSA low level APIs are deprecated for public use, but still ok for
+ * internal use.
+ */
+#include "internal/deprecated.h"
+
+#include "internal/cryptlib.h"
+#include "crypto/bn.h"
+#include "crypto/sparse_array.h"
+#include "rsa_local.h"
+#include "internal/constant_time.h"
+#if defined(OPENSSL_SYS_TANDEM)
+#include "internal/tsan_assist.h"
+#include "internal/threads_common.h"
+#endif
+#include <openssl/evp.h>
+#include <openssl/sha.h>
+#include <openssl/hmac.h>
+
+DEFINE_SPARSE_ARRAY_OF(BN_BLINDING);
+
+static int rsa_ossl_public_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_private_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_public_decrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_private_decrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding);
+static int rsa_ossl_mod_exp(BIGNUM *r0, const BIGNUM *i, RSA *rsa,
+    BN_CTX *ctx);
+static int rsa_ossl_init(RSA *rsa);
+static int rsa_ossl_finish(RSA *rsa);
+#ifdef S390X_MOD_EXP
+static int rsa_ossl_s390x_mod_exp(BIGNUM *r0, const BIGNUM *i, RSA *rsa,
+    BN_CTX *ctx);
+static const RSA_METHOD rsa_pkcs1_ossl_meth = {
+    "OpenSSL PKCS#1 RSA",
+    rsa_ossl_public_encrypt,
+    rsa_ossl_public_decrypt, /* signature verification */
+    rsa_ossl_private_encrypt, /* signing */
+    rsa_ossl_private_decrypt,
+    rsa_ossl_s390x_mod_exp,
+    s390x_mod_exp,
+    rsa_ossl_init,
+    rsa_ossl_finish,
+    RSA_FLAG_FIPS_METHOD, /* flags */
+    NULL,
+    0, /* rsa_sign */
+    0, /* rsa_verify */
+    NULL, /* rsa_keygen */
+    NULL /* rsa_multi_prime_keygen */
+};
+#else
+static const RSA_METHOD rsa_pkcs1_ossl_meth = {
+    "OpenSSL PKCS#1 RSA",
+    rsa_ossl_public_encrypt,
+    rsa_ossl_public_decrypt, /* signature verification */
+    rsa_ossl_private_encrypt, /* signing */
+    rsa_ossl_private_decrypt,
+    rsa_ossl_mod_exp,
+    BN_mod_exp_mont, /* XXX probably we should not use Montgomery
+                      * if e == 3 */
+    rsa_ossl_init,
+    rsa_ossl_finish,
+    RSA_FLAG_FIPS_METHOD, /* flags */
+    NULL,
+    0, /* rsa_sign */
+    0, /* rsa_verify */
+    NULL, /* rsa_keygen */
+    NULL /* rsa_multi_prime_keygen */
+};
+#endif
+
+static const RSA_METHOD *default_RSA_meth = &rsa_pkcs1_ossl_meth;
+
+void RSA_set_default_method(const RSA_METHOD *meth)
+{
+    default_RSA_meth = meth;
+}
+
+const RSA_METHOD *RSA_get_default_method(void)
+{
+    return default_RSA_meth;
+}
+
+const RSA_METHOD *RSA_PKCS1_OpenSSL(void)
+{
+    return &rsa_pkcs1_ossl_meth;
+}
+
+const RSA_METHOD *RSA_null_method(void)
+{
+    return NULL;
+}
+
+static int rsa_ossl_public_encrypt(int flen, const unsigned char *from,
+    unsigned char *to, RSA *rsa, int padding)
+{
+    BIGNUM *f, *ret;
+    int i, num = 0, r = -1;
+    unsigned char *buf = NULL;
+    BN_CTX *ctx = NULL;
+
+    if (BN_num_bits(rsa->n) > OPENSSL_RSA_MAX_MODULUS_BITS) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_MODULUS_TOO_LARGE);
+        return -1;
+    }
+
+    if (BN_ucmp(rsa->n, rsa->e) <= 0) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_BAD_E_VALUE);
+        return -1;
+    }
+
+    /* for large moduli, enforce exponent limit */
+    if (BN_num_bits(rsa->n) > OPENSSL_RSA_SMALL_MODULUS_BITS) {
+        if (BN_num_bits(rsa->e) > OPENSSL_RSA_MAX_PUBEXP_BITS) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_BAD_E_VALUE);
+            return -1;
+        }
+    }
+
+    if ((ctx = BN_CTX_new_ex(rsa->libctx)) == NULL)
+        goto err;
+    BN_CTX_start(ctx);
+    f = BN_CTX_get(ctx);
+    ret = BN_CTX_get(ctx);
+    num = BN_num_bytes(rsa->n);
+    buf = OPENSSL_malloc(num);
+    if (ret == NULL || buf == NULL)
+        goto err;
+
+    switch (padding) {
+    case RSA_PKCS1_PADDING:
+        i = ossl_rsa_padding_add_PKCS1_type_2_ex(rsa->libctx, buf, num,
+            from, flen);
+        break;
+    case RSA_PKCS1_OAEP_PADDING:
+        i = ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(rsa->libctx, buf, num,
+            from, flen, NULL, 0,
+            NULL, NULL);
+        break;
+    case RSA_NO_PADDING:
+        i = RSA_padding_add_none(buf, num, from, flen);
+        break;
+    default:
+        ERR_raise(ERR_LIB_RSA, RSA_R_UNKNOWN_PADDING_TYPE);
+        goto err;
+    }
+    if (i <= 0)
+        goto err;
+
+    if (BN_bin2bn(buf, num, f) == NULL)
+        goto err;
+
+#ifdef FIPS_MODULE
+    /*
+     * See SP800-56Br2, section 7.1.1.1
+     * RSAEP: 1 < f < (n – 1).
+     * (where f is the plaintext).
+     */
+    if (padding == RSA_NO_PADDING) {
+        BIGNUM *nminus1 = BN_CTX_get(ctx);
+
+        if (BN_ucmp(f, BN_value_one()) <= 0) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_SMALL);
+            goto err;
+        }
+        if (nminus1 == NULL
+            || BN_copy(nminus1, rsa->n) == NULL
+            || !BN_sub_word(nminus1, 1))
+            goto err;
+        if (BN_ucmp(f, nminus1) >= 0) {
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_LARGE_FOR_MODULUS);
+            goto err;
+        }
+    } else
+#endif
+    {
+        if (BN_ucmp(f, rsa->n) >= 0) {
+            /* usually the padding functions would catch this */
+            ERR_raise(ERR_LIB_RSA, RSA_R_DATA_TOO_LARGE_FOR_MODULUS);
+            goto err;
+        }
+    }
+
+    if (rsa->flags & RSA_FLAG_CACHE_PUBLIC)
+        if (!BN_MONT_CTX_set_locked(&rsa->_method_mod_n, rsa->lock,
+                rsa->n, ctx))
+            goto err;
+
+    if (!rsa->meth->bn_mod_exp(ret, f, rsa->e, rsa->n, ctx,
+            rsa->_method_mod_n))
+        goto err;
+
+    /*
+     * BN_bn2binpad puts in leading 0 bytes if the number is less than
+     * the length of the modulus.
+     */
+    r = BN_bn2binpad(ret, to, num);
+err:
+    BN_CT
+
+[OpenSSL: crypto/aes/aes_core.c]
+/*
+ * Copyright 2002-2026 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+/**
+ * rijndael-alg-fst.c
+ *
+ * @version 3.0 (December 2000)
+ *
+ * Optimised ANSI C code for the Rijndael cipher (now AES)
+ *
+ * @author Vincent Rijmen
+ * @author Antoon Bosselaers
+ * @author Paulo Barreto
+ *
+ * This code is hereby placed in the public domain.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* Note: rewritten a little bit to provide error control and an OpenSSL-
+   compatible API */
+
+/*
+ * AES low level APIs are deprecated for public use, but still ok for internal
+ * use where we're using them to implement the higher level EVP interface, as is
+ * the case here.
+ */
+#include "internal/deprecated.h"
+
+#include <assert.h>
+
+#include <stdlib.h>
+#include <openssl/crypto.h>
+#include <openssl/aes.h>
+#include "aes_local.h"
+
+#if defined(OPENSSL_AES_CONST_TIME) && !defined(AES_ASM)
+
+#if (defined(_WIN32) || defined(_WIN64)) && !defined(__MINGW32__)
+#define U64(C) C##UI64
+#elif defined(__arch64__)
+#define U64(C) C##UL
+#else
+#define U64(C) C##ULL
+#endif
+
+typedef union {
+    unsigned char b[8];
+    uint32_t w[2];
+    uint64_t d;
+} uni;
+
+/*
+ * Compute w := (w * x) mod (x^8 + x^4 + x^3 + x^1 + 1)
+ * Therefore the name "xtime".
+ */
+static void XtimeWord(uint32_t *w)
+{
+    uint32_t a, b;
+
+    a = *w;
+    b = a & 0x80808080u;
+    a ^= b;
+    b -= b >> 7;
+    b &= 0x1B1B1B1Bu;
+    b ^= a << 1;
+    *w = b;
+}
+
+static void XtimeLong(uint64_t *w)
+{
+    uint64_t a, b;
+
+    a = *w;
+    b = a & U64(0x8080808080808080);
+    a ^= b;
+    b -= b >> 7;
+    b &= U64(0x1B1B1B1B1B1B1B1B);
+    b ^= a << 1;
+    *w = b;
+}
+
+/*
+ * This computes w := S * w ^ -1 + c, where c = {01100011}.
+ * Instead of using GF(2^8) mod (x^8+x^4+x^3+x+1} we do the inversion
+ * in GF(GF(GF(2^2)^2)^2) mod (X^2+X+8)
+ * and GF(GF(2^2)^2) mod (X^2+X+2)
+ * and GF(2^2) mod (X^2+X+1)
+ * The first part of the algorithm below transfers the coordinates
+ * {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80} =>
+ * {1,Y,Y^2,Y^3,Y^4,Y^5,Y^6,Y^7} with Y=0x41:
+ * {0x01,0x41,0x66,0x6c,0x56,0x9a,0x58,0xc4}
+ * The last part undoes the coordinate transfer and the final affine
+ * transformation S:
+ * b[i] = b[i] + b[(i+4)%8] + b[(i+5)%8] + b[(i+6)%8] + b[(i+7)%8] + c[i]
+ * in one step.
+ * The multiplication in GF(2^2^2^2) is done in ordinary coords:
+ * A = (a0*1 + a1*x^4)
+ * B = (b0*1 + b1*x^4)
+ * AB = ((a0*b0 + 8*a1*b1)*1 + (a1*b0 + (a0+a1)*b1)*x^4)
+ * When A = (a0,a1) is given we want to solve AB = 1:
+ * (a) 1 = a0*b0 + 8*a1*b1
+ * (b) 0 = a1*b0 + (a0+a1)*b1
+ * => multiply (a) by a1 and (b) by a0
+ * (c) a1 = a1*a0*b0 + (8*a1*a1)*b1
+ * (d) 0 = a1*a0*b0 + (a0*a0+a1*a0)*b1
+ * => add (c) + (d)
+ * (e) a1 = (a0*a0 + a1*a0 + 8*a1*a1)*b1
+ * => therefore
+ * b1 = (a0*a0 + a1*a0 + 8*a1*a1)^-1 * a1
+ * => and adding (a1*b0) to (b) we get
+ * (f) a1*b0 = (a0+a1)*b1
+ * => therefore
+ * b0 = (a0*a0 + a1*a0 + 8*a1*a1)^-1 * (a0+a1)
+ * Note this formula also works for the case
+ * (a0+a1)*a0 + 8*a1*a1 = 0
+ * if the inverse element for 0^-1 is mapped to 0.
+ * Repeat the same for GF(2^2^2) and GF(2^2).
+ * We get the following algorithm:
+ * inv8(a0,a1):
+ *   x0 = a0^a1
+ *   [y0,y1] = mul4([x0,a1],[a0,a1]); (*)
+ *   y1 = mul4(8,y1);
+ *   t = inv4(y0^y1);
+ *   [b0,b1] = mul4([x0,a1],[t,t]); (*)
+ *   return [b0,b1];
+ * The non-linear multiplies (*) can be done in parallel at no extra cost.
+ */
+static void SubWord(uint32_t *w)
+{
+    uint32_t x, y, a1, a2, a3, a4, a5, a6;
+
+    x = *w;
+    y = ((x & 0xFEFEFEFEu) >> 1) | ((x & 0x01010101u) << 7);
+    x &= 0xDDDDDDDDu;
+    x ^= y & 0x57575757u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x1C1C1C1Cu;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x4A4A4A4Au;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x42424242u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0x64646464u;
+    y = ((y & 0xFEFEFEFEu) >> 1) | ((y & 0x01010101u) << 7);
+    x ^= y & 0xE0E0E0E0u;
+    a1 = x;
+    a1 ^= (x & 0xF0F0F0F0u) >> 4;
+    a2 = ((x & 0xCCCCCCCCu) >> 2) | ((x & 0x33333333u) << 2);
+    a3 = x & a1;
+    a3 ^= (a3 & 0xAAAAAAAAu) >> 1;
+    a3 ^= (((x << 1) & a1) ^ ((a1 << 1) & x)) & 0xAAAAAAAAu;
+    a4 = a2 & a1;
+    a4 ^= (a4 & 0xAAAAAAAAu) >> 1;
+    a4 ^= (((a2 << 1) & a1) ^ ((a1 << 1) & a2)) & 0xAAAAAAAAu;
+    a5 = (a3 & 0xCCCCCCCCu) >> 2;
+    a3 ^= ((a4 << 2) ^ a4) & 0xCCCCCCCCu;
+    a4 = a5 & 0x22222222u;
+    a4 |= a4 >> 1;
+    a4 ^= (a5 << 1) & 0x22222222u;
+    a3 ^= a4;
+    a5 = a3 & 0xA0A0A0A0u;
+    a5 |= a5 >> 1;
+    a5 ^= (a3 << 1) & 0xA0A0A0A0u;
+    a4 = a5 & 0xC0C0C0C0u;
+    a6 = a4 >> 2;
+    a4 ^= (a5 << 2) & 0xC0C0C0C0u;
+    a5 = a6 & 0x20202020u;
+    a5 |= a5 >> 1;
+    a5 ^= (a6 << 1) & 0x20202020u;
+    a4 |= a5;
+    a3 ^= a4 >> 4;
+    a3 &= 0x0F0F0F0Fu;
+    a2 = a3;
+    a2 ^= (a3 & 0x0C0C0C0Cu) >> 2;
+    a4 = a3 & a2;
+    a4 ^= (a4 & 0x0A0A0A0Au) >> 1;
+    a4 ^= (((a3 << 1) & a2) ^ ((a2 << 1) & a3)) & 0x0A0A0A0Au;
+    a5 = a4 & 0x08080808u;
+    a5 |= a5 >> 1;
+    a5 ^= (a4 << 1) & 0x08080808u;
+    a4 ^=
+
+[OpenSSL: ssl/ssl_lib.c]
+/*
+ * Copyright 1995-2026 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright (c) 2002, Oracle and/or its affiliates. All rights reserved
+ * Copyright 2005 Nokia. All rights reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#include "internal/e_os.h"
+#include "internal/e_winsock.h"
+#include "ssl_local.h"
+
+#include <openssl/err.h>
+#include <openssl/objects.h>
+#include <openssl/x509v3.h>
+#include <openssl/rand.h>
+#include <openssl/ocsp.h>
+#include <openssl/dh.h>
+#include <openssl/async.h>
+#include <openssl/kdf.h>
+#include <openssl/ct.h>
+#include <openssl/trace.h>
+#include <openssl/core_names.h>
+#include <openssl/provider.h>
+#include "internal/cryptlib.h"
+#include "internal/nelem.h"
+#include "internal/refcount.h"
+#include "internal/thread_once.h"
+#include "internal/ktls.h"
+#include "internal/to_hex.h"
+#include "internal/ssl_unwrap.h"
+#include "quic/quic_local.h"
+
+#ifndef OPENSSL_NO_SSLKEYLOG
+#include <sys/stat.h>
+#include <fcntl.h>
+#endif
+
+static int ssl_undefined_function_3(SSL_CONNECTION *sc, unsigned char *r,
+    unsigned char *s, size_t t, size_t *u)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_4(SSL_CONNECTION *sc, int r)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static size_t ssl_undefined_function_5(SSL_CONNECTION *sc, const char *r,
+    size_t s, unsigned char *t)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_6(int r)
+{
+    return ssl_undefined_function(NULL);
+}
+
+static int ssl_undefined_function_7(SSL_CONNECTION *sc, unsigned char *r,
+    size_t s, const char *t, size_t u,
+    const unsigned char *v, size_t w, int x)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+static int ssl_undefined_function_8(SSL_CONNECTION *sc)
+{
+    return ssl_undefined_function(SSL_CONNECTION_GET_SSL(sc));
+}
+
+const SSL3_ENC_METHOD ssl3_undef_enc_method = {
+    ssl_undefined_function_8,
+    ssl_undefined_function_3,
+    ssl_undefined_function_4,
+    ssl_undefined_function_5,
+    NULL, /* client_finished_label */
+    0, /* client_finished_label_len */
+    NULL, /* server_finished_label */
+    0, /* server_finished_label_len */
+    ssl_undefined_function_6,
+    ssl_undefined_function_7,
+};
+
+struct ssl_async_args {
+    SSL *s;
+    void *buf;
+    size_t num;
+    enum { READFUNC,
+        WRITEFUNC,
+        OTHERFUNC } type;
+    union {
+        int (*func_read)(SSL *, void *, size_t, size_t *);
+        int (*func_write)(SSL *, const void *, size_t, size_t *);
+        int (*func_other)(SSL *);
+    } f;
+};
+
+static const struct {
+    uint8_t mtype;
+    uint8_t ord;
+    int nid;
+} dane_mds[] = {
+    { DANETLS_MATCHING_FULL, 0, NID_undef },
+    { DANETLS_MATCHING_2256, 1, NID_sha256 },
+    { DANETLS_MATCHING_2512, 2, NID_sha512 },
+};
+
+static int dane_ctx_enable(struct dane_ctx_st *dctx)
+{
+    const EVP_MD **mdevp;
+    uint8_t *mdord;
+    uint8_t mdmax = DANETLS_MATCHING_LAST;
+    int n = ((int)mdmax) + 1; /* int to handle PrivMatch(255) */
+    size_t i;
+
+    if (dctx->mdevp != NULL)
+        return 1;
+
+    mdevp = OPENSSL_calloc(n, sizeof(*mdevp));
+    mdord = OPENSSL_calloc(n, sizeof(*mdord));
+
+    if (mdord == NULL || mdevp == NULL) {
+        OPENSSL_free(mdord);
+        OPENSSL_free(mdevp);
+        return 0;
+    }
+
+    /* Install default entries */
+    for (i = 0; i < OSSL_NELEM(dane_mds); ++i) {
+        const EVP_MD *md;
+
+        if (dane_mds[i].nid == NID_undef || (md = EVP_get_digestbynid(dane_mds[i].nid)) == NULL)
+            continue;
+        mdevp[dane_mds[i].mtype] = md;
+        mdord[dane_mds[i].mtype] = dane_mds[i].ord;
+    }
+
+    dctx->mdevp = mdevp;
+    dctx->mdord = mdord;
+    dctx->mdmax = mdmax;
+
+    return 1;
+}
+
+static void dane_ctx_final(struct dane_ctx_st *dctx)
+{
+    OPENSSL_free(dctx->mdevp);
+    dctx->mdevp = NULL;
+
+    OPENSSL_free(dctx->mdord);
+    dctx->mdord = NULL;
+    dctx->mdmax = 0;
+}
+
+static void tlsa_free(danetls_record *t)
+{
+    if (t == NULL)
+        return;
+    OPENSSL_free(t->data);
+    EVP_PKEY_free(t->spki);
+    OPENSSL_free(t);
+}
+
+static void dane_final(SSL_DANE *dane)
+{
+    sk_danetls_record_pop_free(dane->trecs, tlsa_free);
+    dane->trecs = NULL;
+
+    OSSL_STACK_OF_X509_free(dane->certs);
+    dane->certs = NULL;
+
+    X509_free(dane->mcert);
+    dane->mcert = NULL;
+    dane->mtlsa = NULL;
+    dane->mdpth = -1;
+    dane->pdpth = -1;
+}
+
+/*
+ * dane_copy - Copy dane configuration, sans verification state.
+ */
+static int ssl_dane_dup(SSL_CONNECTION *to, SSL_CONNECTION *from)
+{
+    int num;
+    int i;
+
+    if (!DANETLS_ENABLED(&from->dane))
+        return 1;
+
+    num = sk_danetls_record_num(from->dane.trecs);
+    dane_final(&to->dane);
+    to->dane.flags = from->dane.flags;
+    to->dane.dctx = &SSL_CONNECTION_GET_CTX(to)->dane;
+    to->dane.trecs = sk_danetls_record_new_reserve(NULL, num);
+
+    if (to->dane.trecs == NULL) {
+        ERR_raise(ERR_LIB_SSL, ERR_R_CRYPTO_LIB);
+        return 0;
+    }
+
+    for (i = 0; i < num; ++i) {
+        danetls_record *t = sk_danetls_record_value(from->dane.trecs, i);
+
+        if (SSL_dane_tlsa_add(SSL_CONNECTION_GET_SSL(to), t->usage,
+                t->selector, t->mtype, t->data, t->dlen)
+            <= 0)
+            return 0;
+    }
+    return 1;
+}
+
+static int dane_mtype_set(struct dane_ctx_st *dctx,
+    const EVP_MD *md, uint8_t mtype, uint8_t ord)
+{
+    int i;
+
+    if (mtype == DANETLS_MATCHING_FULL && md != NULL) {
+        ERR_raise(ERR_LIB_SSL, SSL_R_DANE_CANNOT_OVERRIDE_MTYPE_FULL);
+        return 0;
+    }
+
+    if (mtype > dctx->mdmax) {
+        const EVP_MD **mdevp;
+        uint8_t *mdord;
+        int n = ((int)mtype) + 1;
+
+        mdevp = OPENSSL_realloc_array(dctx->mdevp, n, sizeof(*mdevp));
+        if (mdevp == NULL)
+            return -1;
+        dctx-
+
+[OpenSSL: ssl/tls13_enc.c]
+/*
+ * Copyright 2016-2026 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#include <stdlib.h>
+#include "ssl_local.h"
+#include "internal/ktls.h"
+#include "record/record_local.h"
+#include "internal/cryptlib.h"
+#include "internal/ssl_unwrap.h"
+#include <openssl/evp.h>
+#include <openssl/kdf.h>
+#include <openssl/core_names.h>
+
+#define TLS13_MAX_LABEL_LEN 249
+
+/* ASCII: "tls13 ", in hex for EBCDIC compatibility */
+static const unsigned char label_prefix[] = "\x74\x6C\x73\x31\x33\x20";
+
+/*
+ * Given a |secret|; a |label| of length |labellen|; and |data| of length
+ * |datalen| (e.g. typically a hash of the handshake messages), derive a new
+ * secret |outlen| bytes long and store it in the location pointed to be |out|.
+ * The |data| value may be zero length. Any errors will be treated as fatal if
+ * |fatal| is set. Returns 1 on success  0 on failure.
+ * If |raise_error| is set, ERR_raise is called on failure.
+ */
+int tls13_hkdf_expand_ex(OSSL_LIB_CTX *libctx, const char *propq,
+    const EVP_MD *md,
+    const unsigned char *secret,
+    const unsigned char *label, size_t labellen,
+    const unsigned char *data, size_t datalen,
+    unsigned char *out, size_t outlen, int raise_error)
+{
+    EVP_KDF *kdf = EVP_KDF_fetch(libctx, OSSL_KDF_NAME_TLS1_3_KDF, propq);
+    EVP_KDF_CTX *kctx;
+    OSSL_PARAM params[8], *p = params;
+    int mode = EVP_PKEY_HKDEF_MODE_EXPAND_ONLY;
+    const char *mdname = EVP_MD_get0_name(md);
+    int ret;
+    size_t hashlen;
+
+    kctx = EVP_KDF_CTX_new(kdf);
+    EVP_KDF_free(kdf);
+    if (kctx == NULL)
+        return 0;
+
+    if (labellen > TLS13_MAX_LABEL_LEN) {
+        if (raise_error)
+            /*
+             * Probably we have been called from SSL_export_keying_material(),
+             * or SSL_export_keying_material_early().
+             */
+            ERR_raise(ERR_LIB_SSL, SSL_R_TLS_ILLEGAL_EXPORTER_LABEL);
+
+        EVP_KDF_CTX_free(kctx);
+        return 0;
+    }
+
+    if ((ret = EVP_MD_get_size(md)) <= 0) {
+        EVP_KDF_CTX_free(kctx);
+        if (raise_error)
+            ERR_raise(ERR_LIB_SSL, ERR_R_INTERNAL_ERROR);
+        return 0;
+    }
+    hashlen = (size_t)ret;
+
+    *p++ = OSSL_PARAM_construct_int(OSSL_KDF_PARAM_MODE, &mode);
+    *p++ = OSSL_PARAM_construct_utf8_string(OSSL_KDF_PARAM_DIGEST,
+        (char *)mdname, 0);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_KEY,
+        (unsigned char *)secret, hashlen);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_PREFIX,
+        (unsigned char *)label_prefix,
+        sizeof(label_prefix) - 1);
+    *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_LABEL,
+        (unsigned char *)label, labellen);
+    if (data != NULL)
+        *p++ = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_DATA,
+            (unsigned char *)data,
+            datalen);
+    if (propq != NULL)
+        *p++ = OSSL_PARAM_construct_utf8_string(OSSL_KDF_PARAM_PROPERTIES,
+            (char *)propq, 0);
+
+    *p++ = OSSL_PARAM_construct_end();
+
+    ret = EVP_KDF_derive(kctx, out, outlen, params) <= 0;
+    EVP_KDF_CTX_free(kctx);
+
+    if (ret != 0) {
+        if (raise_error)
+            ERR_raise(ERR_LIB_SSL, ERR_R_INTERNAL_ERROR);
+    }
+
+    return ret == 0;
+}
+
+int tls13_hkdf_expand(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    const unsigned char *label, size_t labellen,
+    const unsigned char *data, size_t datalen,
+    unsigned char *out, size_t outlen, int fatal)
+{
+    int ret;
+    SSL_CTX *sctx = SSL_CONNECTION_GET_CTX(s);
+
+    ret = tls13_hkdf_expand_ex(sctx->libctx, sctx->propq, md,
+        secret, label, labellen, data, datalen,
+        out, outlen, !fatal);
+    if (ret == 0 && fatal)
+        SSLfatal(s, SSL_AD_INTERNAL_ERROR, ERR_R_INTERNAL_ERROR);
+
+    return ret;
+}
+
+/*
+ * Given a |secret| generate a |key| of length |keylen| bytes. Returns 1 on
+ * success  0 on failure.
+ */
+int tls13_derive_key(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *key, size_t keylen)
+{
+    /* ASCII: "key", in hex for EBCDIC compatibility */
+    static const unsigned char keylabel[] = "\x6B\x65\x79";
+
+    return tls13_hkdf_expand(s, md, secret, keylabel, sizeof(keylabel) - 1,
+        NULL, 0, key, keylen, 1);
+}
+
+/*
+ * Given a |secret| generate an |iv| of length |ivlen| bytes. Returns 1 on
+ * success  0 on failure.
+ */
+int tls13_derive_iv(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *iv, size_t ivlen)
+{
+    /* ASCII: "iv", in hex for EBCDIC compatibility */
+    static const unsigned char ivlabel[] = "\x69\x76";
+
+    return tls13_hkdf_expand(s, md, secret, ivlabel, sizeof(ivlabel) - 1,
+        NULL, 0, iv, ivlen, 1);
+}
+
+int tls13_derive_finishedkey(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *secret,
+    unsigned char *fin, size_t finlen)
+{
+    /* ASCII: "finished", in hex for EBCDIC compatibility */
+    static const unsigned char finishedlabel[] = "\x66\x69\x6E\x69\x73\x68\x65\x64";
+
+    return tls13_hkdf_expand(s, md, secret, finishedlabel,
+        sizeof(finishedlabel) - 1, NULL, 0, fin, finlen, 1);
+}
+
+/*
+ * Given the previous secret |prevsecret| and a new input secret |insecret| of
+ * length |insecretlen|, generate a new secret and store it in the location
+ * pointed to by |outsecret|. Returns 1 on success  0 on failure.
+ */
+int tls13_generate_secret(SSL_CONNECTION *s, const EVP_MD *md,
+    const unsigned char *prevsecret,
+    const unsigned char *insecret,
+    size_t insecretlen,
+    unsigned char *outsecret)
+{
+    size_t mdlen;
+    int mdleni;
+    int ret;
+    EVP_KDF *kdf;
+    EVP_KDF_CTX *kctx;
+    OSSL_PARAM params[7], *p = params;
+    int mode = EVP_PKEY_HKDEF_MODE_EXTRACT_ONLY;
+    const char *mdname = EVP_MD_get0_name(md);
+    /* ASCII: "der

@@ -1,0 +1,760 @@
+CVE: CVE-2005-0055
+Keyword: memory corruption
+Internet Explorer 5.01, 5.5, and 6 does not properly validate buffers when handling certain DHTML methods including the createControlRange Javascript function, which allows remote attackers to execute arbitrary code, aka the "DHTML Method Heap Memory Corruption Vulnerability."
+
+Exploit-DB #24681
+Title: 3Com 3CRADSL72 ADSL Wireless Router - Information Disclosure / Authentication Bypass
+Type: remote | Platform: hardware
+
+Exploit-DB #46004
+Title: MegaPing - Local Buffer Overflow Denial of Service
+Type: dos | Platform: windows
+
+CVE: CVE-2006-0031
+Keyword: memory corruption
+Stack-based buffer overflow in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed record with a modified length value, which leads to memory corruption.
+
+CVE: CVE-2006-5823
+Keyword: memory corruption
+The zlib_inflate function in Linux kernel 2.6.x allows local users to cause a denial of service (crash) via a malformed filesystem that uses zlib compression that triggers memory corruption, as demonstrated using cramfs.
+
+CVE: CVE-2006-0539
+Keyword: memory corruption
+The convert-fcrontab program in fcron 3.0.0 might allow local users to gain privileges via a long command-line argument, which causes Linux glibc to report heap memory corruption, possibly because a strcpy in the strdup2 function can "overwrite some data."
+
+Exploit-DB #20062
+Title: Alienvault Open Source SIEM (OSSIM) 3.1 - Reflected Cross-Site Scripting / Blind SQL Injection
+Type: webapps | Platform: php
+
+[Project Zero]
+Title: A Deep Dive into the GetProcessHandleFromHwnd API
+
+In my previous blog post I mentioned the GetProcessHandleFromHwnd API. This was an API I didn’t know existed until I found a publicly disclosed UAC bypass using the Quick Assist UI Access application. This API looked interesting so I thought I should take a closer look. I typically start by reading the documentation for an API I don’t know about, assuming it’s documented at all. It can give you an idea of how long the API has existed as well as its security properties. The documentation’s remarks contain the following three statements that I thought were interesting: If the caller has UIAccess, however, they can use a windows hook to inject code into the target process, and from within the target process, send a handle back to the caller. GetProcessHandleFromHwnd is a convenience function that uses this technique to obtain the handle of the process that owns the specified HWND. Note that it only succeeds in cases where the caller and target process are running as the same user.
+
+Exploit-DB #31576
+Title: Microsoft Windows - TrackPopupMenuEx Win32k NULL Page (MS13-081) (Metasploit)
+Type: local | Platform: windows
+
+CVE: CVE-2006-4688
+Keyword: memory corruption
+Buffer overflow in Client Service for NetWare (CSNW) in Microsoft Windows 2000 SP4, XP SP2, and Server 2003 up to SP1 allows remote attackers to execute arbitrary code via crafted messages, aka "Client Service for NetWare Memory Corruption Vulnerability."
+
+CVE: CVE-2006-2919
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft NetMeeting 3.01 allows remote attackers to cause a denial of service (crash or CPU consumption) and possibly execute arbitrary code via crafted inputs that trigger memory corruption.
+
+CVE: CVE-2006-2779
+Keyword: memory corruption
+Mozilla Firefox and Thunderbird before 1.5.0.4 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) nested <option> tags in a select tag, (2) a DOMNodeRemoved mutation event, (3) "Content-implemented tree views," (4) BoxObjects, (5) the XBL implementation, (6) an iframe that attempts to remove itself, which leads to memory corruption.
+
+CVE: CVE-2006-1790
+Keyword: memory corruption
+A regression fix in Mozilla Firefox 1.0.7 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via the InstallTrigger.install method, which leads to memory corruption.
+
+CVE: CVE-2006-4193
+Keyword: memory corruption
+Microsoft Internet Explorer 6.0 SP1 and possibly other versions allows remote attackers to cause a denial of service and possibly execute arbitrary code by instantiating COM objects as ActiveX controls, including (1) imskdic.dll (Microsoft IME), (2) chtskdic.dll (Microsoft IME), and (3) msoe.dll (Outlook), which leads to memory corruption. NOTE: it is not certain whether the issue is in Internet Explorer or the individual DLL files.
+
+Exploit-DB #39796
+Title: Ipswitch WS_FTP LE 12.3 - Search field Overwrite (SEH) (PoC)
+Type: dos | Platform: windows
+
+Exploit-DB #7713
+Title: VUPlayer 2.49 - '.asx' HREF Local Buffer Overflow (2)
+Type: local | Platform: windows
+
+CVE: CVE-2006-5748
+Keyword: memory corruption
+Multiple unspecified vulnerabilities in the JavaScript engine in Mozilla Firefox before 1.5.0.8, Thunderbird before 1.5.0.8, and SeaMonkey before 1.0.6 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unspecified vectors that trigger memory corruption.
+
+Exploit-DB #35908
+Title: SWFupload 2.5.0 - Cross Frame Scripting (XFS)
+Type: webapps | Platform: multiple
+
+CVE: CVE-2006-6129
+Keyword: memory corruption
+Integer overflow in the fatfile_getarch2 in Apple Mac OS X allows local users to cause a denial of service and possibly execute arbitrary code via a crafted Mach-O Universal program that triggers memory corruption.
+
+CVE: CVE-2006-6456
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000, 2002, and 2003 and Word Viewer 2003 allows remote attackers to execute code via unspecified vectors related to malformed data structures that trigger memory corruption, a different vulnerability than CVE-2006-5994.
+
+Exploit-DB #50398
+Title: Simple Online College Entrance Exam System 1.0 - 'Multiple' SQL injection
+Type: webapps | Platform: php
+
+Exploit-DB #11738
+Title: Joomla! Component com_gcalendar Suite 2.1.5 - Local File Inclusion
+Type: webapps | Platform: php
+
+CVE: CVE-2006-1185
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via certain invalid HTML that causes memory corruption.
+
+CVE: CVE-2004-0714
+Keyword: memory corruption
+Cisco Internetwork Operating System (IOS) 12.0S through 12.3T attempts to process SNMP solicited operations on improper ports (UDP 162 and a randomly chosen UDP port), which allows remote attackers to cause a denial of service (device reload and memory corruption).
+
+CVE: CVE-2006-5583
+Keyword: memory corruption
+Buffer overflow in the SNMP Service in Microsoft Windows 2000 SP4, XP SP2, Server 2003, Server 2003 SP1, and possibly other versions allows remote attackers to execute arbitrary code via a crafted SNMP packet, aka "SNMP Memory Corruption Vulnerability."
+
+Exploit-DB #52012
+Title: CrushFTP < 11.1.0 - Directory Traversal
+Type: remote | Platform: multiple
+
+CVE: CVE-2006-1189
+Keyword: memory corruption
+Buffer overflow in URLMON.DLL in Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via a crafted URL with an International Domain Name (IDN) using double-byte character sets (DBCS), aka the "Double Byte Character Parsing Memory Corruption Vulnerability."
+
+CVE: CVE-2006-5579
+Keyword: memory corruption
+Microsoft Internet Explorer 6 allows remote attackers to execute arbitrary code by using JavaScript to cause certain errors simultaneously, which results in the access of previously freed memory, aka "Script Error Handling Memory Corruption Vulnerability."
+
+CVE: CVE-2000-0484
+Keyword: memory corruption
+Small HTTP Server ver 3.06 contains a memory corruption bug causing a memory overflow. The overflowed buffer crashes into a Structured Exception Handler resulting in a Denial of Service.
+
+CVE: CVE-2006-5745
+Keyword: memory corruption
+Unspecified vulnerability in the setRequestHeader method in the XMLHTTP (XML HTTP) ActiveX Control 4.0 in Microsoft XML Core Services 4.0 on Windows, when accessed by Internet Explorer, allows remote attackers to execute arbitrary code via crafted arguments that lead to memory corruption, a different vulnerability than CVE-2006-4685.  NOTE: some of these details are obtained from third party information.
+
+CVE: CVE-2006-1245
+Keyword: memory corruption
+Buffer overflow in mshtml.dll in Microsoft Internet Explorer 6.0.2900.2180, and probably other versions, allows remote attackers to execute arbitrary code via an HTML tag with a large number of script action handlers such as onload and onmouseover, as demonstrated using onclick, aka the "Multiple Event Handler Memory Corruption Vulnerability."
+
+CVE: CVE-2006-3945
+Keyword: memory corruption
+The CSS functionality in Opera 9 on Windows XP SP2 allows remote attackers to cause a denial of service (crash) by setting the background property of a DHTML element to a long http or https URL, which triggers memory corruption.
+
+CVE: CVE-2006-1186
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via by instantiating the (1) Mdt2gddr.dll, (2) Mdt2dd.dll, and (3) Mdt2gddo.dll COM objects as ActiveX controls, which leads to memory corruption.
+
+CVE: CVE-2006-3057
+Keyword: memory corruption
+Unspecified vulnerability in NetworkManager daemon for DHCP (dhcdbd) allows remote attackers to cause a denial of service (crash) via certain invalid DHCP responses that trigger memory corruption.
+
+CVE: CVE-2006-1316
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via an Office file with malformed string that triggers memory corruption related to record lengths, aka "Microsoft Office Parsing Vulnerability," a different vulnerability than CVE-2006-2389.
+
+Exploit-DB #32557
+Title: FTP Drive + HTTP 1.0.4 iOS - Code Execution
+Type: webapps | Platform: ios
+
+CVE: CVE-2006-2370
+Keyword: memory corruption
+Buffer overflow in the Routing and Remote Access service (RRAS) in Microsoft Windows 2000 SP4, XP SP1 and SP2, and Server 2003 SP1 and earlier allows remote unauthenticated or authenticated attackers to execute arbitrary code via certain crafted "RPC related requests," aka the "RRAS Memory Corruption Vulnerability."
+
+Exploit-DB #14394
+Title: Joomla! Component com_spa - SQL Injection (2)
+Type: webapps | Platform: php
+
+CVE: CVE-2006-3637
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 SP4 and 6 does not properly handle various HTML layout component combinations, which allows user-assisted remote attackers to execute arbitrary code via a crafted HTML file that leads to memory corruption, aka "HTML Rendering Memory Corruption Vulnerability."
+
+CVE: CVE-2005-2127
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not intended for use within Internet Explorer, as originally demonstrated using the (1) DDS Library Shape Control (Msdds.dll) COM object, and other objects including (2) Blnmgrps.dll, (3) Ciodm.dll, (4) Comsvcs.dll, (5) Danim.dll, (6) Htmlmarq.ocx, (7) Mdt2dd.dll (as demonstrated using a heap corruption attack with uninitialized memory), (8) Mdt2qd.dll, (9) Mpg4ds32.ax, (10) Msadds32.ax, (11) Msb1esen.dll, (12) Msb1fren.dll, (13) Msb1geen.dll, (14) Msdtctm.dll, (15) Mshtml.dll, (16) Msoeacct.dll, (17) Msosvfbr.dll, (18) Mswcrun.dll, (19) Netshell.dll, (20) Ole2disp.dll, (21) Outllib.dll, (22) Psisdecd.dll, (23) Qdvd.dll, (24) Repodbc.dll, (25) Shdocvw.dll, (26) Shell32.dll, (27) Soa.dll, (28) Srchui.dll, (29) Stobject.dll, (30) Vdt70.dll, (31) Vmhelper.dll, and (32) Wbemads.dll, aka a variant of the "COM Object Instantiation Memory Corruption vulnerability."
+
+CVE: CVE-2006-0029
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed description, which leads to memory corruption.
+
+CVE: CVE-2006-6504
+Keyword: memory corruption
+Mozilla Firefox 2.x before 2.0.0.1, 1.5.x before 1.5.0.9, and SeaMonkey before 1.0.7 allows remote attackers to execute arbitrary code by appending an SVG comment DOM node to another type of document, which triggers memory corruption.
+
+CVE: CVE-2006-3864
+Keyword: memory corruption
+Unspecified vulnerability in mso.dll in Microsoft Office 2000, XP, and 2003, and Microsoft PowerPoint 2000, XP, and 2003, allows remote user-assisted attackers to execute arbitrary code via a malformed record in a (1) .DOC, (2) .PPT, or (3) .XLS file that triggers memory corruption, related to an "array boundary condition" (possibly an array index overflow), a different vulnerability than CVE-2006-3434, CVE-2006-3650, and CVE-2006-3868.
+
+Exploit-DB #22324
+Title: File 3.x - Local Stack Overflow Code Execution (1)
+Type: local | Platform: unix
+
+CVE: CVE-2005-1988
+Keyword: memory corruption
+Unknown vulnerability in Internet Explorer 5.0, 5.5, and 6.0 allows remote attackers to execute arbitrary code via a web site or an HTML e-mail containing a crafted JPEG image that causes memory corruption, aka "JPEG Image Rendering Memory Corruption Vulnerability".
+
+CVE: CVE-2006-0295
+Keyword: memory corruption
+Mozilla Firefox 1.5, Thunderbird 1.5 if Javascript is enabled in mail, and SeaMonkey before 1.0 might allow remote attackers to execute arbitrary code via the QueryInterface method of the built-in Location and Navigator objects, which leads to memory corruption.
+
+Exploit-DB #17032
+Title: VMCPlayer 1.0 - Denial of Service
+Type: dos | Platform: windows
+
+CVE: CVE-2005-2831
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not intended for use within Internet Explorer, aka a variant of the "COM Object Instantiation Memory Corruption Vulnerability," a different vulnerability than CVE-2005-2127.
+
+CVE: CVE-2006-6102
+Keyword: memory corruption
+Integer overflow in the ProcDbeGetVisualInfo function in the DBE extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of unspecified data structures.
+
+CVE: CVE-2006-1301
+Keyword: memory corruption
+Microsoft Excel 2000 through 2004 allows user-assisted attackers to execute arbitrary code via a .xls file with a crafted SELECTION record that triggers memory corruption, a different vulnerability than CVE-2006-1302.
+
+CVE: CVE-2005-3193
+Keyword: memory corruption
+Heap-based buffer overflow in the JPXStream::readCodestream function in the JPX stream parsing code (JPXStream.c) for xpdf 3.01 and earlier, as used in products such as (1) Poppler, (2) teTeX, (3) KDE kpdf, (4) CUPS, and (5) libextractor allows user-assisted attackers to cause a denial of service (heap corruption) and possibly execute arbitrary code via a crafted PDF file with large size values that cause insufficient memory to be allocated.
+
+CVE: CVE-2006-6810
+Keyword: memory corruption
+Unspecified vulnerability in the clear_user_list function in src/main.c in DB Hub 0.3 allows remote attackers to cause a denial of service (application crash) via crafted network traffic, which triggers memory corruption.
+
+CVE: CVE-2006-2780
+Keyword: memory corruption
+Integer overflow in Mozilla Firefox and Thunderbird before 1.5.0.4 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via "jsstr tagify," which leads to memory corruption.
+
+CVE: CVE-2006-6854
+Keyword: memory corruption
+The qcamvc_video_init function in qcamvc.c in De Marchi Daniele QuickCam VC Linux device driver (aka quickcam-vc) 1.0.9 and earlier does not properly check a boundary, triggering memory corruption, which might allow attackers to execute arbitrary code via a crafted QuickCam object.
+
+CVE: CVE-2006-6062
+Keyword: memory corruption
+Unspecified vulnerability in Apple Mac OS X 10.4.8, and possibly other versions, allows remote attackers to cause a denial of service (crash) via a malformed UDTO HFS+ disk image, such as with "bad sectors," which triggers memory corruption.
+
+Exploit-DB #45588
+Title: HaPe PKH 1.1 - 'id' SQL Injection
+Type: webapps | Platform: php
+
+CVE: CVE-2006-6876
+Keyword: memory corruption
+Buffer overflow in the fetchsms function in the SMS handling module (libsms_getsms.c) in OpenSER 1.2.0 and earlier allows remote attackers to cause a denial of service (crash) via a crafted SMS message, triggering memory corruption when the "beginning" buffer is copied to the third (pdu) argument.
+
+Exploit-DB #33708
+Title: FreeBSD 8.0 / OpenBSD 4.x - 'ftpd' Null Pointer Dereference Denial of Service
+Type: dos | Platform: bsd
+
+Exploit-DB #8542
+Title: Icewarp Merak Mail Server 9.4.1 - 'Base64FileEncode()' Buffer Overflow (PoC)
+Type: dos | Platform: windows
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave
+
+With the advent of a potential Dolby Unified Decoder RCE exploit, it seemed prudent to see what kind of Linux kernel drivers might be accessible from the resulting userland context, the mediacodec context. As per the AOSP documentation, the mediacodec SELinux context is intended to be a constrained (a.k.a sandboxed) context where non-secure software decoders are utilized. Nevertheless, using my DriverCartographer tool, I discovered an interesting device driver, /dev/bigwave that was accessible from the mediacodec SELinux context. BigWave is hardware present on the Pixel SOC that accelerates AV1 decoding tasks, which explains why it is accessible from the mediacodec context. As previous research has copiously affirmed, Android drivers for hardware devices are prime places to find powerful local privilege escalation bugs. The BigWave driver was no exception - across a couple hours of auditing the code, I discovered three separate bugs, including one that was powerful enough to escape the mediacodec sandbox and get kernel arbitrary read/write on the Pixel 9.
+
+CVE: CVE-2006-3638
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 and 6 does not properly handle uninitialized COM objects, which allows remote attackers to cause a denial of service (memory corruption) and possibly execute arbitrary code, as demonstrated by the Nth function in the DirectAnimation.DATuple ActiveX control, aka "COM Object Instantiation Memory Corruption Vulnerability."
+
+CVE: CVE-2006-1303
+Keyword: memory corruption
+Multiple unspecified vulnerabilities in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allow remote attackers to execute arbitrary code by instantiating certain COM objects from Wmm2fxa.dll as ActiveX controls including (1) DXImageTransform.Microsoft.MMSpecialEffect1Input, (2) DXImageTransform.Microsoft.MMSpecialEffect1Input.1, (3) DXImageTransform.Microsoft.MMSpecialEffect2Inputs, (4) DXImageTransform.Microsoft.MMSpecialEffect2Inputs.1, (5) DXImageTransform.Microsoft.MMSpecialEffectInplace1Input, and (6) DXImageTransform.Microsoft.MMSpecialEffectInplace1Input.1, which causes memory corruption during garbage collection.
+
+Exploit-DB #30675
+Title: InnovaPortal - 'tc/contents/home001.jsp?contentid' Cross-Site Scripting
+Type: webapps | Platform: jsp
+
+CVE: CVE-2006-0007
+Keyword: memory corruption
+Buffer overflow in GIFIMP32.FLT, as used in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via a crafted GIF image that triggers memory corruption when it is parsed.
+
+CVE: CVE-2004-1013
+Keyword: memory corruption
+The argument parser of the FETCH command in Cyrus IMAP Server 2.2.x through 2.2.8 allows remote authenticated users to execute arbitrary code via certain commands such as (1) "body[p", (2) "binary[p", or (3) "binary[p") that cause an index increment error that leads to an out-of-bounds memory corruption.
+
+Exploit-DB #32568
+Title: Fitnesse Wiki - Remote Command Execution (Metasploit)
+Type: remote | Platform: windows
+
+CVE: CVE-2006-1313
+Keyword: memory corruption
+Microsoft JScript 5.1, 5.5, and 5.6 on Windows 2000 SP4, and 5.6 on Windows XP, Server 2003, Windows 98 and Windows Me, will "release objects early" in certain cases, which results in memory corruption and allows remote attackers to execute arbitrary code.
+
+CVE: CVE-2006-0022
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft PowerPoint in Microsoft Office 2000 SP3, Office XP SP3, Office 2003 SP1 and SP2, Office 2004 for Mac, and v. X for Mac allows user-assisted attackers to execute arbitrary code via a PowerPoint document with a malformed record, which triggers memory corruption.
+
+Exploit-DB #50574
+Title: MTPutty 1.0.1.21 - SSH Password Disclosure
+Type: local | Platform: windows
+
+CVE: CVE-2006-2385
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allows user-assisted remote attackers to execute arbitrary code via a crafted web page that triggers memory corruption when it is saved as a multipart HTML (.mht) file.
+
+CVE: CVE-2006-3656
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft PowerPoint 2003 allows user-assisted attackers to cause memory corruption via a crafted PowerPoint file, which triggers the corruption when the file is closed.  NOTE: due to the lack of available details as of 20060717, it is unclear how this is related to CVE-2006-3655, CVE-2006-3660, and CVE-2006-3590, although it is possible that they are all different.
+
+Exploit-DB #29154
+Title: CreaDirectory 1.2 - 'search.asp?category' SQL Injection
+Type: webapps | Platform: asp
+
+CVE: CVE-2006-5994
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000 and 2002, Office Word and Word Viewer 2003, Word 2004 and 2004 v. X for Mac, and Works 2004, 2005, and 2006 allows remote attackers to execute arbitrary code via a Word document with a malformed string that triggers memory corruption, a different vulnerability than CVE-2006-6456.
+
+CVE: CVE-2006-1188
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via HTML elements with a certain crafted tag, which leads to memory corruption.
+
+CVE: CVE-2006-3113
+Keyword: memory corruption
+Mozilla Firefox 1.5 before 1.5.0.5, Thunderbird before 1.5.0.5, and SeaMonkey before 1.0.3 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via simultaneous XPCOM events, which causes a timer object to be deleted in a way that triggers memory corruption.
+
+Exploit-DB #34597
+Title: Datetopia Buy Dating Site - Cross-Site Scripting
+Type: webapps | Platform: php
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby
+
+Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user. One such feature is audio transcription. Incoming SMS and RCS audio attachments received by Google Messages are now automatically decoded with no user interaction. As a result, audio decoders are now in the 0-click attack surface of most Android phones. I’ve spent a fair bit of time investigating these decoders, first reporting CVE-2025-49415 in the Monkey’s Audio codec on Samsung devices. Based on this research, the team reviewed the Dolby Unified Decoder, and Ivan Fratric and I reported CVE-2025-54957. This vulnerability is likely in the 0-click attack surface of most Android devices in use today. In parallel, Seth Jenkins investigated a driver accessible from the sandbox the decoder runs in on a Pixel 9, and reported CVE-2025-36934.
+
+[Project Zero]
+Title: Welcome to the new Project Zero Blog
+
+While on Project Zero, we aim for our research to be leading-edge, our blog design was … not so much. We welcome readers to our shiny new blog! For the occasion, we asked members of Project Zero to dust off old blog posts that never quite saw the light of day. And while we wish we could say the techniques they cover are no longer relevant, there is still a lot of work that needs to be done to protect users against zero days. Our new blog will continue to shine a light on the capabilities of attackers and the many opportunities that exist to protect against them. From 2016: Windows Exploitation Techniques: Race conditions with path lookups by James Forshaw From 2017: Thinking Outside The Box by Jann Horn
+
+CVE: CVE-2006-1368
+Keyword: memory corruption
+Buffer overflow in the USB Gadget RNDIS implementation in the Linux kernel before 2.6.16 allows remote attackers to cause a denial of service (kmalloc'd memory corruption) via a remote NDIS response to OID_GEN_SUPPORTED_LIST, which causes memory to be allocated for the reply data but not the reply structure.
+
+Exploit-DB #37900
+Title: IBM Lotus Notes Traveler 8.5.1.x - Multiple Input Validation Vulnerabilities
+Type: remote | Platform: multiple
+
+CVE: CVE-2006-5967
+Keyword: memory corruption
+Race condition in Panda ActiveScan 5.53.00, and other versions before 5.54.01, allows remote attackers to cause memory corruption and execute arbitrary code via unknown vectors related to multiple invocations of the Analizar method in the ActiveScan.1 ActiveX control, which is not thread safe.
+
+CVE: CVE-2005-1790
+Keyword: memory corruption
+Microsoft Internet Explorer 6 SP2 6.0.2900.2180 and 6.0.2800.1106, and earlier versions, allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a Javascript BODY onload event that calls the window function, aka "Mismatched Document Object Model Objects Memory Corruption Vulnerability."
+
+CVE: CVE-2006-5647
+Keyword: memory corruption
+Sophos Anti-Virus and Endpoint Security before 6.0.5, Anti-Virus for Linux before 5.0.10, and other platforms before 4.11 allows remote attackers to cause a denial of service (memory corruption) and possibly execute arbitrary code via a malformed CHM file with a large name length in the CHM chunk header, aka "CHM name length memory consumption vulnerability."
+
+Exploit-DB #14360
+Title: Struts2/XWork < 2.2.0 - Remote Command Execution
+Type: remote | Platform: multiple
+
+CVE: CVE-2005-4131
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed range, which could lead to memory corruption involving an argument to the msvcrt.memmove function, aka "Brand new Microsoft Excel Vulnerability," as originally placed for sale on eBay as item number 7203336538.
+
+CVE: CVE-2003-0525
+Keyword: memory corruption
+The getCanonicalPath function in Windows NT 4.0 may free memory that it does not own and cause heap corruption, which allows attackers to cause a denial of service (crash) via requests that cause a long file name to be passed to getCanonicalPath, as demonstrated on the IBM JVM using a long string to the java.io.getCanonicalPath Java method.
+
+CVE: CVE-2005-2151
+Keyword: memory corruption
+spf.c in Courier Mail Server does not properly handle DNS failures when looking up Sender Policy Framework (SPF) records, which could allow attackers to cause memory corruption.
+
+CVE: CVE-2006-6651
+Keyword: memory corruption
+Race condition in W29N51.SYS in the Intel 2200BG wireless driver 9.0.3.9 allows remote attackers to cause memory corruption and execute arbitrary code via a series of crafted beacon frames.  NOTE: some details are obtained solely from third party information.
+
+CVE: CVE-2006-0033
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via a crafted PNG image that triggers memory corruption when it is parsed.
+
+Exploit-DB #18401
+Title: Savant Web Server 3.1 - Remote Buffer Overflow (Egghunter)
+Type: remote | Platform: windows
+
+CVE: CVE-2007-0102
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by Apple Mac OS X Preview, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+CVE: CVE-2005-0553
+Keyword: memory corruption
+Race condition in the memory management routines in the DHTML object processor in Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to execute arbitrary code via a malicious web page or HTML e-mail, aka "DHTML Object Memory Corruption Vulnerability".
+
+CVE: CVE-2006-3434
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2000, XP, 2003, 2004 for Mac, and v.X for Mac allows remote user-assisted attackers to execute arbitrary code via a crafted string that triggers memory corruption.
+
+CVE: CVE-2007-0103
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by Adobe Acrobat before 8.0.0, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+CVE: CVE-2005-1990
+Keyword: memory corruption
+Internet Explorer 5.0, 5.5, and 6.0 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a web page with embedded CLSIDs that reference certain COM objects that are not ActiveX controls, including (1) devenum.dll, (2) diactfrm.dll, (3) wmm2filt.dll, (4) fsusd.dll, (5) dmdskmgr.dll, (6) browsewm.dll, (7) browseui.dll, (8) shell32.dll, (9) mshtml.dll, (10) inetcfg.dll, (11) infosoft.dll, (12) query.dll, (13) syncui.dll, (14) clbcatex.dll, (15) clbcatq.dll, (16) comsvcs.dll, and (17) msconf.dll, which causes memory corruption, aka "COM Object Instantiation Memory Corruption Vulnerability," a different vulnerability than CVE-2005-2087.
+
+CVE: CVE-2005-3275
+Keyword: memory corruption
+The NAT code (1) ip_nat_proto_tcp.c and (2) ip_nat_proto_udp.c in Linux kernel 2.6 before 2.6.13 and 2.4 before 2.4.32-rc1 incorrectly declares a variable to be static, which allows remote attackers to cause a denial of service (memory corruption) by causing two packets for the same protocol to be NATed at the same time, which leads to memory corruption.
+
+CVE: CVE-2006-3590
+Keyword: memory corruption
+mso.dll, as used by Microsoft PowerPoint 2000 through 2003, allows user-assisted attackers to execute arbitrary commands via a malformed shape container in a PPT file that leads to memory corruption, as exploited by Trojan.PPDropper.B, a different issue than CVE-2006-1540 and CVE-2006-3493.
+
+CVE: CVE-2006-0749
+Keyword: memory corruption
+nsHTMLContentSink.cpp in Mozilla Firefox and Thunderbird 1.x before 1.5 and 1.0.x before 1.0.8, Mozilla Suite before 1.7.13, and SeaMonkey before 1.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unknown vectors involving a "particular sequence of HTML tags" that leads to memory corruption.
+
+CVE: CVE-2006-0020
+Keyword: memory corruption
+An unspecified Microsoft WMF parsing application, as used in Internet Explorer 5.01 SP4 on Windows 2000 SP4, and 5.5 SP2 on Windows Millennium, and possibly other versions, allows attackers to cause a denial of service (crash) and possibly execute code via a crafted WMF file with a manipulated WMF header size, possibly involving an integer overflow, a different vulnerability than CVE-2005-4560, and aka "WMF Image Parsing Memory Corruption Vulnerability."
+
+CVE: CVE-2006-2382
+Keyword: memory corruption
+Heap-based buffer overflow in Microsoft Internet Explorer 5.01 SP4 and 6 SP1 and earlier allows remote attackers to execute arbitrary code via crafted UTF-8 encoded HTML that results in size discrepancies during conversion to Unicode, aka "HTML Decoding Memory Corruption Vulnerability."
+
+CVE: CVE-2006-2218
+Keyword: memory corruption
+Unspecified vulnerability in Internet Explorer 6.0 on Microsoft Windows XP SP2 allows remote attackers to execute arbitrary code via "exceptional conditions" that trigger memory corruption, as demonstrated using an exception handler and nested object tags, a variant of CVE-2006-1992.
+
+CVE: CVE-2006-4687
+Keyword: memory corruption
+Microsoft Internet Explorer 5.01 through 6 allows remote attackers to execute arbitrary code via crafted layout combinations involving DIV tags and HTML CSS float properties that trigger memory corruption, aka "HTML Rendering Memory Corruption Vulnerability."
+
+CVE: CVE-2006-3811
+Keyword: memory corruption
+Multiple vulnerabilities in Mozilla Firefox before 1.5.0.5, Thunderbird before 1.5.0.5, and SeaMonkey before 1.0.3 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via Javascript that leads to memory corruption, including (1) nsListControlFrame::FireMenuItemActiveEvent, (2) buffer overflows in the string class in out-of-memory conditions, (3) table row and column groups, (4) "anonymous box selectors outside of UA stylesheets," (5) stale references to "removed nodes," and (6) running the crypto.generateCRMFRequest callback on deleted context.
+
+[Project Zero]
+Title: Bypassing Administrator Protection by Abusing UI Access
+
+In my last blog post I introduced the new Windows feature, Administrator Protection and how it aimed to create a secure boundary for UAC where one didn’t exist. I described one of the ways I was able to bypass the feature before it was released. In total I found 9 bypasses during my research that have now all been fixed. In this blog post I wanted to describe the root cause of 5 of those 9 issues, specifically the implementation of UI Access, how this has been a long standing problem with UAC that’s been under-appreciated, and how it’s being fixed now. A Question of Accessibility Prior to Windows Vista any process running on a user’s desktop could control any window created by another, such as by sending window messages. This behavior could be abused if a privileged user, such as SYSTEM, displayed a user interface on the desktop. A limited user could control the UI and potentially elevate privileges. This was referred to as a Shatter Attack, and was usually fixed by removing user interface components from privileged code.
+
+CVE: CVE-2006-2629
+Keyword: memory corruption
+Race condition in Linux kernel 2.6.15 to 2.6.17, when running on SMP platforms, allows local users to cause a denial of service (crash) by creating and exiting a large number of tasks, then accessing the /proc entry of a task that is exiting, which causes memory corruption that leads to a failure in the prune_dcache function or a BUG_ON error in include/linux/list.h.
+
+CVE: CVE-2006-6128
+Keyword: memory corruption
+The ReiserFS functionality in Linux kernel 2.6.18, and possibly other versions, allows local users to cause a denial of service via a malformed ReiserFS file system that triggers memory corruption when a sync is performed.
+
+CVE: CVE-2006-5758
+Keyword: memory corruption
+The Graphics Rendering Engine in Microsoft Windows 2000 through 2000 SP4 and Windows XP through SP2 maps GDI Kernel structures on a global shared memory section that is mapped with read-only permissions, but can be remapped by other processes as read-write, which allows local users to cause a denial of service (memory corruption and crash) and gain privileges by modifying the kernel structures.
+
+Exploit-DB #30987
+Title: NetRisk 1.9.7 - 'index.php' Remote File Inclusion
+Type: webapps | Platform: php
+
+CVE: CVE-2006-1302
+Keyword: memory corruption
+Buffer overflow in Microsoft Excel 2000 through 2003 allows user-assisted attackers to execute arbitrary code via a .xls file with certain crafted fields in a SELECTION record, which triggers memory corruption, aka "Malformed SELECTION record Vulnerability."
+
+CVE: CVE-2006-5857
+Keyword: memory corruption
+Adobe Reader and Acrobat 7.0.8 and earlier allows user-assisted remote attackers to execute code via a crafted PDF file that triggers memory corruption and overwrites a subroutine pointer during rendering.
+
+CVE: CVE-2007-0104
+Keyword: memory corruption
+The Adobe PDF specification 1.3, as implemented by (a) xpdf 3.0.1 patch 2, (b) kpdf in KDE before 3.5.5, (c) poppler before 0.5.4, and other products, allows remote attackers to have an unknown impact, possibly including denial of service (infinite loop), arbitrary code execution, or memory corruption, via a PDF file with a (1) crafted catalog dictionary or (2) a crafted Pages attribute that references an invalid page tree node.
+
+CVE: CVE-2005-0555
+Keyword: memory corruption
+Buffer overflow in the Content Advisor in Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to execute arbitrary code via a crafted Content Advisor file, aka "Content Advisor Memory Corruption Vulnerability."
+
+CVE: CVE-2006-3992
+Keyword: memory corruption
+Unspecified vulnerability in the Centrino (1) w22n50.sys, (2) w22n51.sys, (3) w29n50.sys, and (4) w29n51.sys Microsoft Windows drivers for Intel 2200BG and 2915ABG PRO/Wireless Network Connection before 10.5 with driver 9.0.4.16 allows remote attackers to execute arbitrary code via certain frames that trigger memory corruption.
+
+CVE: CVE-2002-0004
+Keyword: memory corruption
+Heap corruption vulnerability in the "at" program allows local users to execute arbitrary code via a malformed execution time, which causes at to free the same memory twice.
+
+CVE: CVE-2006-6561
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Word 2000, 2002, and Word Viewer 2003 allows user-assisted remote attackers to execute arbitrary code via a crafted DOC file that triggers memory corruption, as demonstrated via the 12122006-djtest.doc file, a different issue than CVE-2006-5994 and CVE-2006-6456.
+
+CVE: CVE-2007-0099
+Keyword: memory corruption
+Race condition in the msxml3 module in Microsoft XML Core Services 3.0, as used in Internet Explorer 6 and other applications, allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via many nested tags in an XML document in an IFRAME, when synchronous document rendering is frequently disrupted with asynchronous events, as demonstrated using a JavaScript timer, which can trigger NULL pointer dereferences or memory corruption, aka "MSXML Memory Corruption Vulnerability."
+
+Exploit-DB #8740
+Title: Dog Pedigree Online Database 1.0.1b - Blind SQL Injection
+Type: webapps | Platform: php
+
+CVE: CVE-2005-0554
+Keyword: memory corruption
+Buffer overflow in the URL processor of Microsoft Internet Explorer 5.01, 5.5, and 6 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL with a long hostname, aka "URL Parsing Memory Corruption Vulnerability."
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?
+
+While our previous two blog posts provided technical recommendations for increasing the effort required by attackers to develop 0-click exploit chains, our experience finding, reporting and exploiting these vulnerabilities highlighted some broader issues in the Android ecosystem. This post describes the problems we encountered and recommendations for improvement. Audio Attack Surface The Dolby UDC is part of the 0-click attack surface of most Android devices because of audio transcription in the Google Messages application. Incoming audio messages are transcribed before a user interacts with the message. On Pixel 9, a second process com.google.android.tts also decodes incoming audio. Its purpose is not completely clear, but it seems to be related to making incoming messages searchable.
+
+CVE: CVE-2004-2533
+Keyword: memory corruption
+Serv-U FTP Server 4.1 (possibly 4.0) allows remote attackers to cause a denial of service (application crash) via a SITE CHMOD command with a "\\...\" followed by a short string, causing partial memory corruption, a different vulnerability than CVE-2004-2111.
+
+CVE: CVE-2006-1314
+Keyword: memory corruption
+Heap-based buffer overflow in the Server Service (SRV.SYS driver) in Microsoft Windows 2000 SP4, XP SP1 and SP2, Server 2003 up to SP1, and other products, allows remote attackers to execute arbitrary code via crafted first-class Mailslot messages that triggers memory corruption and bypasses size restrictions on second-class Mailslot messages.
+
+CVE: CVE-2004-0842
+Keyword: memory corruption
+Internet Explorer 6.0 SP1 and earlier, and possibly other versions, allows remote attackers to cause a denial of service (application crash from "memory corruption") via certain malformed Cascading Style Sheet (CSS) elements that trigger heap-based buffer overflows, as demonstrated using the "<STYLE>@;/*" string, possibly due to a missing comment terminator that may cause an invalid length to trigger a large memory copy operation, aka the "CSS Heap Memory Corruption Vulnerability."
+
+CVE: CVE-2006-1309
+Keyword: memory corruption
+Microsoft Excel 2000 through 2004 allows user-assisted attackers to execute arbitrary code via a .xls file with a crafted LABEL record that triggers memory corruption.
+
+Exploit-DB #16011
+Title: CakePHP 1.3.5/1.2.8 - 'Unserialize()' File Inclusion
+Type: webapps | Platform: php
+
+CVE: CVE-2006-6061
+Keyword: memory corruption
+com.apple.AppleDiskImageController in Apple Mac OS X 10.4.8, and possibly other versions, allows remote attackers to execute arbitrary code via a malformed DMG image that triggers memory corruption.  NOTE: the severity of this issue has been disputed by a third party, who states that the impact is limited to a denial of service (kernel panic) due to a vm_fault call with a non-aligned address.
+
+CVE: CVE-2006-0030
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via an Excel file with a malformed graphic, which leads to memory corruption.
+
+[Project Zero]
+Title: Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529
+
+In the first part of this series, I detailed my journey into macOS security research, which led to the discovery of a type confusion vulnerability (CVE-2024-54529) and a double-free vulnerability (CVE-2025-31235) in the coreaudiod system daemon through a process I call knowledge-driven fuzzing. While the first post focused on the process of finding the vulnerabilities, this post dives into the intricate process of exploiting the type confusion vulnerability. I’ll explain the technical details of turning a potentially exploitable crash into a working exploit: a journey filled with dead ends, creative problem solving, and ultimately, success. The Vulnerability: A Quick Recap If you haven’t already, I highly recommend reading my detailed writeup on this vulnerability before proceeding. As a refresher, CVE-2024-54529 is a type confusion vulnerability within the com.apple.audio.audiohald Mach service in the CoreAudio framework used by the coreaudiod process. Several Mach message handlers, such as _XIOContext_Fetch_Workgroup_Port, would fetch a HALS_Object from the Object Map based on an ID from the Mach message, and then perform operations on it, assuming it was of a specific type (ioct) without proper validation.
+
+CVE: CVE-2006-6101
+Keyword: memory corruption
+Integer overflow in the ProcRenderAddGlyphs function in the Render extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of glyph management data structures.
+
+[Project Zero]
+Title: Bypassing Windows Administrator Protection
+
+A headline feature introduced in the latest release of Windows 11, 25H2 is Administrator Protection. The goal of this feature is to replace User Account Control (UAC) with a more robust and importantly, securable system to allow a local user to access administrator privileges only when necessary. This blog post will give a brief overview of the new feature, how it works and how it’s different from UAC. I’ll then describe some of the security research I undertook while it was in the insider preview builds on Windows 11. Finally I’ll detail one of the nine separate vulnerabilities that I found to bypass the feature to silently gain full administrator privileges. All the issues that I reported to Microsoft have been fixed, either prior to the feature being officially released (in optional update KB5067036) or as subsequent security bulletins. Note: As of 1st December 2025 the Administrator Protection feature has been disabled by Microsoft while an application compatibility issue is dealt with. The issue is unlikely to be related to anything described in this blog post so the analysis doesn’t change.
+
+CVE: CVE-2006-6103
+Keyword: memory corruption
+Integer overflow in the ProcDbeSwapBuffers function in the DBE extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of unspecified data structures.
+
+CVE: CVE-2006-0028
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Excel 2000, 2002, and 2003, in Microsoft Office 2000 SP3 and other packages, allows user-assisted attackers to execute arbitrary code via a BIFF parsing format file containing malformed BOOLERR records that lead to memory corruption, probably involving invalid pointers.
+
+CVE: CVE-2006-1742
+Keyword: memory corruption
+The JavaScript engine in Mozilla Firefox and Thunderbird 1.x before 1.5 and 1.0.x before 1.0.8, Mozilla Suite before 1.7.13, and SeaMonkey before 1.0 does not properly handle temporary variables that are not garbage collected, which might allow remote attackers to trigger operations on freed memory and cause memory corruption.
+
+CVE: CVE-2006-2389
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Office 2003 SP1 and SP2, Office XP SP3, Office 2000 SP3, and other products, allows user-assisted attackers to execute arbitrary code via an Office file with a malformed property that triggers memory corruption related to record lengths, aka "Microsoft Office Property Vulnerability," a different vulnerability than CVE-2006-1316.
+
+CVE: CVE-2004-0886
+Keyword: memory corruption
+Multiple integer overflows in libtiff 3.6.1 and earlier allow remote attackers to cause a denial of service (crash or memory corruption) via TIFF images that lead to incorrect malloc calls.
+
+[Project Zero]
+Title: On the Effectiveness of Mutational Grammar Fuzzing
+
+Mutational grammar fuzzing is a fuzzing technique in which the fuzzer uses a predefined grammar that describes the structure of the samples. When a sample gets mutated, the mutations happen in such a way that any resulting samples still adhere to the grammar rules, thus the structure of the samples gets maintained by the mutation process. In case of coverage-guided grammar fuzzing, if the resulting sample (after the mutation) triggers previously unseen code coverage, this sample is saved to the sample corpus and used as a basis for future mutations. This technique has proven capable of finding complex issues and I have used it successfully in the past, including to find issues in XSLT implementations in web browsers and even JIT engine bugs. However, despite the approach being effective, it is not without its flaws which, for a casual fuzzer user, might not be obvious. In this blogpost I will introduce what I perceive to be the flaws of the mutational coverage-guided grammar fuzzing approach. I will also describe a very simple but effective technique I use in my fuzzing runs to counter these flaws.
+
+[Project Zero]
+Title: A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens
+
+We recently published an exploit chain for the Google Pixel 9 that demonstrated it was possible to go from a zero-click context to root on Android in just two exploits. The Dolby 0-click vulnerability existed across all of Android, until it was patched in January 2026. While we had an exploit chain for the Pixel 9, we wanted to see if it was possible to write a similar exploit chain for Pixel 10. Updating the Dolby Exploit Altering our exploit for CVE-2025-54957 was fairly straightforward. The majority of needed changes involved updating offsets calculated for the specific version of the library we targeted on the Pixel 9 to similar offsets in the library for Pixel 10. The only challenge (outside of wishing we’d better documented which syncframes contained offsets) was that the Pixel 10 uses RET PAC in the place of -fstack-protector, which meant that __stack_chk_fail wasn’t available to be overwritten by code. After a bit of trial and error, we used dap_cpdp_init, initialization code that can be overwritten without causing functional problems, as it is called once when the decoder is initialized and never again.
+
+Exploit-DB #14414
+Title: Unreal Tournament 3 2.1 - 'STEAMBLOB' Remote Denial of Service
+Type: dos | Platform: windows
+
+CVE: CVE-2006-5581
+Keyword: memory corruption
+Unspecified vulnerability in Microsoft Internet Explorer 6 allows remote attackers to execute arbitrary code via certain DHTML script functions, such as normalize, and "incorrectly created elements" that trigger memory corruption, aka "DHTML Script Function Memory Corruption Vulnerability."
+
+Exploit-DB #9912
+Title: AWStats 6.2 < 6.1 - configdir Command Injection (Metasploit)
+Type: webapps | Platform: cgi
+
+CVE: CVE-2004-1012
+Keyword: memory corruption
+The argument parser of the PARTIAL command in Cyrus IMAP Server 2.2.6 and earlier allows remote authenticated users to execute arbitrary code via a certain command ("body[p") that is treated as a different command ("body.peek") and causes an index increment error that leads to an out-of-bounds memory corruption.
+
+[Source: GNU Proprietary Insecurity — https://www.gnu.org/proprietary/proprietary-insecurity.html]
+
+! Instead, edit /proprietary/workshop/mal.rec, then regenerate pages. See explanations in /proprietary/workshop/README.md. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> Proprietary Insecurity - GNU Project - Free Software Foundation Skip to main text Free Software Supporter : JOIN THE FSF GNU Operating System Supported by the Free Software Foundation Site navigation Skip ABOUT GNU PHILOSOPHY LICENSES EDUCATION SOFTWARE DISTROS DOCS = MALWARE = HELP GNU AUDIO VIDEO GNU ART FUN GNU'S WHO? SOFTWARE DIRECTORY HARDWARE SITEMAP / Malware / By type / Proprietary Insecurity Nonfree (proprietary) software is very often malware (designed to mistreat the user). Nonfree software is controlled by its developers, which puts them in a position of power over the users; that is the basic injustice . The developers and manufacturers often exercise that power to the detriment of the users they ought to serve. This typically takes the form of malicious functionalities. This page lists clearly established cases of insecurity in proprietary software that has grave consequences or is otherwise noteworthy. Even though most of these security flaws are unintentional, thus are not malicious functionalities in a strict sense, we report them to show that proprietary software is not as secure as mainstream media may say. This doesn't imply that free software is immune to bugs or insecurities. The difference between free and proprietary software in this respect is the handling of the bugs: free software users are able to study the program and/or fix the bugs they find, often in communities as they are able to share the program, while proprietary program users are forced to rely on the program's developer for fixes. If the developer does not care to fix the problem often the case for embedded software and old releases the users are sunk. But if the developer does send a corrected version, it may contain new malicious functionalities as well as bug fixes. If you know of an example that ought to be in this page but isn't here, please write to webmasters@gnu.org to inform us. Please include the URL of a trustworthy reference or two, preferably in English, to serve as specific substantiation. 2026-01 Windows encrypts disks for security, but reports all the encryption keys to Microsoft so that the encryption doesn't provide real security. Once Microsoft has these keys, it can't refuse to give them to the FBI. However, for real security you need to be able to use your own choice of keys. Microsoft stops users from doing that. 2025-10 Universe Browser, tied to online gambling platforms in Asia and marketed as a privacy browser, installs various malicious functionalities in the user's computer. 2025-08 Academic researchers have published an attack that led Google's supposed intelligence &#8239;[*] to obey malicious commands to manipulate devices in the user's home. Giving Google control of your devices, or control of your own computing that you do on their servers, inevitably makes you vulnerable to Google. This announcement shows that the vulnerability includes third-party crackers&#8239;[**] too. The article says that the crack discoverers worked with Google to mitigate the danger. What, concretely, does mitigate mean here? Probably in this case it is a weasel word to suggest fixing a problem without claiming to have fixed it. [*] Let's not call these systems artificial intelligence. Intelligence is something they do not have . [**] Please note that the article wrongly refers to crackers as hackers . 2025-06 Researchers discovered that the Meta Pixel and Yandex Metrica trackers, which are embedded in many websites, have been spying on behalf of the native Meta and Yandex Android apps respectively, by taking advantage of security flaws in the Android API. When the user of an Android device accessed these pages with a browser such as Chrome, the trackers made all browsing data available to the native apps running in the background. The data could then be correlated to the user account or the Android Advertising ID , i.e. de-anonymized. Although Meta and Yandex have discontinued this type of spying, they may resume it in the future, possibly with other methods, and we don't know which other companies might follow their example. A foolproof way to avoid this sort of tracking is to refrain from installing any proprietary apps on a smart phone, especially if the app has a way of identifying users. To avoid proprietary apps, we recommend using the F-Droid store instead of Google Play. Since most trackers, including the Meta Pixel and Yandex Metrica, are nonfree JavaScript programs, it is also good practice to prevent nonfree JavaScript from running in the browser, with an add-on such as GNU LibreJS. 2025-02 Apple stopped offering iCloud end-to-end encryption in the UK after the UK government demanded worldwide access to encrypted user data . This is one more proof that storing your own data in the cloud puts it at risk. 2024-11 Windows Recall is a feature of Microsoft's Copilot tool that comes preinstalled on AI-specialized computers. Recall records everything users do on their computer and allows them to search the recordings, but it has numerous security flaws and poses a risk to privacy. As Recall cannot be completely uninstalled, disabling it doesn't eliminate the risk because it can be reactivated by malware or misconfiguration. Microsoft says that Recall will not take screenshots of digitally restricted media . Meanwhile, it stores sensitive user information such as passwords and bank account numbers, showing that whereas Microsoft worries somewhat about corporate interests, it couldn't care less about user privacy. 2024-11 The Pixel 9 smart phone frequently updates Google servers with its location and current configuration along with personally identifiable data, raising concerns about user privacy. Moreover, it communicates with services that are not in use, and periodically attempts to download experimental, possibly insecure software. The system does not inform the user that it is doing all this. There is hope, however: it is possible to replace the original Android operating system with a deGoogled version in Pixel phones up to 8a, and in phones from many other brands. No doubt that the Pixel 9 will be supported soon. 2024-09 Kia cars were built with a back door that enabled the company's server to locate them and take control of them. The car owner had access to these controls through the Kia server. That the car owner had such control is not objectionable. However, that Kia itself had such control is Orwellian, and ought to be illegal. The icing on the Orwellian cake is that the server had a security fault which allowed absolutely anyone to activate those controls for any Kia car. Many people will be outraged at that security bug, but this was presumably an accident. The fact that Kia had such control over cars after selling them to customers is what outrages us, and that must have been intentional on Kia's part. 2024-08 A critical vulnerability in Windows systems that support IPv6 was discovered in 2024, 16 years after the first affected system was released. Unless the relevant patch is applied, an attacker can remotely execute arbitrary code on these systems. Microsoft considers exploits likely. The same sort of vulnerability in a free/libre operating system would probably be discovered sooner, since many more people would be able to look at the source code. 2024-01 UHD Blu-ray disks are loaded with malware of the worst kinds . Among other things, playing them on a PC requires Intel SGX (Software Guard Extensions), which not only has numerous security vulnerabilities, but also was deprecated and removed from mainstream Intel CPUs in 2022. 2023-12 A back door in Apple devices , present and abused from at least 2019 until 2023, allowed crackers to have full control over them by sending iMessage texts that installed malware without any action on the user's part. Infections, among other things, gave the intruders access to owners' microphone recordings, photos, location and other personal data. 2023-11 x86 and ARM based computers shipped with UEFI are potentially vulnerable to a design omission called LogoFAIL . A cracker can replace the BIOS logo with a fake one that contains malicious code. Users can't fix this omission because it is in the nonfree UEFI firmware that users can't replace. 2023-06 Eclypsium discovered an insecure universal back door on many computers using Gigabyte mainboards. Gigabyte designed their nonfree firmware so they could add a program to Windows to download additional software from the Internet, and run it behind the user's back. To add injury to injury, the back-door program was insecure, and opened ways for crackers to run their own programs on the affected systems, also behind the user's back. Gigabyte's solution was to ensure the back door would only run programs from Gigabyte. In this case, the back door required the connivance of Windows accepting the program, and running it behind the user's back. Free operating systems rightly ignore such Greek gifts, so users of GNU (including GNU/Linux) are safe from this particular back door, even on affected hardware. Nonfree software does not make your computer secure it does the opposite: it prevents you from trying to secure it. When nonfree programs are required for booting and impossible to replace, they are, in effect, a low-level rootkit. All the things that the industry has done to make its power over you secure against you also protect firmware-level rootkits against you. Instead of allowing Intel, AMD, Apple and perhaps ARM to impose security through tyranny, we should demand laws that require them to allow users to install their choice of startup software and make available the information needed to develop such. Think of this as right-to-repair at the initialization stage. Note: Eclypsium at least mentions the problem of unwanted behavior within official firmware, but does not seem to recognize that the only real solution is for firmware to be free, so users can fix these problems without having to rely on the vendor. 2022-11 Hackers discovered dozens of flaws in the security (in the usual narrow sense) of many brands of automobiles . Security in the usual narrow sense means security against unknown third parties. We are more concerned with security in the broader sense against the manufacturer as well as against unknown third parties. It is clear that each of these vulnerabilities can be exploited by the manufacturer too, and by any government that can threaten the manufacturer enough to compel the manufacturer's cooperation. 2022-10 The Microsoft Office encryption is weak , and susceptible to attack. Encryption is a tricky field, and easy to mess up. It is wise to insist on encryption software that is (1) free software and (2) studied by experts. 2022-08 A security researcher found that the iOS in-app browser of TikTok injects keylogger-like JavaScript code into outside web pages . This code has the ability to track all users' activities, and to retrieve any personal data that is entered on the pages. We have no way of verifying TikTok's claim that the keylogger-like code only serves purely technical functions. Some of the accessed data could well be saved to the company's servers, and even sent to third parties. This would open the door to extensive surveillance, including by the Chinese government (to which TikTok has indirect ties). There is also a risk that the data would be stolen by crackers, and used to launch malware attacks. The iOS in-app browsers of Instagram and Facebook behave essentially the same way as TikTok's. The main difference is that Instagram and Facebook allow users to access third-party sites with their default browser, whereas TikTok makes it nearly impossible . The researcher didn't study the Android versions of in-app browsers, but we have no reason to assume they are safer than the iOS versions. Please note that the article wrongly refers to crackers as hackers. 2022-07 A bug in Tesla cars software lets crackers install new car keys , unlock cars, start engines, and even prevent real owners from accessing their cars. A cracker even reported that he was able to disable security systems and take control of 25 cars . Please note that these articles wrongly use the word hacker instead of cracker. 2022-02 A security failure in Microsoft's Windows is infecting people's computers with RedLine stealer malware using a fake Windows 11 upgrade installer. 2022-01 A critical bug in Apple's iOS makes it possible for attackers to alter a shutdown event, tricking the user into thinking that the phone has been powered off . But in fact, it's still running, and the user can't feel any difference between a real shutdown and the fake shutdown. 2021-11 Hundreds of Tesla drivers were locked out of their cars as a result of Tesla's app suffering from an outage , which happened because the app is tethered to the company's servers. 2021-11 Some researchers at Google found a zero-day vulnerability on MacOS, which crackers used to target people visiting the websites of a media outlet and a pro-democracy labor and political group in Hong Kong. Please note that the article wrongly refers to crackers as hackers . 2021-08 Various models of security cameras, DVRs, and baby monitors that run proprietary software are affected by a security vulnerability that could give attackers access to live feeds . 2021-07 The pegasus spyware used vulnerabilities on proprietary smartphone operating systems to impose surveillance on people. It can record people's calls, copy their messages, and secretly film them, using a security vulnerability. There's also a technical analysis of this spyware available in PDF format. A free operating system would've let people to fix the bugs for themselves but now infected people will be compelled to wait for corporations to fix the problems. Please note that the article wrongly refers to crackers as hackers . 2021-07 A newly found Microsoft Windows vulnerability can allow crackers to remotely gain access to the operating system and install programs, view and delete data, or even create new user accounts with full user rights. The security research firm accidentally leaked instructions on how the flaw could be exploited but Windows users should still wait for Microsoft to fix the flaw, if they fix it. Please note that the article wrongly refers to crackers as hackers . 2021-06 TikTok apps collect biometric identifiers and biometric information from users' smartphones . The company behind it does whatever it wants and collects whatever data it can. 2021-05 Apple is moving its Chinese customers' iCloud data to a datacenter controlled by the Chinese government . Apple is already storing the encryption keys on these servers, obeying Chinese authority, making all Chinese user data available to the government. 2021-05 A motorcycle company named Klim is selling airbag vests with different payment methods, one of them is through a proprietary subscription-based option that will block the vest from inflating if the payments don't go through . They say there is a 30-days grace period if you miss a payment but the grace period is no excuse to the insecurity. 2021-05 The United States' government is reportedly considering teaming up with private companies to monitor American citizens' private online activity and digital communications . What creates the opportunity to try this is the fact that these companies are already snooping on users' private activities. That in turn is due to people's use of nonfree software which snoops, and online dis-services which snoop. 2021-04 A zero-day vulnerability in Zoom which can be used to launch remote code execution (RCE) attacks has been disclosed by researchers. The researchers demonstrated a three-bug attack chain that caused an RCE on a target machine, all this without any form of user interaction. 2021-03 Over 150 thousand security cameras that used Verkada company's proprietary software are cracked by a major security breach. Crackers have had access to security archives of various gyms, hospitals, jails, schools, and police stations that have used Verkada's cameras. It is injustice to the public for gyms, stores, hospitals, jails, and schools to hand security footage to a company from which the government can collect it at any time, without even telling them. Please note that the article wrongly refers to crackers as hackers . 2021-03 At least 30 thousand organizations in the United States are newly cracked via holes in Microsoft's proprietary email software, named Microsoft 365 . It is unclear whether there are other holes and vulnerabilities in the program or not but history and experience tells us it wouldn't be the last disaster with proprietary programs. 2021-02 Researchers at the security firm SentinelOne discovered a security flaw in proprietary program Microsoft Windows Defender that lurked undetected for 12 years . If the program was free (as in freedom), more people would have had a chance to notice the problem, therefore, it could've been fixed a lot sooner. 2021-01 A cracker took control of people's internet-connected chastity cages and demanded ransom . The chastity cages are being controlled by a proprietary app (mobile program). (Please note that the article wrongly refers to crackers as " hackers ".) 2020-12 Commercial crackware can get passwords out of an iMonster , use the microphone and camera, and other things. 2020-12 A Zoom executive carried out snooping and censorship for the Chinese government . This abuse of Zoom's power shows how dangerous that power is. The root problem is not the surveillance and censorship, but rather the power that Zoom has. It gets that power partly from the use of its server, but also partly from the nonfree client program. 2020-12 United States officials are facing one of biggest crackings against them in years, when malicious code was sneaked into SolarWinds' proprietary software named Orion . Crackers got access to networks when users downloaded a tainted software update. Crackers were able to monitor internal emails at some of the top agencies in the US. (Please note that the article wrongly refers to crackers as " hackers ".) 2020-12 Baidu apps were caught collecting sensitive personal data that can be used for lifetime tracking of users, and putting them in danger. More than 1.4 billion people worldwide are affected by these proprietary apps, and users' privacy is jeopardized by this surveillance tool. Data collected by Baidu may be handed over to the Chinese government, possibly putting Chinese people in danger. 2020-11 Some Wavelink and JetStream wifi routers have universal back doors that enable unauthenticated users to remotely control not only the routers, but also any devices connected to the network. There is evidence that this vulnerability is actively exploited . If you consider buying a router, we encourage you to get one that runs on free software . Any attempts at introducing malicious functionalities in it (e.g., through a firmware update) will be detected by the community, and soon corrected. If unfortunately you own a router that runs on proprietary software, don't panic! You may be able to replace its firmware with a free operating system such as libreCMC . If you don't know how, you can get help from a nearby GNU/Linux user group. 2020-11 Apple has implemented a malware in its computers that imposes surveillance on users and reports users' computing to Apple. The reports are even unencrypted and they've been leaking this data for two years already. This malware is reporting to Apple what user opens what program at what time. It also gives Apple power to sabotage users' computing. 2020-10 Samsung is forcing its smartphone users in Hong Kong (and Macau) to use a public DNS in Mainland China , using software update released in September 2020, which causes many unease and privacy concerns. 2020-08 TikTok exploited an Android vulnerability to obtain user MAC addresses. 2020-06 A disasterous security bug touches millions of products in the Internet of Stings. As a result, anyone can sting the user, not only the manufacturer. 2020-04 The proprietary program Microsoft Teams' insecurity could have let a malicious GIF steal user data from Microsoft Teams accounts , possibly across an entire company, and taken control of an organization's entire roster of Teams accounts. 2020-04 Riot Games' new anti-cheat is malware; runs on system boot at kernel level on Windows. It is insecure software that increases the attack surface of the operating system. 2019-11 Internet-tethered Amazon Ring had a security vulnerability that enabled attackers to access the user's wifi password , and snoop on the household through connected surveillance devices. Knowledge of the wifi password would not be sufficient to carry out any significant surveillance if the devices implemented proper security, including encryption. But many devices with proprietary software lack this. Of course, they are also used by their manufacturers for snooping. 2019-08 A series of vulnerabilities found in iOS allowed attackers to gain access to sensitive information including private messages, passwords, photos and contacts stored on the user's iMonster . The deep insecurity of iMonsters is even more pertinent given that Apple's proprietary software makes users totally dependent on Apple for even a modicum of security. It also means that the devices do not even try to offer security against Apple itself. 2019-08 Out of 21 gratis Android antivirus apps that were tested by security researchers, eight failed to detect a test virus . All of them asked for dangerous permissions or contained advertising trackers, with seven being more risky than the average of the 100 most popular Android apps. (Note that the article refers to these proprietary apps as free . It should have said gratis instead.) 2019-07 Many Android apps can track users' movements even when the user says not to allow them access to locations . This involves an apparently unintentional weakness in Android, exploited intentionally by malicious apps. 2019-05 Users caught in the jail of an iMonster are sitting ducks for other attackers , and the app censorship prevents security companies from figuring out how those attacks work. Apple's censorship of apps is fundamentally unjust, and would be inexcusable even if it didn't lead to security threats as well. 2019-03 The Medtronics Conexus Telemetry Protocol has two vulnerabilities that affect several models of implantable defibrillators and the devices they connect to. This protocol has been around since 2006, and similar vulnerabilities were discovered in an earlier Medtronics communication protocol in 2008. Apparently, nothing was done by the company to correct them. This means you can't rely on proprietary software developers to fix bugs in their products. 2019-02 The Ring doorbell camera is designed so that the manufacturer (now Amazon) can watch all the time. Now it turns out that anyone else can also watch, and fake videos too . The third party vulnerability is presumably unintentional and Amazon will probably fix it. However, we do not expect Amazon to change the design that allows Amazon to watch . 2018-09 Researchers have discovered how to hide voice commands in other audio , so that people cannot hear them, but Alexa and Siri can. 2018-08 Since the beginning of 2017, Android phones have been collecting the addresses of nearby cellular towers , even when location services are disabled, and sending that data back to Google. 2018-08 Crackers found a way to break the security of an Amazon device, and turn it into a listening device for them. It was very difficult for them to do this. The job would be much easier for Amazon. And if some government such as China or the US told Amazon to do this, or cease to sell the device in that country, do you think Amazon would have the moral fiber to say no? (These crackers are probably hackers too, but please don't use hacking to mean breaking security .) 2018-07 Siri, Alexa, and all the other voice-control systems can be hijacked by programs that play commands in ultrasound that humans can't hear . 2018-07 Some Samsung phones randomly send photos to people in the owner's contact list . 2018-01 Google's ad platform enabled advertisers to run cryptocurrency miner code on the computers of YouTube users through proprietary JavaScript . Some people noticed this, and the outrage made Google remove the miners, but the number of affected users was probably very high. 2017-12 One of the dangers of the internet of stings is that, if you lose your internet service, you also lose control of your house and appliances . For your safety, don't use any appliance with a connection to the real internet. 2017-11 Intel's intentional management engine back door has unintended back doors too. 2017-11 Amazon recently invited consumers to be suckers and allow delivery staff to open their front doors . Wouldn't you know it, the system has a grave security flaw. 2017-09 Bad security in some cars makes it possible to remotely activate the airbags . 2017-09 A smart intravenous pump designed for hospitals is connected to the internet. Naturally its security has been cracked . (Note that this article misuses the term hackers referring to crackers.) 2017-08 The bad security in many Internet of Stings devices allows ISPs to snoop on the people that use them . Don't be a sucker reject all the stings. (It is unfortunate that the article uses the term monetize .) 2017-06 Many models of Internet-connected cameras have backdoors . That is a malicious functionality, but in addition it is a gross insecurity since anyone, including malicious crackers, can find those accounts and use them to get into users' cameras . 2017-06 Many models of Internet-connected cameras are tremendously insecure. They have login accounts with hard-coded passwords, which can't be changed, and there is no way to delete these accounts either . 2017-06 Intel's CPU backdoor the Intel Management Engine had a major security vulnerability for 10 years . The vulnerability allowed a cracker to access the computer's Intel Active Management Technology (AMT) web interface with an empty password and gave administrative access to access the computer's keyboard, mouse, monitor among other privileges. It does not help that in newer Intel processors, it is impossible to turn off the Intel Management Engine. Thus, even users who are proactive about their security can do nothing to protect themselves besides using machines that don't come with the backdoor. 2017-05 The proprietary code that runs pacemakers, insulin pumps, and other medical devices is full of gross security faults . 2017-05 Conexant HD Audio Driver Package (version 1.0.0.46 and earlier) pre-installed on 28 models of HP laptops logged the user's keystroke to a file in the filesystem. Any process with access to the filesystem or the MapViewOfFile API could gain access to the log. Furthermore, according to modzero the information-leak via Covert Storage Channel enables malware authors to capture keystrokes without taking the risk of being classified as malicious task by AV heuristics . 2017-05 Exploits of bugs in Windows, which were developed by the NSA and then leaked by the Shadowbrokers group, are now being used to attack a great number of Windows computers with ransomware . 2017-04 Many Android devices can be hijacked through their Wi-Fi chips because of a bug in Broadcom's nonfree firmware. 2017-03 When Miele's Internet of Stings hospital disinfectant dishwasher is connected to the Internet, its security is crap . For example, a cracker can gain access to the dishwasher's filesystem, infect it with malware, and force the dishwasher to launch attacks on other devices in the network. Since these dishwashers are used in hospitals, such attacks could potentially put hundreds of lives at risk. 2017-03 The CIA exploited existing vulnerabilities in smart TVs and phones to design a malware that spies through their microphones and cameras while making them appear to be turned off . Since the spyware sniffs signals, it bypasses encryption. 2017-02 CloudPets toys with microphones leak childrens' conversations to the manufacturer . Guess what? Crackers found a way to access the data collected by the manufacturer's snooping. That the manufacturer and the FBI could listen to these conversations was unacceptable by itself. 2017-02 If you buy a used smart car, house, TV, refrigerator, etc., usually the previous owners can still remotely control it . 2017-02 The mobile apps for communicating with a smart but foolish car have very bad security . This is in addition to the fact that the car contains a cellular modem that tells big brother all the time where it is. If you own such a car, it would be wise to disconnect the modem so as to turn off the tracking. 2017-01 A cracker would be able to turn the Oculus Rift sensors into spy cameras after breaking into the computer they are connected to. (Unfortunately, the article improperly refers to crackers as hackers .) 2017-01 Samsung phones have a security hole that allows an SMS message to install ransomware . 2017-01 WhatsApp has a feature that has been described as a back door because it would enable governments to nullify its encryption. The developers say that it wasn't intended as a back door, and that may well be true. But that leaves the crucial question of whether it functions as one. Because the program is nonfree, we cannot check by studying it. 2016-12 The smart toys My Friend Cayla and i-Que can be remotely controlled with a mobile phone ; physical access is not necessary. This would enable crackers to listen in on a child's conversations, and even speak into the toys themselves. This means a burglar could speak into the toys and ask the child to unlock the front door while Mommy's not looking. 2016-10 4G LTE phone networks are drastically insecure. They can be taken over by third parties and used for man-in-the-middle attacks . 2016-08 Due to weak security, it is easy to open the doors of 100 million cars built by Volkswagen . 2016-08 Ransomware has been developed for a thermostat that uses proprietary software . 2016-08 A flaw in Internet Explorer and Edge allows an attacker to retrieve Microsoft account credentials, if the user is tricked into visiting a malicious link. 2016-07 Deleted WhatsApp messages are not entirely deleted . They can be recovered in various ways. 2016-07 A half-blind security critique of a tracking app: it found that blatant flaws allowed anyone to snoop on a user's personal data . The critique fails entirely to express concern that the app sends the personal data to a server, where the developer gets it all. This service is for suckers! The server surely has a privacy policy, and surely it is worthless since nearly all of them are. 2016-07 A vulnerability in Apple's Image I/O API allowed an attacker to execute malicious code from any application which uses this API to render a certain kind of image file . 2016-07 A bug in a proprietary ASN.1 library, used in cell phone towers as well as cell phones and routers, allows taking control of those systems . 2016-06 Antivirus programs have so many errors that they may make security worse . GNU/Linux does not need antivirus software. 2016-05 Samsung's Smart Home has a big security hole; unauthorized people can remotely control it . Samsung claims that this is an open platform so the problem is partly the fault of app developers. That is clearly true if the apps are proprietary software. Anything whose name is Smart is most likely going to screw you. 2016-04 A bug in the iThings Messages app allowed a malicious web site to extract all the user's messaging history . 2016-04 Malware was found on security cameras available through Amazon . A camera that records locally on physical media, and has no network connection, does not threaten people with surveillance neither by watching people through the camera, nor through malware in the camera. 2016-03 Over 70 brands of network-connected surveillance cameras have security bugs that allow anyone to watch through them . 2016-03 Many proprietary payment apps transmit personal data in an insecure way . However, the worse aspect of these apps is that payment is not anonymous . 2016-02 The Nissan Leaf has a built-in cell phone modem which allows effectively anyone to access its computers remotely and make changes in various settings . That's easy to do because the system has no authentication when accessed through the modem. However, even if it asked for authentication, you couldn't be confident that Nissan has no access. The software in the car is proprietary, which means it demands blind faith from its users . Even if no one connects to the car remotely, the cell phone modem enables the phone company to track the car's movements all the time; it is possible to physically remove the cell phone modem, though. 2016-02 A pacemaker running proprietary code was misconfigured and could have killed the implanted person . In order to find out what was wrong and get it fixed, the person needed to break into the remote device that sets parameters in the pacemaker (possibly infringing upon manufacturer's rights under the DMCA). If this system had run free software, it could have been fixed much sooner. 2015-10 FitBit fitness trackers have a Bluetooth vulnerability that allows attackers to send malware to the devices, which can subsequently spread to computers and other FitBit trackers that interact with them. 2015-10 Self-encrypting disk drives do the encryption with proprietary firmware so you can't trust it. Western Digital's My Passport drives have a back door . 2015-08 Security researchers discovered a vulnerability in diagnostic dongles used for vehicle tracking and insurance that let them take remote control of a car or lorry using an SMS. 2015-07 Crackers were able to take remote control of the Jeep connected car . They could track the car, start or stop the engine, and activate or deactivate the brakes, and more. We expect that Chrysler and the NSA can do this too. If you own a car that contains a phone modem, it would be a good idea to deactivate this. 2015-06 Due to bad security in a drug pump, crackers could use it to kill patients . 2015-05 Many smartphone apps use insecure authentication methods when storing your personal data on remote servers . This leaves personal information like email addresses, passwords, and health information vulnerable. Because many of these apps are proprietary it makes it hard to impossible to know which apps are at risk. 2015-05 Hospira infusion pumps, which are used to administer drugs to a patient, were rated least secure IP device I've ever seen by a security researcher. Depending on what drug is being infused, the insecurity could open the door to murder. 2015-04 Mac OS X had an intentional local back door for 4 years , which could be exploited by attackers to gain root privileges. 2014-05 An app to prevent identity theft (access to personal data) by storing users' data on a special server was deactivated by its developer which had discovered a security flaw. That developer seems to be conscientious about protecting personal data from third parties in general, but it can't protect that data from the state. Quite the contrary: confiding your data to someone else's server, if not first encrypted by you with free software, undermines your rights. 2014-04 Lots of hospital equipment has lousy security , and it can be fatal. 2014-02 The insecurity of WhatsApp makes eavesdropping a snap. 2013-12 Some flash memories have modifiable software , which makes them vulnerable to viruses. We don't call this a back door because it is normal that you can install a new system in a computer, given physical access to it. However, memory sticks and cards should not be modifiable in this way. 2013-12 Point-of-sale terminals running Windows were taken over and turned into a botnet for the purpose of collecting customers' credit card numbers. 2013-11 The NSA can tap data in smart phones, including iPhones, Android, and BlackBerry . While there is not much detail here, it seems that this does not operate via the universal back door that we know nearly all portable phones have. It may involve exploiting various bugs. There are lots of bugs in the phones' radio software . 2013-09 The NSA has put back doors into nonfree encryption software . We don't know which ones they are, but we can be sure they include some widely used systems. This reinforces the point that you can never trust the security of nonfree software. 2013-09 The FTC punished a company for making webcams with bad security so that it was easy for anyone to watch through them . 2013-08 Replaceable nonfree software in disk drives can be written by a nonfree program . This makes any system vulnerable to persistent attacks that normal forensics won't detect. 2013-07 It is possible to kill people by taking control of medical implants by radio . More information in BBC News and IOActive Labs Research blog . 2013-07 Smart homes turn out to be stupidly vulnerable to intrusion. 2012-12 Crackers found a way to break security on a smart TV and use its camera to watch the people who are watching TV. 2011-03 It is possible to take control of some car computers through malware in music files . Also by radio . More information in Automotive Security And Privacy Center . BACK TO TOP &#9650; Proprietary malware All items added since 2018 By type Addictions Back doors Censorship Coercion Coverups Deception DRM Fraud Incompatibility = Insecurity = Interference Jails Manipulation Obsolescence Sabotage Subscriptions Surveillance Tethers Tyrants In the pipe By product Appliances Cars Conferencing EdTech Games Mobiles Webpages By company Adobe Amazon Apple Google HP Microsoft Articles UHD Blu-ray Denies Your Freedom &#9650; BACK TO TOP Set language Available for this page: [en] English [es] español [fr] français [it] italiano [ja] 日本語 [pt-br] português [ru] русский BACK TO TOP &#9650; The Free Software Foundation (FSF) is a nonprofit with a worldwide mission to promote computer user freedom. We defend the rights of all software users. JOIN DONATE SHOP Please send general FSF GNU inquiries to gnu@gnu.org . There are also other ways to contact the FSF. Broken links and other corrections or suggestions can be sent to webmasters@gnu.org . web-translators@gnu.org . For information on coordinating and contributing translations of our web pages, see Translations README . --> Please see the Translations README for information on coordinating and contributing translations of this article. Copyright 2013, 2015-2026 Free Software Foundation, Inc. This page is licensed under a Creative Commons Attribution 4.0 International License . Copyright Infringement Notification Updated: $Date: 2026/04/18 15:32:18 $
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> Apple's Software is Malware - GNU Project - Free Software Foundation Skip to main text Free Software Supporter : JOIN THE FSF GNU Operating System Supported by the Free Software Foundation Site navigation Skip ABOUT GNU PHILOSOPHY LICENSES EDUCATION SOFTWARE DISTROS DOCS = MALWARE = HELP GNU AUDIO VIDEO GNU ART FUN GNU'S WHO? SOFTWARE DIRECTORY HARDWARE SITEMAP / Malware / By company / Apple's Software is Malware Nonfree (proprietary) software is very often malware (designed to mistreat the user). Types of Apple malware Back doors Censorship Deception --> DRM Incompatibility Insecurity Interference Jails Manipulation Pressuring Sabotage Subscriptions Surveillance Tyrants Back Doors 2019-07 Apple appears to say that there is a back door in MacOS for automatically updating some (all?) apps. The specific change described in the article was not malicious it protected users from surveillance by third parties but that is a separate question.
+
+2016-07 The Dropbox app for Macintosh takes control of user interface items after luring the user into entering an admin password . 2015-04 Mac OS X had an intentional local back door for 4 years , which could be exploited by attackers to gain root privileges. Jobs said it's OK for Apple to have this power because of course we can trust Apple. Censorship Apple mainly uses iOS, which is a typical jail, to impose censorship through the Apple Store.
+
+DRM Digital restrictions management, or DRM, refers to functionalities designed to restrict what users can do with the data in their computers. 2021-11 Apple's new tactic to restrict users from repairing their own device and impose DRM on people is to completely disable its Face ID functionality when you replace its screen. 2019-08 Apple is putting DRM on iPhone batteries, and the system proprietary software turns off certain features when batteries are replaced other than by Apple. This article focuses on the fact that a new model of Macbook introduced a requirement for monitors to have malicious hardware, but DRM software in MacOS is involved in activating the hardware.
+
+(The article focused on Windows and said that MacOS would do the same thing subsequently.) 2007-03 iTunes videos have DRM, which allows Apple to dictate where its customers can watch the videos they purchased . Insecurity These bugs are/were not intentional, so unlike the rest of the file they do not count as malware. We mention them to refute the supposition that prestigious proprietary software doesn't have grave bugs. 2025-02 Apple stopped offering iCloud end-to-end encryption in the UK after the UK government demanded worldwide access to encrypted user data .
+
+2023-12 A back door in Apple devices , present and abused from at least 2019 until 2023, allowed crackers to have full control over them by sending iMessage texts that installed malware without any action on the user's part. Infections, among other things, gave the intruders access to owners' microphone recordings, photos, location and other personal data. 2022-01 A critical bug in Apple's iOS makes it possible for attackers to alter a shutdown event, tricking the user into thinking that the phone has been powered off . 2021-11 Some researchers at Google found a zero-day vulnerability on MacOS, which crackers used to target people visiting the websites of a media outlet and a pro-democracy labor and political group in Hong Kong.
+
+2021-07 The pegasus spyware used vulnerabilities on proprietary smartphone operating systems to impose surveillance on people. It can record people's calls, copy their messages, and secretly film them, using a security vulnerability. A free operating system would've let people to fix the bugs for themselves but now infected people will be compelled to wait for corporations to fix the problems. 2020-12 Commercial crackware can get passwords out of an iMonster , use the microphone and camera, and other things.
+
+2020-11 Apple has implemented a malware in its computers that imposes surveillance on users and reports users' computing to Apple. The reports are even unencrypted and they've been leaking this data for two years already. 2019-08 A series of vulnerabilities found in iOS allowed attackers to gain access to sensitive information including private messages, passwords, photos and contacts stored on the user's iMonster . The deep insecurity of iMonsters is even more pertinent given that Apple's proprietary software makes users totally dependent on Apple for even a modicum of security.
+
+It also means that the devices do not even try to offer security against Apple itself. 2016-07 A vulnerability in Apple's Image I/O API allowed an attacker to execute malicious code from any application which uses this API to render a certain kind of image file . 2016-04 A bug in the iThings Messages app allowed a malicious web site to extract all the user's messaging history . 2013-11 The NSA can tap data in smart phones, including iPhones, Android, and BlackBerry .
+
+While there is not much detail here, it seems that this does not operate via the universal back door that we know nearly all portable phones have. 2022-11 Obeying a demand by the Chinese government, Apple restricted the use of AirDrop in China . This makes it nearly impossible to use AirDrop for its intended purpose, which is to exchange files with strangers between iMonsters in physical proximity. At the software level, it does this by not letting the user have any data except within one app.
+
+2019-08 Apple is putting DRM on iPhone batteries, and the system proprietary software turns off certain features when batteries are replaced other than by Apple. Jails Jails are systems that impose censorship on which application programs a user can install. Apple says the check will only look for malware (not counting the malware that is part of the operating system ), but Apple could change that policy step by step. Or perhaps Apple will define malware to include any app that the Chinese government does not like.
+
+2008-03 iOS, the operating system of the Apple iThings, is the prototype of a jail . Curiously, Apple is beginning to allow limited passage through the walls of the iThing jail: users can now install apps built from source code, provided the source code is written in Swift. While this is a crack in the prison walls, it is not big enough to mean that the iThings are no longer jails. Examples of censorship by Apple jails 2025-10 Bowing down to the US government, Apple and Google removed from their stores several applications used for reporting ICE raids.
+
+Google even tried to justify it by calling ICE thugs a vulnerable group, despite them being the ones who carry the weapons. 2019-10 Apple censors the Taiwan flag in iOS on behalf of the Chinese government. When the region is set to mainland China, all attempts to display it will result in the empty emoji icon as if the flag never existed. 2019-05 Users caught in the jail of an iMonster are sitting ducks for other attackers , and the app censorship prevents security companies from figuring out how those attacks work.
+
+Apple's censorship of apps is fundamentally unjust, and would be inexcusable even if it didn't lead to security threats as well. 2017-01 Apple used its censorship system to enforce Russian surveillance by blocking distribution of the LinkedIn app in Russia . While subjecting its users to its own surveillance, it tries to protect its users from Russian surveillance, and is therefore subject to Russian censorship. Whether racism is bad, whether educating people about drone attacks is bad, are not the real issue.
+
+2023-11 To block non-Apple repairs, Apple encodes the iMonster serial number in the original parts . Swapping parts between working iMonsters of the same model causes malfunction or disabling of some functionalities. 2019-08 When Apple suspects a user of fraud, it judges the case secretly and presents the verdict as a fait accompli. 2017-04 The iPhone 7 contains DRM specifically designed to brick it if an unauthorized repair shop fixes it .
+
+(The article uses the term lock to describe the DRM, but we prefer to use the term digital handcuffs .) 2016-06 Apple stops users from fixing the security bugs in Quicktime for Windows , while refusing to fix them itself. 2016-02 iOS version 9 for iThings sabotages them irreparably if they were repaired by someone other than Apple . Surveillance 2025-07 An app called ICEBlock tried to set up anonymous posting and anonymous access to data about where US deportation thugs are operating. It didn't keep records about who was using it but Apple's own records would be enough to make them vulnerable to snooping by the US government to find who uses the app.
+
+2022-11 The iMonster app store client programs collect many kinds of data about the user's actions and private communications. Do not track options are available, but tracking doesn't stop if the user activates them: Apple keeps on collecting data for itself, although it claims not to send it to third parties. 2021-05 Apple is moving its Chinese customers' iCloud data to a datacenter controlled by the Chinese government . Apple is already storing the encryption keys on these servers, obeying Chinese authority, making all Chinese user data available to the government.
+
+2019-10 Safari occasionally sends browsing data from Apple devices in China to the Tencent Safe Browsing service , to check URLs that possibly correspond to fraudulent websites. Since Tencent collaborates with the Chinese government, its Safe Browsing black list most certainly contains the websites of political opponents. 2019-10 The Chinese Communist Party's Study the Great Nation app requires users to grant it access to the phone's microphone, photos, text messages, contacts, and internet history , and the Android version was found to contain a back-door allowing developers to run any code they wish in the users' phone, as superusers. Note: The Washington Post version of the article (partly obfuscated, but readable after copy-pasting in a text editor) includes a clarification saying that the tests were only performed on the Android version of the app, and that, according to Apple, this kind of superuser surveillance could not be conducted on Apple's operating system.
+
+2019-05 In spite of Apple's supposed commitment to privacy, iPhone apps contain trackers that are busy at night sending users' personal information to third parties . Some of these send personally identifying data such as phone fingerprint, exact location, email address, phone number or even delivery address (in the case of DoorDash). There is a way to deactivate iCloud , but it's active by default so it still counts as a surveillance functionality. They needed to break Apple's security to get at them, but NSA can access any of them through PRISM .
+
+2014-09 Apple can, and regularly does, remotely extract some data from iPhones for the state . This may have improved with iOS 8 security improvements ; but not as much as Apple claims . 2014-07 Several features of iOS seem to exist for no possible purpose other than surveillance . 2013-12 Either Apple helps the NSA snoop on all the data in an iThing, or it is totally incompetent .
+
+2012-10 There is also a feature for web sites to track users, which is enabled by default . (That article talks about iOS 6, but it is still true in iOS 7.) 2012-04 Users cannot make an Apple ID ( necessary to install even gratis apps ) without giving a valid email address and receiving the verification code Apple sends to it. There is a port of Android to the iThings, but installing it requires finding a bug or exploit to make it possible to install a different system. BACK TO TOP Proprietary malware All items added since 2018 By type Addictions Back doors Censorship Coercion Coverups Deception DRM Fraud Incompatibility Insecurity Interference Jails Manipulation Obsolescence Sabotage Subscriptions Surveillance Tethers Tyrants In the pipe By product Appliances Cars Conferencing EdTech Games Mobiles Webpages By company Adobe Amazon = Apple = Google HP Microsoft Articles UHD Blu-ray Denies Your Freedom BACK TO TOP Set language Available for this page: [en] English [es] español [fr] français [it] italiano [ja] 日本語 [nl] Nederlands [pt-br] português [ru] русский [zh-cn] 简体中文 BACK TO TOP The Free Software Foundation (FSF) is a nonprofit with a worldwide mission to promote computer user freedom.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> Microsoft's Software Is Malware - GNU Project - Free Software Foundation Skip to main text Free Software Supporter : JOIN THE FSF GNU Operating System Supported by the Free Software Foundation Site navigation Skip ABOUT GNU PHILOSOPHY LICENSES EDUCATION SOFTWARE DISTROS DOCS = MALWARE = HELP GNU AUDIO VIDEO GNU ART FUN GNU'S WHO? SOFTWARE DIRECTORY HARDWARE SITEMAP / Malware / By company / Microsoft's Software is Malware Nonfree (proprietary) software is very often malware (designed to mistreat the user). Types of Microsoft malware Back doors Censorship --> DRM Insecurity Interference Jails Sabotage Subscriptions Surveillance Tethers Tyrants Back Doors 2025-07 HP has recently started pushing a spyware program called HPMediaNetwork.exe into users' computers exploiting a Windows universal back door via Windows Update. The software, which is designed to serve personalized pop-up advertisements on the user's screen, runs in the background to collect device and users' data that HP sells to advertising companies .
+
+2013-07 Here is a suspicion that we can't prove, but is worth thinking about: Writable microcode for Intel and AMD microprocessors may be a vehicle for the NSA to invade computers, with the help of Microsoft, say respected security experts. You might well decide to let a security service that you trust remotely deactivate programs that it considers malicious. DRM Digital restrictions management, or DRM, refers to functionalities designed to restrict what users can do with the data in their computers. Microsoft said it will refund customers, but this is no excuse for selling them restricted books.
+
+(The article talks about how the same malware would later be introduced in MacOS. That had not been done at the time, but it was done subsequently.) Insecurity These bugs are/were not intentional, so unlike the rest of the file they do not count as malware. We mention them to refute the supposition that prestigious proprietary software doesn't have grave bugs. 2024-11 Windows Recall is a feature of Microsoft's Copilot tool that comes preinstalled on AI-specialized computers.
+
+Recall records everything users do on their computer and allows them to search the recordings, but it has numerous security flaws and poses a risk to privacy. As Recall cannot be completely uninstalled, disabling it doesn't eliminate the risk because it can be reactivated by malware or misconfiguration. Meanwhile, it stores sensitive user information such as passwords and bank account numbers, showing that whereas Microsoft worries somewhat about corporate interests, it couldn't care less about user privacy. 2024-08 A critical vulnerability in Windows systems that support IPv6 was discovered in 2024, 16 years after the first affected system was released.
+
+Unless the relevant patch is applied, an attacker can remotely execute arbitrary code on these systems. The same sort of vulnerability in a free/libre operating system would probably be discovered sooner, since many more people would be able to look at the source code. It is wise to insist on encryption software that is (1) free software and (2) studied by experts. 2022-02 A security failure in Microsoft's Windows is infecting people's computers with RedLine stealer malware using a fake Windows 11 upgrade installer.
+
+2021-07 A newly found Microsoft Windows vulnerability can allow crackers to remotely gain access to the operating system and install programs, view and delete data, or even create new user accounts with full user rights. The security research firm accidentally leaked instructions on how the flaw could be exploited but Windows users should still wait for Microsoft to fix the flaw, if they fix it. 2021-03 At least 30 thousand organizations in the United States are newly cracked via holes in Microsoft's proprietary email software, named Microsoft 365 . It is unclear whether there are other holes and vulnerabilities in the program or not but history and experience tells us it wouldn't be the last disaster with proprietary programs.
+
+2021-02 Researchers at the security firm SentinelOne discovered a security flaw in proprietary program Microsoft Windows Defender that lurked undetected for 12 years . 2020-04 The proprietary program Microsoft Teams' insecurity could have let a malicious GIF steal user data from Microsoft Teams accounts , possibly across an entire company, and taken control of an organization's entire roster of Teams accounts. 2017-05 Exploits of bugs in Windows, which were developed by the NSA and then leaked by the Shadowbrokers group, are now being used to attack a great number of Windows computers with ransomware . 2016-08 A flaw in Internet Explorer and Edge allows an attacker to retrieve Microsoft account credentials, if the user is tricked into visiting a malicious link.
+
+Now it also contains the icons of apps Microsoft wants to advertise, in the hope that the user will click on one of them, and buy the app. 2024-03 Microsoft is using malware tactics to get users to switch to their web browser , Microsoft Edge, and their search engine, Microsoft Bing. When users launch the Google Chrome browser Microsoft injects a pop up advertisement in the corner of the screen advising users to switch to Bing. Microsoft also imported users Chrome browsing data without their knowledge or consent.
+
+Don't count on public outcry to make them remove more profitable malware, though. 2021-02 Microsoft is forcibly removing the Flash player from computers running Windows 10 , using a universal backdoor in Windows . 2018-03 Microsoft is planning to make Windows impose use of its browser, Edge, in certain circumstances . 2016-08 After forcing the download of Windows 10 on computers that were running Windows 7 and 8, Microsoft repeatedly switched on a flag that urged users to upgrade to Windows 10 when they had turned it off, in the hope that some day they would fail to say no.
+
+A detailed analysis of Microsoft's scheme is available on the Electronic Frontier Foundation's website. 2016-03 Microsoft has made companies' Windows machines managed by the company's sysadmins harangue users to complain to the sysadmins about not upgrading to Windows 10 . Free software developers also stop maintaining old versions of their programs, but this is not unfair to users because the users of free software have control over it. Sabotage The wrongs in this section are not precisely malware, since they do not involve making the program that runs in a way that hurts the user.
+
+But they are a lot like malware, since they are technical Microsoft actions that harm the users of specific Microsoft software. 2024-12 Windows Defender deletes downloaded files that it considers malware as soon as they are saved to disk, without requesting permission to do so. Many angry users have complained about this unacceptable behavior over the last few years, and even suggested fixes, but Microsoft has ignored them. 2019-04 Microsoft has been force-installing a remediation program on computers running certain versions of Windows 10.
+
+Remediation, in Microsoft's view, means tampering with users' settings and files , notably to repair any components of the updating system that users may have intentionally disabled, and thus regain full power over them. If your employer makes you run Windows, tell the financial department how this wastes your time dealing with endless connections and premature hardware failures. 2017-04 Microsoft has made Windows 7 and 8 cease to function on certain new computers, effectively forcing their owners to switch to Windows 10 . 2016-06 In its efforts to trick users of Windows 7 and 8 into installing all-spying Windows 10 against their will, Microsoft forced their computers to silently download the whole of Windows 10 !
+
+This demonstrates what we've said for years: using proprietary software means letting someone have power over you, and you're going to get screwed sooner or later. 2015-03 Microsoft cut off security fixes for Windows XP, except to some big users that pay exorbitantly . Surveillance 2026-01 Windows encrypts disks for security, but reports all the encryption keys to Microsoft so that the encryption doesn't provide real security. 2025-05 Microsoft Teams has been collecting voice and face data from students of an Australian school, to feed the CoPilot chatbot.
+
+It was obviously beyond their imagination that Microsoft could have made biometric data collection the default in Teams! Many public instances are available, and groups of users can also set up their own servers. 2025-03 Microsoft is tightening the chains that force Windows useds to sign into their Microsoft account [*], thus identifying themselves. Since Outlook is now integrated with Microsoft cloud services, and doesn't support end-to-end encryption, the company has full access to users' emails, contacts, and calendar events.
+
+This trove of personal data enables Microsoft, as well as its commercial partners, to flood users with targeted ads, and possibly to train artificial intelligences. Even worse, this data is available to any government that can force Microsoft to hand it over. Here is an excerpt from the Microsoft Services agreement (Section 2b): To the extent necessary to provide the Services to you and others, to protect you and the Services, and to improve Microsoft products and services, you grant to Microsoft a worldwide and royalty-free intellectual property license to use Your Content, for example, to make copies of, retain, transmit, reformat, display, and distribute via communication tools Your Content on the Services. We strongly suspect that the backed-up material is used to feed Microsoft's greedy AI.
+
+Users, on the other hand, are at the mercy of any entity that demands their data, let alone of any cracker that breaks into Microsoft's servers. Microsoft claims its nonfree browser sends the URLs without identifying you, which cannot be true, since at least your IP address is known to the server if you don't take extra measures. That makes a change for the better, but we suggest that you instead switch to a freedom-respecting browser with additional privacy features such as IceCat . 2023-02 As soon as it boots, and without asking any permission, Windows 11 starts to send data to online servers .
+
+The user's personal details, location or hardware information are reported to Microsoft and other companies to be used as telemetry data. 2023-01 Microsoft released an update that installs a surveillance program on users' computers to gather data on some installed programs for Microsoft's benefit. This account can (and most certainly will) be used for surveillance and privacy violations. 2020-10 Microsoft is imposing its surveillance on the game of Minecraft by requiring every player to open an account on Microsoft's network .
+
+Microsoft has bought the game and will merge all accounts into its network, which will give them access to people's data. 2020-10 As of 2019-2020, Minecraft players are being forced to move to Microsoft servers , which results in privacy violation. 2020-04 Proprietary programs Google Meet, Microsoft Teams, and WebEx are collecting user's personal and identifiable data including how long a call lasts, who's participating in the call, and the IP addresses of everyone taking part. From experience, this can even harm users physically if those companies hand over data to governments.
+
+2019-12 Microsoft is tricking users to create an account on their network to be able to install and use the Windows operating system, which is malware. The account can be used for surveillance and/or violating people's rights in many ways, such as turning their purchased software to a subscription product. On top of mistreating their users by providing nonfree software, Microsoft is tracking their lives outside the computer and violates their privacy. Furthermore, for users who installed the fourth stable build of Windows 10, called the Creators Update, Windows maximized the surveillance by force setting the telemetry mode to Full .
+
+The Full telemetry mode allows Microsoft Windows engineers to access, among other things, registry keys which can contain sensitive information like administrator's login password . 2016-11 By default, Windows 10 sends debugging information to Microsoft, including core dumps . 2016-08 In order to increase Windows 10's install base, Microsoft blatantly disregards user choice and privacy . 2016-01 It appears Windows 10 sends data to Microsoft about what applications are running .
+
+Users noticed this and complained, so Microsoft renamed it to give users the impression it was gone . 2015-08 Windows 10 sends identifiable information to Microsoft , even if a user turns off its Bing search and Cortana features, and activates the privacy-protection settings. 2015-07 Windows 10 ships with default settings that show no regard for the privacy of its users , giving Microsoft the right to snoop on the users' files, text input, voice input, location info, contacts, calendar records and web browsing history, as well as automatically connecting the machines to open hotspots and showing targeted ads. We can suppose Microsoft looks at users' files for the US government on demand, though the privacy policy does not explicitly say so.
+
+2015-06 Microsoft uses Windows 10's privacy policy to overtly impose a right to look at users' files at any time. The unique advertising ID for each user enables other companies to track the browsing of each specific user. 2013-07 Spyware in older versions of Windows: Windows Update snoops on the user . Instead of migrating to the service that Microsoft suggests as a replacement, Skype users should regain control of their communications by switching to one that is based on free software.
+
+Anyone can set up a Jitsi server and let other people use it, and indeed many of these are available around the world. 2017-06 Windows 10 S was a jail: only programs from the Windows Store could be installed and executed . As this page shows, if you do want to clean your computer of malware, the first software to delete is Windows. BACK TO TOP Proprietary malware All items added since 2018 By type Addictions Back doors Censorship Coercion Coverups Deception DRM Fraud Incompatibility Insecurity Interference Jails Manipulation Obsolescence Sabotage Subscriptions Surveillance Tethers Tyrants In the pipe By product Appliances Cars Conferencing EdTech Games Mobiles Webpages By company Adobe Amazon Apple Google HP = Microsoft = Articles UHD Blu-ray Denies Your Freedom BACK TO TOP Set language Available for this page: [en] English [es] español [fr] français [it] italiano [ja] 日本語 [pt-br] português [ru] русский BACK TO TOP The Free Software Foundation (FSF) is a nonprofit with a worldwide mission to promote computer user freedom.
+
+[Source: https://memeburn.com/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026/]
+
+10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026 - Memeburn {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#article","isPartOf":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/"},"author":{"name":"Temaz Tra","@id":"https:\/\/memeburn.com\/#\/schema\/person\/3fe28b4d960e87147fadbd9222fc76c8"},"headline":"10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026","datePublished":"2026-05-30T07:05:18+00:00","mainEntityOfPage":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/"},"wordCount":1212,"image":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#primaryimage"},"thumbnailUrl":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/10-000-bugs-Anthropic-Mythos-AI-shakes-safety-in-2026.jpg","articleSection":["AI News","News"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/","url":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/","name":"10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026 - Memeburn","isPartOf":{"@id":"https:\/\/memeburn.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#primaryimage"},"image":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#primaryimage"},"thumbnailUrl":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/10-000-bugs-Anthropic-Mythos-AI-shakes-safety-in-2026.jpg","datePublished":"2026-05-30T07:05:18+00:00","author":{"@id":"https:\/\/memeburn.com\/#\/schema\/person\/3fe28b4d960e87147fadbd9222fc76c8"},"description":"Anthropic Mythos AI found 10 000+ serious software bugs. Here’s why it matters for cybersecurity teams in South Africa and beyond.","breadcrumb":{"@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#primaryimage","url":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/10-000-bugs-Anthropic-Mythos-AI-shakes-safety-in-2026.jpg","contentUrl":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/10-000-bugs-Anthropic-Mythos-AI-shakes-safety-in-2026.jpg","width":1920,"height":1080,"caption":"10 000+ bugs: Anthropic Mythos AI shakes safety in 2026"},{"@type":"BreadcrumbList","@id":"https:\/\/memeburn.com\/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/memeburn.com\/"},{"@type":"ListItem","position":2,"name":"News","item":"https:\/\/memeburn.com\/news\/"},{"@type":"ListItem","position":3,"name":"10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026"}]},{"@type":"WebSite","@id":"https:\/\/memeburn.com\/#website","url":"https:\/\/memeburn.com\/","name":"Memeburn","description":"Internet+Culture","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/memeburn.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https:\/\/memeburn.com\/#\/schema\/person\/3fe28b4d960e87147fadbd9222fc76c8","name":"Temaz Tra","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/Temaz-Tra-3-150x150.png","url":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/Temaz-Tra-3-150x150.png","contentUrl":"https:\/\/memeburn.com\/wp-content\/uploads\/2026\/05\/Temaz-Tra-3-150x150.png","caption":"Temaz Tra"},"description":"Temaz Tra is an AI and technology news writer focused on the fast-moving tools, platforms, and companies shaping the digital world. He covers artificial intelligence, consumer tech, cybersecurity, software, social media, and the wider impact of emerging technologies on work, business, and everyday life. His work connects breaking news with practical context, making it easier to follow how AI and digital innovation are changing the way people live, work, and interact online.","url":"https:\/\/memeburn.com\/author\/temaz-tra\/"}]} window.advanced_ads_ready=function(e,a){a=a||"complete";var d=function(e){return"interactive"===a?"loading"!==e:"complete"===e};d(document.readyState)?e():document.addEventListener("readystatechange",(function(a){d(a.target.readyState)&&e()}),{once:"interactive"===a})},window.advanced_ads_ready_queue=window.advanced_ads_ready_queue||[]; img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px} /*# sourceURL=wp-img-auto-sizes-contain-inline-css */ @-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-block-placeholder,.wpp-shortcode-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear} News Crypto News AI News Tech News Partnered Press Release Crypto AI About Open search form Partner with us Home News 10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026 Temaz Tra 30 May 2026 5 mins read Add on google AI News News Add on google Anthropic’s Mythos AI has helped companies uncover more than 10,000 serious software bugs in just one month.
+
+#ezw_tco-2 .ez-toc-title{ font-size: 120%; font-weight: 500; color: #000; } #ezw_tco-2 .ez-toc-widget-container ul.ez-toc-list li a{ font-size: 120%; font-weight: 500; color: #000; } #ezw_tco-2 .ez-toc-widget-container ul.ez-toc-list li.active{ background-color: #ededed; } Table of Content What Anthropic’s Mythos AI actually found The numbers are huge — and messy Why this is not just another AI benchmark The bottleneck is patching, not discovery What this means for South African companies Mythos is powerful, but not magic The new cybersecurity race is about response speed FAQs What is Anthropic Mythos AI? Most Read Google AI Smart Glasses 2026: Gemini, iPhone Support, Meta Rival Staff Reporter May 22 8 mins read Sony Xperia 1 VIII vs iPhone 17 Pro: Which Camera Phone Wins for Creators Staff Reporter May 27 7 mins read Apple's 15 New Product Leaks Ahead of WWDC 2026 Vincee Cole May 27 7 mins read Apple Watch Ultra 4 Will Be Completely Redesigned With Blood Pressure Monitoring and Doubled Sensors Staff Reporter May 22 7 mins read Best Phone for Photographers 2026: Why Sony Xperia 1 VIII Changes the Game Staff Reporter May 27 6 mins read Sponsored Share this post X LinkedIn Email Facebook Copy link TL;DR Anthropic says Project Glasswing partners found 10 000+ high- or critical-severity vulnerabilities using Claude Mythos Preview. The bigger issue is no longer finding bugs — it’s verifying, prioritising, and patching them fast enough. South African banks, startups, SaaS teams, and public platforms should treat this as a warning about AI-speed cybersecurity.
+
+Anthropic’s Claude Mythos Preview has turned software security into a volume problem. The AI company says partners in its Project Glasswing programme have found more than 10 000 high- or critical-severity vulnerabilities in their own software after just one month of access. Cloudflare alone found 2 000 bugs , including 400 rated high or critical , according to Anthropic’s initial update. But it also exposes a bigger problem: AI can now discover dangerous bugs faster than many companies can confirm, rank, report, and patch them.
+
+What Anthropic’s Mythos AI actually found Anthropic launched Project Glasswing as a restricted cybersecurity programme built around Claude Mythos Preview, an unreleased AI model designed for advanced defensive security work. The company says Mythos can help trusted partners find vulnerabilities in major software systems before attackers exploit them. It has also given access to more than 40 additional organisations that build or maintain critical software infrastructure. We’re talking about flaws in systems that keep browsers, operating systems, cloud platforms, banks, payment rails, and enterprise networks running.
+
+The numbers are huge — and messy Anthropic says most Project Glasswing partners found hundreds of critical or high-severity bugs in their own software. Here’s the simpler breakdown: Area What Anthropic reported Project Glasswing partner findings 10 000+ serious vulnerabilities Cloudflare findings 2 000 bugs Cloudflare high/critical bugs 400 Open-source projects scanned 1 000+ Estimated high/critical open-source bugs 6 202 Total open-source findings across severities 23 019 Anthropic also scanned more than 1 000 open-source projects that underpin much of the internet. In those projects, Mythos estimated 6 202 high- or critical-severity vulnerabilities out of 23 019 total findings . The key word there is “estimated.” Security teams still need humans to reproduce the issue, confirm whether it’s real, judge how severe it is, and avoid flooding maintainers with bad AI-generated reports.
+
+Why this is not just another AI benchmark A normal AI benchmark tells us a model scored higher on a test. Anthropic says Mythos has already found thousands of high-severity vulnerabilities, including some in every major operating system and browser. It also says the model can identify and exploit some flaws with little human steering. That shifts the conversation from “Can AI code?” to “Can AI find the cracks in code faster than defenders can close them?” For cybersecurity teams, that’s the uncomfortable part.
+
+The bottleneck is patching, not discovery Anthropic makes one point very clearly: the hardest part is no longer finding the bugs. The company says maintainers are already capacity-constrained, and some have even asked Anthropic to slow down disclosures because they need more time to design patches. Anthropic says a high- or critical-severity bug found by Mythos takes about two weeks to patch on average. If AI tools can discover thousands of flaws, every organisation needs a stronger process for triage.
+
+Otherwise, security teams drown in alerts while attackers focus on the few bugs that matter most. Experts said Mythos represents a real technical advance, but the bigger challenge is validating, prioritising, and fixing flaws without breaking systems. What this means for South African companies South African companies don’t need direct access to Mythos to feel the impact. Local banks, payment startups, retailers, logistics platforms, and public institutions all run on global software stacks.
+
+They use Linux servers, open-source libraries, cloud services, browser technologies, APIs, and developer tools that overlap with the systems Mythos is scanning. A serious bug in a widely used library can hit a Johannesburg fintech just as easily as a US cloud company. We’ve already covered how an OpenAI code security issue exposed internal credential material after attackers hit the software supply chain, which shows how developer tools have become a major attack surface. Reuters reported that some cybersecurity experts believe early fears around Mythos have been overstated.
+
+Their point is simple: AI-assisted bug hunting already existed, and attackers were dangerous long before Mythos arrived. Mythos appears to lower the effort needed to find serious flaws and scan large codebases. Anthropic says Project Glasswing exists to put these tools in defenders’ hands first. It has committed up to $100 million in Mythos usage credits and $4 million in donations to open-source security organisations.
+
+But open-source maintainers, banks, software vendors, and governments still need to turn findings into fixes. The new cybersecurity race is about response speed The lesson from Mythos isn’t that every company needs its own frontier AI model. That means better software inventories, faster patch testing, tighter access controls, safer deployment pipelines, and teams that can separate scary-looking reports from genuinely urgent vulnerabilities. The real question is whether companies can fix the right ones before attackers arrive.
+
+Claude Mythos Preview is Anthropic’s unreleased AI model for advanced cybersecurity work. It helps selected partners find serious software vulnerabilities before attackers exploit them. Anthropic says Project Glasswing partners found more than 10,000 high- or critical-severity vulnerabilities in one month. The main lesson is to improve patching, dependency tracking, and security triage , because AI can now surface bugs faster than many teams can fix them.
+
+Mythos AI can find vulnerabilities quickly , but human experts still need to verify whether those bugs are real and dangerous. The bigger shift is that security teams may spend less time hunting for flaws and more time prioritising, patching, and testing fixes . Temaz Tra Temaz Tra is an AI and technology news writer focused on the fast-moving tools, platforms, and companies shaping the digital world. He covers artificial intelligence, consumer tech, cybersecurity, software, social media, and the wider impact of emerging technologies on work, business, and everyday life.
+
+His work connects breaking news with practical context, making it easier to follow how AI and digital innovation are changing the way people live, work, and interact online. Visit Profile Previous Hackers Aren’t Just Stealing Passwords in 2026 Temaz Tra May 30 5 mins read Next StanChart AI Layoffs: 7,800 Jobs Face Automation Temaz Tra May 30 5 mins read Read more News Tech News StanChart AI Layoffs: 7,800 Jobs Face Automation Temaz Tra May 30 5 mins read News Tech News Hackers Aren’t Just Stealing Passwords in 2026 Temaz Tra May 30 5 mins read News Tech News 22% cut: ClickUp AI agent layoffs shake work in 2026 Temaz Tra May 30 5 mins read Crypto News News SEC Approves Nasdaq Bitcoin Index Options in 2026 Vincee Cole May 30 5 mins read AI News News Sam Altman Just Reverses His "AI Job Apocalypse" Warning Vincee Cole May 30 5 mins read News Tech News 12 Hidden iPhone Features Apple Added Before WWDC In 2026 Vincee Cole May 30 6 mins read AI News News Apple Leaks New Siri Looks Exactly Like ChatGPT Vincee Cole May 30 6 mins read News Tech News Samsung Officially Gets TSA-approved Digital Passport: How to Set It Up? News Crypto News AI News Tech News Partnered Press Release Crypto AI About Partner with us {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/memeburn/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]} .lazyload{display:none;} window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1; !function(){window.advanced_ads_ready_queue=window.advanced_ads_ready_queue||[],advanced_ads_ready_queue.push=window.advanced_ads_ready;for(var d=0,a=advanced_ads_ready_queue.length;d
+
+[Mythos AI Security Research 2026]
+
+[Source: https://memeburn.com/10-000-bugs-anthropic-mythos-ai-shakes-safety-in-2026/]
+[Title: 10,000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026]
+
+Open search form Partner with us Home News10 000+ Bugs: Anthropic Mythos AI Shakes Safety In 2026 Temaz Tra 30 May 2026 5 mins read Add on google AI News News Add on googleAnthropic’s Mythos AI has helped companies uncover more than 10,000 serious software bugs in just one month. The scary part isn’t only that AI can find flaws this fast. It’s that humans still have to fix them.
+
+Anthropic’s Claude Mythos Preview has turned software security into a volume problem.
+
+The AI company says partners in its Project Glasswing programme have found more than 10 000 high- or critical-severity vulnerabilities in their own software after just one month of access. Cloudflare alone found 2 000 bugs, including 400 rated high or critical, according to Anthropic’s initial update.
+
+But it also exposes a bigger problem: AI can now discover dangerous bugs faster than many companies can confirm, rank, report, and patch them.
+
+Anthropic launched Project Glasswing as a restricted cybersecurity programme built around Claude Mythos Preview, an unreleased AI model designed for advanced defensive security work.
+
+The company says Mythos can help trusted partners find vulnerabilities in major software systems before attackers exploit them. It has also given access to more than 40 additional organisations that build or maintain critical software infrastructure.
+
+We’re talking about flaws in systems that keep browsers, operating systems, cloud platforms, banks, payment rails, and enterprise networks running. If those systems break, the impact doesn’t stay inside Silicon Valley.
+
+It can reach a fintech company in Cape Town, a bank in Sandton, a university portal, or a government service that depends on the same open-source building blocks.
+
+Anthropic says most Project Glasswing partners found hundreds of critical or high-severity bugs in their own software. Collectively, those partners found more than 10 000.
+
+Anthropic also scanned more than 1 000 open-source projects that underpin much of the internet. In those projects, Mythos estimated 6 202 high- or critical-severity vulnerabilities out of 23 019 total findings.
+
+Security teams still need humans to reproduce the issue, confirm whether it’s real, judge how severe it is, and avoid flooding maintainers with bad AI-generated reports.
+
+Anthropic says Mythos has already found thousands of high-severity vulnerabilities, including some in every major operating system and browser. It also says the model can identify and exploit some flaws with little human steering.
+
+That shifts the conversation from “Can AI code?” to “Can AI find the cracks in code faster than defenders can close them?”
+
+Bug discovery used to require rare expertise, time, and patience. Mythos suggests advanced AI can compress that process dramatically. It doesn’t remove the need for experts, but it changes what those experts spend their time doing.
+
+Anthropic makes one point very clearly: the hardest part is no longer finding the bugs. It’s fixing them.
+
+The company says maintainers are already capacity-constrained, and some have even asked Anthropic to slow down disclosures because they need more time to design patches. Anthropic says a high- or critical-severity bug found by Mythos takes about two weeks to patch on average.
+
+If AI tools can discover thousands of flaws, every organisation needs a stronger process for triage. Otherwise, security teams drown in alerts while attackers focus on the few bugs that matter most.
+
+Reuters reported a similar view from cybersecurity practitioners. Experts said Mythos represents a real technical advance, but the bigger challenge is validating, prioritising, and fixing flaws without breaking systems.
+
+Local banks, payment startups, retailers, logistics platforms, and public institutions all run on global software stacks. They use Linux servers, open-source libraries, cloud services, browser technologies, APIs, and developer tools that overlap with the systems Mythos is scanning.
+
+A serious bug in a widely used library can hit a Johannesburg fintech just as easily as a US cloud company. A vulnerable authentication tool can affect a local SaaS business. A weak crypto library can put customer trust at risk.
+
+This also connects to the wider AI-security race. We’ve already covered how an OpenAI code security issue exposed internal credential material after attackers hit the software supply chain, which shows how developer tools have become a major attack surface.
+
+Reuters reported that some cybersecurity experts believe early fears around Mythos have been overstated. Their point is simple: AI-assisted bug hunting already existed, and attackers were dangerous long before Mythos arrived.
+
+Mythos appears to lower the effort needed to find serious flaws and scan large codebases. That helps defenders, but it also hints at a future where similar capabilities spread beyond carefully controlled programmes.
+
+Anthropic says Project Glasswing exists to put these tools in defenders’ hands first. It has committed up to $100 million in Mythos usage credits and $4 million in donations to open-source security organisations.
+
+But open-source maintainers, banks, software vendors, and governments still need to turn findings into fixes.
+
+That means better software inventories, faster patch testing, tighter access controls, safer deployment pipelines, and teams that can separate scary-looking reports from genuinely urgent vulnerabilities.
+
+For smaller South African startups, this may sound expensive. But the basics still matter: keep dependencies updated, remove unused packages, rotate secrets, monitor abnormal activity, and don’t let one developer laptop become the doorway into everything.
+
+The real question is whether companies can fix the right ones before attackers arrive.
+
+Claude Mythos Preview is Anthropic’s unreleased AI model for advanced cybersecurity work. It helps selected partners find serious software vulnerabilities before attackers exploit them.
+
+Anthropic says Project Glasswing partners found more than 10,000 high- or critical-severity vulnerabilities in one month. It also reported thousands more findings from open-source software scans.
+
+Yes, but they shouldn’t panic. The main lesson is to improve patching, dependency tracking, and security triage, because AI can now surface bugs faster than many teams can fix them.
+
+No. Mythos AI can find vulnerabilities quickly, but human experts still need to verify whether those bugs are real and dangerous. The bigger shift is that security teams may spend less time hunting for flaws and more time prioritising, patching, and testing fixes.
+
+Temaz Tra is an AI and technology news writer focused on the fast-moving tools, platforms, and companies shaping the digital world. He covers artificial intelligence, consumer tech, cybersecurity, software, social media, and the wider impact of emerging technologies on work, business, and everyday life. With a focus on clear reporting and accessible analysis, Temaz helps readers understand complex tech developments without the jargon. His work connects breaking news with practical context, making it easier to follow how AI and digital innovation are changing the way people live, work, and interact online.
