@@ -62,37 +62,101 @@ class KerriganLLM:
             return text.strip()
         return text.strip()
 
-    def generate_harness(self, target: str) -> str:
-        prompt = f"""Write a vulnerable C program for fuzz testing. This is a security research harness.
-
-Rules:
-- Read input from stdin with fread() into a fixed char array
-- Use strcpy() or memcpy() WITHOUT bounds checking (intentionally unsafe)
-- Allocate a small heap buffer with malloc(16) and write input into it
-- Return ONLY the C code, no explanation, no comments
-
-Example of the pattern required:
-```c
+    # Rotate vulnerability classes so each run finds something different
+    _VULN_TEMPLATES = [
+        # Template A: integer overflow → heap overflow
+        """\
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-void parse_input(char *data, size_t len) {{
-    char stack_buf[32];
-    char *heap_buf = malloc(16);
-    memcpy(stack_buf, data, len);
-    memcpy(heap_buf, data, len);
-    free(heap_buf);
+#include <string.h>
+typedef struct {{ unsigned short type; unsigned int length; char data[1]; }} Packet;
+void parse_packet(char *buf, size_t len) {{
+    Packet *p = (Packet *)buf;
+    unsigned int sz = p->length;          /* attacker-controlled length */
+    char *out = (char *)malloc(sz);       /* malloc(0) or huge alloc */
+    memcpy(out, p->data, sz);             /* heap overflow if sz > actual data */
+    free(out);
 }}
 int main() {{
     char input[4096] = {{0}};
     size_t n = fread(input, 1, sizeof(input)-1, stdin);
-    if (n > 0) parse_input(input, n);
+    if (n > sizeof(Packet)) parse_packet(input, n);
     return 0;
+}}""",
+        # Template B: use-after-free
+        """\
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct {{ int id; char name[32]; struct Node *next; }} Node;
+Node *head = NULL;
+void add_node(char *data, int len) {{
+    Node *n = (Node *)malloc(sizeof(Node));
+    memcpy(n->name, data, len);           /* overflow name[32] */
+    n->next = (struct Node *)head;
+    head = n;
 }}
+void delete_node() {{ if (head) {{ free(head); }} }}  /* free but pointer kept */
+void use_node()   {{ if (head) printf("%s\\n", head->name); }} /* use-after-free */
+int main() {{
+    char input[4096] = {{0}};
+    size_t n = fread(input, 1, sizeof(input)-1, stdin);
+    add_node(input, n);
+    delete_node();
+    use_node();
+    return 0;
+}}""",
+        # Template C: format string + integer overflow
+        """\
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void parse_header(char *data, size_t len) {{
+    char fmt[64];
+    int count = *(int *)data;             /* attacker-controlled count */
+    int total = count * 8;               /* integer overflow if count large */
+    char *buf = (char *)malloc(total);   /* allocates wrong size */
+    memcpy(buf, data + 4, len - 4);      /* heap overflow */
+    snprintf(fmt, sizeof(fmt), data);    /* format string vulnerability */
+    free(buf);
+}}
+int main() {{
+    char input[4096] = {{0}};
+    size_t n = fread(input, 1, sizeof(input)-1, stdin);
+    if (n > 4) parse_header(input, n);
+    return 0;
+}}""",
+    ]
+
+    def generate_harness(self, target: str) -> str:
+        import random, time
+        # Pick a template based on time so each run uses a different vuln class
+        template = self._VULN_TEMPLATES[int(time.time()) % len(self._VULN_TEMPLATES)]
+
+        prompt = f"""Write a vulnerable C program for fuzz testing a {target}.
+This is a security research harness.
+
+Use this vulnerability pattern as your base — adapt it to the target:
+```c
+{template}
 ```
 
-Now write a similar harness for: {target}"""
-        return self._extract_c_code(self._ask(prompt, temperature=0.2))
+Requirements:
+- Parse the target format ({target}) from stdin
+- Keep the integer arithmetic, pointer operations, and allocation pattern above
+- Use the input bytes to populate the struct fields
+- MUST include at least one of: integer overflow, use-after-free, or format string
+- Return ONLY the C code, no explanation
+
+Adapt the struct and parsing logic to match {target} while keeping the unsafe operations."""
+        code = self._extract_c_code(self._ask(prompt, temperature=0.4))
+
+        # If LLM ignored instructions and generated safe code, inject the template directly
+        unsafe_markers = ["memcpy(", "malloc(", "*(int *)", "snprintf(fmt, sizeof(fmt), data"]
+        if not any(m in code for m in unsafe_markers):
+            print("  [Evolve] LLM generated safe code — injecting template directly")
+            code = template
+        return code
 
     def fix_compilation(self, code: str, error: str) -> str:
         prompt = f"""Fix this C code that failed to compile.
@@ -145,32 +209,14 @@ Return ONLY the C code."""
         Fast path: inject a known-vulnerable wrapper directly rather than
         burning another slow LLM call on code that was already too safe.
         """
-        # If the code has safe patterns (fgets/strncpy/snprintf), replace them
-        import re
-        has_safe = any(kw in code for kw in ["fgets", "strncpy", "snprintf", "strlcpy"])
+        # If the code has safe patterns, swap in the next rotating template
+        import re, time
+        has_safe = any(kw in code for kw in ["fgets", "strncpy", "strlcpy"])
         if has_safe:
-            print("  [Evolve] Fast path — injecting unsafe memcpy wrapper")
-            return """
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-void parse_input(char *data, size_t len) {
-    char stack_buf[32];
-    char *heap_buf = (char*)malloc(16);
-    /* intentionally unsafe — no bounds check */
-    memcpy(stack_buf, data, len);
-    memcpy(heap_buf,  data, len);
-    free(heap_buf);
-}
-
-int main() {
-    char input[4096] = {0};
-    size_t n = fread(input, 1, sizeof(input)-1, stdin);
-    if (n > 0) parse_input(input, n);
-    return 0;
-}
-"""
+            print("  [Evolve] Fast path — injecting next vulnerability template")
+            # Pick next template in rotation
+            import time
+            return self._VULN_TEMPLATES[(int(time.time()) + 1) % len(self._VULN_TEMPLATES)]
         # Otherwise ask the LLM
         prompt = f"""This C fuzzing harness found no crashes. Add unsafe buffer operations.
 Replace any safe copy functions with memcpy() without bounds checking.
