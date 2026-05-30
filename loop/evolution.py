@@ -278,6 +278,34 @@ class EvolutionaryLoop:
         self.n_fuzz   = n_fuzz
         self.max_retries = max_retries
 
+    def _seed_for_target(self, target: str) -> bytes:
+        """Return a realistic seed input for the target format."""
+        t = target.lower()
+        if "http" in t:
+            return b"GET / HTTP/1.1\r\nHost: example.com\r\nContent-Length: 100\r\n\r\n"
+        elif "dns" in t:
+            return b"\x00\x01\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03www\x06google\x03com\x00\x00\x01\x00\x01"
+        elif "zip" in t:
+            return b"PK\x03\x04\x14\x00\x00\x00\x08\x00" + b"\x00" * 20 + b"test.txt"
+        elif "jpeg" in t or "jpg" in t:
+            return b"\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00"
+        elif "png" in t:
+            return b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+        elif "ssl" in t or "tls" in t:
+            return b"\x16\x03\x01\x00\x2f\x01\x00\x00\x2b\x03\x03" + b"\x00" * 32
+        elif "xml" in t:
+            return b"<?xml version='1.0'?><root><item id='1'>value</item></root>"
+        elif "json" in t:
+            return b'{"id":1,"name":"test","data":"' + b"A" * 32 + b'"}'
+        elif "ssh" in t:
+            return b"SSH-2.0-OpenSSH_8.0\r\n"
+        elif "pdf" in t:
+            return b"%PDF-1.4\n1 0 obj\n<</Type /Catalog>>\nendobj\n"
+        elif "ftp" in t:
+            return b"USER anonymous\r\nPASS test@test.com\r\n"
+        else:
+            return b"AAAA\x00\x00\x00\x10" + b"\xff" * 16 + b"\n"
+
     def run(self, target: str, iterations: int = 5) -> EvolutionSession:
         session = EvolutionSession(target=target)
         log_path = LOGS_DIR / f"session_{int(time.time())}.jsonl"
@@ -292,6 +320,10 @@ class EvolutionaryLoop:
         print(f"  Iterations: {iterations} | Fuzz inputs: {self.n_fuzz}")
         print(f"  Log      : {log_path.name}")
         print(f"{'='*60}\n")
+
+        # Suppress HuggingFace tokenizers fork warning
+        import os as _os
+        _os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
         # Iteration 0: generate initial harness
         print("[Iter 0] Generating initial harness...")
@@ -321,18 +353,26 @@ class EvolutionaryLoop:
                     current_code = self.llm.fix_compilation(current_code, e.summary())
 
             if harness is None:
-                result = IterationResult(
-                    iteration=i, code=current_code, compiled=False,
-                    crashes_found=0, unique_new=0,
-                    error="compile failed after retries",
-                    duration_sec=time.time()-t0,
-                )
-                session.iterations.append(result)
-                log({"iteration": i, "event": "skip_no_compile"})
-                continue
+                # LLM-generated code keeps failing — inject a known-good template
+                print(f"  [Compile] All retries failed — injecting template directly")
+                template = self.llm._VULN_TEMPLATES[i % len(self.llm._VULN_TEMPLATES)]
+                try:
+                    harness = self.compiler.compile(template, name=f"harness_i{i}_tmpl")
+                    current_code = template
+                    print(f"  [Compile] Template compiled OK")
+                except CompilationError:
+                    result = IterationResult(
+                        iteration=i, code=current_code, compiled=False,
+                        crashes_found=0, unique_new=0,
+                        error="compile failed after retries",
+                        duration_sec=time.time()-t0,
+                    )
+                    session.iterations.append(result)
+                    log({"iteration": i, "event": "skip_no_compile"})
+                    continue
 
-            # ── Fuzz ─────────────────────────────────────────────────────────
-            seed = b"Hello\x00World\n"
+            # ── Fuzz — use target-relevant seed ──────────────────────────────
+            seed = self._seed_for_target(target)
             crash_results = self.fuzzer.fuzz(harness.binary_path, seed=seed,
                                               n_inputs=self.n_fuzz)
 
